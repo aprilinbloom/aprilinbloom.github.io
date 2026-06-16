@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<title>김지유 - Product QA Portfolio</title>
+<style>
+:root{
+    --text:#111;
+    --muted:#6f6f6f;
+    --light:#9a9a9a;
+    --line:#eeeeee;
+    --soft:#fafafa;
+    --panel:#ffffff;
+    --result:#f8f8f8;
+    --result-line:#e8e8e8;
+    --chip:#ffffff;
+}
+*{box-sizing:border-box;}
+body{
+    font-family:'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    font-size:14px;
+    font-weight:400;
+    max-width:1040px;
+    margin:72px auto;
+    padding:0 36px 120px;
+    color:var(--text);
+    line-height:1.78;
+    letter-spacing:-0.005em;
+    background:#fff;
+}
+h1{
+    font-size:40px;
+    line-height:1.15;
+    margin:0 0 8px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+}
+h2{
+    font-size:24px;
+    font-weight:700;
+    margin-top:64px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+    letter-spacing:-0.01em;
+}
+h3{
+    font-size:17px;
+    font-weight:700;
+    margin-top:40px;
+    margin-bottom:12px;
+    letter-spacing:-0.02em;
+}
+h4{
+    font-size:15px;
+    font-weight:700;
+    margin:0 0 8px;
+}
+p{margin:0 0 14px;}
+ul{padding-left:22px;margin:8px 0 0;}
+li{margin:3px 0;}
+.subtitle{
+    color:var(--muted);
+    margin-bottom:56px;
+    font-size:15px;
+}
+.callout{
+    margin-top:18px;
+    padding:22px 24px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+}
+.callout p{margin:0;}
+.callout p + p{margin-top:14px;}
+.note{
+    background:#fffaf0;
+    border:1px solid #efe4c8;
+    border-radius:8px;
+    padding:16px 18px;
+    margin:18px 0;
+    font-size:15px;
+    color:#4b5563;
+}
+.note strong{
+    display:inline-block;
+    color:#222;
+    margin-bottom:4px;
+}
+.metrics{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin:24px 0 6px;
+}
+.metric{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px;
+    background:#fff;
+}
+.metric strong{
+    display:block;
+    font-size:25px;
+    line-height:1.25;
+    margin-bottom:6px;
+    font-weight:700;
+}
+.metric span{
+    display:block;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+}
+.case{
+    margin-top:112px;
+    padding-top:0;
+}
+.case-head{
+    margin-bottom:16px;
+}
+.case-number{
+    display:inline-block;
+    color:#222;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+}
+.case-title{
+    font-size:28px;
+    font-weight:800;
+    line-height:1.28;
+    letter-spacing:-0.01em;
+}
+.case-subtitle{
+    display:none;
+}
+.impact{
+    margin:28px 0 48px;
+    padding:22px 24px;
+    border:1px solid var(--result-line);
+    border-radius:8px;
+    background:var(--soft);
+}
+.impact strong{
+    display:block;
+    margin-bottom:6px;
+    font-size:16px;
+    font-weight:700;
+}
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:18px 0 28px;
+}
+.tag{
+    border:1px solid #dadce0;
+    padding:7px 18px;
+    border-radius:999px;
+    font-size:16px;
+    color:#333;
+    background:#fff;
+}
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin:10px 0 26px;
+}
+.card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px 24px;
+    margin-top:10px;
+    background:var(--panel);
+}
+.card ul{
+    line-height:1.7em;
+    list-style:circle;
+    padding-left:15px;
+}
+.card li{
+    margin-bottom:5px;
+}
+.card h4{margin-top:0;}
+.case-summary-list{
+    margin-bottom:25px;
+}
+.context-block{
+    border-left:3px solid #e5e5e5;
+    padding-left:16px;
+    margin:0 0 26px;
+    color:#333;
+}
+.flow{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    align-items:stretch;
+    gap:28px;
+    margin:10px 0 34px;
+}
+.flow.flow-5{
+    grid-template-columns:repeat(5, 1fr);
+}
+.flow-step{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px 20px 24px;
+    background:#fff;
+    min-height:132px;
+}
+.flow-step:not(:last-child)::after{
+    content:"→";
+    position:absolute;
+    right:-22px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#555;
+    font-size:20px;
+    font-weight:300;
+}
+.flow-step strong{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+.flow-step span{
+    color:#222;
+    font-size:13px;
+    line-height:1.7;
+}
+.result-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:12px 0 48px;
+}
+.result{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 20px;
+    background:var(--result);
+    min-height:92px;
+}
+.result strong{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:700;
+}
+.review{
+    border-left:0;
+    padding:0;
+    margin-top:30px;
+    color:#222;
+}
+.review h4{
+    margin:0 0 6px;
+    font-size:19px;
+    font-weight:800;
+}
+.table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0 24px;
+    font-size:14px;
+    line-height:1.62;
+}
+.table th,.table td{
+    border:1px solid var(--line);
+    padding:10px 12px;
+    vertical-align:top;
+}
+.table th{
+    background:#fbfbfb;
+    font-weight:700;
+    text-align:left;
+}
+.example-box{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px 24px;
+    background:#fff;
+    margin:22px 0 32px;
+}
+.example-box h4{
+    margin-top:0;
+}
+.example-caption{
+    font-size:13px;
+    color:var(--light);
+    margin-top:8px;
+}
+.example-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:14px 0 20px;
+}
+.mini-flow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    margin:12px 0;
+}
+.mini-step{
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:7px 13px;
+    background:#fbfbfb;
+    font-size:13px;
+    font-weight:600;
+}
+.mini-arrow{
+    color:#555;
+    font-weight:300;
+}
+
+.qa-process-chart{
+    width:100%;
+    overflow-x:hidden;
+    margin:16px 0 6px;
+}
+.qa-process-chart svg{
+    width:100%;
+    height:auto;
+    display:block;
+}
+.qa-box{
+    fill:#ffffff;
+    stroke:#dfe3e8;
+    stroke-width:1.2;
+}
+.qa-pill{
+    fill:#fafafa;
+    stroke:#dfe3e8;
+    stroke-width:1.2;
+}
+.qa-ai{
+    fill:#fafafa;
+    stroke:#dfe3e8;
+    stroke-width:1.2;
+}
+.qa-text{
+    font-family:'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    fill:#202124;
+    text-anchor:middle;
+    dominant-baseline:middle;
+}
+.qa-line{
+    stroke:#555;
+    stroke-width:1.2;
+    fill:none;
+    marker-end:url(#qa-arrow);
+}
+.qa-process-caption{
+    margin-top:10px;
+    color:#aaa;
+    font-size:13px;
+}
+
+#portfolio-flow{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+    margin:20px 0 34px;
+}
+#portfolio-flow .flow-step{
+    min-height:116px;
+}
+@media (max-width:860px){
+    body{font-size:16px;padding:0 20px;}
+    h1{font-size:32px;}
+    .case-title{font-size:28px;}
+    .metrics{grid-template-columns:1fr 1fr;}
+    .two-col,.result-list,.example-grid{grid-template-columns:1fr;}
+    .flow,#portfolio-flow{display:block;}
+    .flow-step{margin-bottom:28px;}
+    .flow-step:not(:last-child)::after{
+        content:"↓";
+        left:50%;
+        right:auto;
+        top:auto;
+        bottom:-27px;
+        transform:translateX(-50%);
+    }
+}
+@media print{
+    body{margin:20px auto;}
+    .case{page-break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<h1>김지유</h1>
+<div class="subtitle">Product QA Portfolio · Product Quality Engineer · QA Process Improvement</div>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Case 1</div>
+        <div class="case-title">요구사항/정책 리뷰 단계에서 품질 리스크를 먼저 발견한 경험</div>
+        <div class="case-subtitle">라프텔 · Product Quality · 기획/정책 리뷰 · 릴리즈 의사결정 지원</div>
+    </div>
+    <div class="impact">
+        <strong>핵심 성과</strong>
+        요구사항과 정책 리뷰 단계에서 누락된 조건, 예외 시나리오, 사용자 영향도를 먼저 검토해 개발 이전에 품질 리스크 식별
+    </div>
+
+    <ul class="case-summary-list">
+        <li>QA 관점에서 요구사항과 정책 검토, 누락된 조건과 예외 시나리오 정리</li>
+        <li>사용자 영향도와 리스크 수준을 기준으로 검증 우선순위 산정</li>
+        <li>릴리즈 전 제품 조직이 판단할 수 있도록 품질 리스크와 검증 결과를 정리하여 공유</li>
+        <li>반복 확인이 필요한 핵심 유저 플로우는 P0 회귀 테스트 세트로 분리해 릴리즈 검증 기준으로 활용</li>
+    </ul>
+
+    <h3>접근</h3>
+    <div class="flow">
+        <div class="flow-step">
+            <strong>요구사항 확인</strong>
+            <span>정책, 화면, 운영 조건 함께 확인</span>
+        </div>
+        <div class="flow-step">
+            <strong>리스크 도출</strong>
+            <span>누락 조건, 예외 시나리오, 사용자 영향도 검토</span>
+        </div>
+        <div class="flow-step">
+            <strong>범위 조정</strong>
+            <span>릴리즈 일정과 영향도에 따라 검증 우선순위 설정</span>
+        </div>
+        <div class="flow-step">
+            <strong>공유</strong>
+            <span>제품 조직에 릴리즈 판단에 필요한 품질 리스크 공유</span>
+        </div>
+    </div>
+
+    <h3>결과</h3>
+    <div class="result-list">
+        <div class="result">
+            <strong>리스크 발견 시점 앞당김</strong>
+            개발 완료 후가 아니라 기획/정책 리뷰 단계에서 품질 리스크를 먼저 확인
+        </div>
+        <div class="result">
+            <strong>검증 우선순위 명확화</strong>
+            사용자 영향도와 리스크 수준을 기준으로 릴리즈 전 반드시 봐야 할 영역 정리
+        </div>
+        <div class="result">
+            <strong>릴리즈 의사결정 지원</strong>
+            릴리즈 전 품질 상태와 잔여 리스크 제품 조직에 공유
+        </div>
+        <div class="result">
+            <strong>핵심 플로우 기준화</strong>
+            P0 회귀 테스트 세트를 릴리즈 검증의 기준으로 활용
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 1. 리뷰 체크리스트</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>리뷰</th>
+                    <th>항목</th>
+                    <th>QA 관점</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>사용자 상태</td>
+                    <td>로그인 여부, 권한 유무, 권한 변경 여부 상태가 정의되어 있는가?</td>
+                    <td>접근 가능 조건 확인</td>
+                </tr>
+                <tr>
+                    <td>정책 조건</td>
+                    <td>명확한 제한 조건, 만료 조건, 예외 조건이 있는가?</td>
+                    <td>누락 정책 확인</td>
+                </tr>
+                <tr>
+                    <td>결제/금액</td>
+                    <td>결제 성공 후 권한 또는 재화가 정상 부여되는가?</td>
+                    <td>사용자 피해 방지</td>
+                </tr>
+                <tr>
+                    <td>실패 케이스</td>
+                    <td>실패/취소/중단 시 사용자가 이해할 수 있는 안내가 있는가?</td>
+                    <td>UX/CS 리스크 확인</td>
+                </tr>
+                <tr>
+                    <td>릴리즈 리스크</td>
+                    <td>이번 릴리즈에서 반드시 확인해야 할 핵심 항목은 무엇인가?</td>
+                    <td>검증 범위 조정</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-caption">* QA 리뷰 관점을 설명하기 위해 재구성한 예시</div>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 2. 요구사항 리뷰 → 테스트 설계 플로우</h4>
+        <div class="mini-flow">
+            <span class="mini-step">요구사항 확인</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">정책/상태값 분해</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">누락 조건 체크</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">사용자 영향도 판단</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">검증 우선순위 설정</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">릴리즈 리스크 확인</span>
+        </div>
+    </div>
+</section>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Case 2</div>
+        <div class="case-title">플로우와 상태값 기반 Product Quality</div>
+    </div>
+    <div class="impact">
+        <strong>핵심 성과</strong>
+        상품 진열 및 탐색, 구매, 결제, 클레임 등 금액이 오가는 플로우에서 정책 분기와 상태 조합 검증
+    </div>
+
+    <div class="context-block">
+        단순 화면 검증보다 정책과 상태값 조합이 중요한 커머스 기능 고려<br>
+        여러 상태와 설정값 변경에 따라 결과가 달라지므로 예외 상황에서의 사용자 영향도까지 함께 확인 필요
+    </div>
+    <ul>
+        <li>상품 탐색, 구매, 결제, 문의, 클레임으로 이어지는 유저 플로우를 기준으로 테스트 범위 정리</li>
+        <li>결제 상태, 구매 여부, 클레임 가능 조건, 운영자 설정값 등 많은 상태 조합 조건을 우선 검증 대상으로 선정</li>
+        <li>정책 누락이나 예외 조건을 요구사항 리뷰 단계에서 확인하고, 테스트 케이스와 탐색 포인트로 보완</li>
+        <li>결제와 연결된 영역인 만큼 사용자 피해 가능성이 큰 영역을 우선순위 높여 검증</li>
+    </ul>
+
+    <h3>접근</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>확인 내용</th>
+                <th>리스크</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>구매 상태</td>
+                <td>구매 전/후, 구매 제한, 구매 이력 조건</td>
+                <td>권한 부여 오류, 구매 상태 불일치</td>
+            </tr>
+            <tr>
+                <td>결제 상태</td>
+                <td>결제 성공/실패/취소, 결제 완료 후 화면 및 권한 변화</td>
+                <td>금액 처리 오류, 사용자 혼란</td>
+            </tr>
+            <tr>
+                <td>클레임 정책</td>
+                <td>취소/환불(전체/부분) 가능 조건, 기간, 상태별 제한</td>
+                <td>잘못된 클레임 허용 또는 차단</td>
+            </tr>
+            <tr>
+                <td>운영자 설정</td>
+                <td>상품 상태, 노출 여부, 판매 조건 변경</td>
+                <td>실제 정책과 사용자 화면 불일치</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>결과</h3>
+    <div class="result-list">
+        <div class="result">
+            <strong>약 400개 TC 설계(라프텔)</strong>
+            정상/예외 시나리오와 엣지 케이스를 포함해 커머스 기능 테스트 설계
+        </div>
+        <div class="result">
+            <strong>정책 분기 검증</strong>
+            결제, 구매, 클레임 조건이 결합된 비즈니스 로직 검증
+        </div>
+        <div class="result">
+            <strong>사용자 영향도 기준 적용</strong>
+            금액과 권한에 영향을 미치는 플로우 우선 검증
+        </div>
+        <div class="result">
+            <strong>예외 조건 보완</strong>
+            테스트 케이스로 커버하기 어려운 조건은 탐색 포인트로 별도 관리
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 1. 스토어 구매/주문 플로우</h4>
+        <p>
+            상품 탐색부터 결제, 주문 완료, 주문 상세, 1:1 문의까지 이어지는 플로우를 기준으로 테스트 범위 구조화
+        </p>
+        <div class="mini-flow">
+            <span class="mini-step">상품 상세</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">로그인</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">약관 동의</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">체크아웃</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">결제</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">주문 완료</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">주문 상세</span>
+            <span class="mini-arrow">→</span>
+            <span class="mini-step">문의</span>
+            <span class="mini-arrow">/</span>
+            <span class="mini-step">주문 취소</span>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 2. 금액/상태값 검증 기준표</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>검증 조건</th>
+                    <th>확인 항목</th>
+                    <th>우선순위 판단</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>결제 금액</td>
+                    <td>상품 가격, 할인, 배송비, 최종 결제 금액 일치 여부</td>
+                    <td>금전 피해 가능성 있으므로 최우선</td>
+                </tr>
+                <tr>
+                    <td>주문 상태</td>
+                    <td>결제 성공/실패/취소 이후 주문 내역 접근 가능 여부</td>
+                    <td>CS와 환불 처리에 직접 영향</td>
+                </tr>
+                <tr>
+                    <td>클레임 조건</td>
+                    <td>취소/환불/교환/반품(전체/부분) 가능 조건</td>
+                    <td>소비자 분쟁 가능성</td>
+                </tr>
+                <tr>
+                    <td>사용자 안내</td>
+                    <td>배송비, 발송 예정일, 구매 제한, 결제 실패, 클레임 불가 등 안내 문구와 버튼 상태</td>
+                    <td>사용자 혼란과 중복 문의 방지</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Case 3</div>
+        <div class="case-title">도메인 정책과 플랫폼 조건이 복잡한 기능 검증</div>
+    </div>
+    <div class="impact">
+        <strong>핵심 성과</strong>
+        OTT 멤버십/권한, 콘텐츠 이용 정책, 프로필/청소년 보호, 다운로드/오프라인 재생, TV 앱, 설정형 Web 기능, 실시간 라이브 기능과 같이 도메인 정책과 플랫폼 조건이 복잡하게 얽힌 기능 검증
+    </div>
+
+    <div class="context-block">
+        라프텔(OTT): 사용자의 결제/멤버십 상태, 콘텐츠 판권, 프로필 상태, 연령 제한, 기기/플랫폼 조건 등<br>
+        비스테이지(SaaS): 사용자의 결제/멤버십 상태, 권한 유무 및 사용자가 직접 설정하는 다양한 설정값과 다국어<br>
+        <b>정책과 권한 검증 중요</b>
+    </div>
+
+    <ul>
+        <li>멤버십, 포인트, 구매 제한, 권한 복원처럼 결제 이후 실제 이용 권한과 연결되는 플로우 검증</li>
+        <li>판권 만료, 프로필 상태(활성화/잠금 여부), 본인 인증, 연령 제한과 같이 OTT 도메인 정책과 사용자 상태가 결합된 조건을 테스트 포인트로 정리</li>
+        <li>콘텐츠 다운로드/오프라인 재생, 동시 재생 제한, DRM, TV 앱, 모바일 앱과 같이 플랫폼별로 다르게 발생할 수 있는 리스크 검증</li>
+        <li>비마이프렌즈에서는 설정형 Web(빌더) 기능과 라이브(영상통화 및 채팅) 기능에서 데이터 조합, 외부 SDK와의 연동, 앱 상태 전환 리스크 등 검증</li>
+    </ul>
+
+    <h3>대표 사례</h3>
+    <div class="two-col">
+        <div class="card">
+            <h4>라프텔 멤버십/권한</h4>
+            <ul>
+                <li>IAP 결제, 멤버십 업/다운그레이드, 포인트 이용, 권한 복원, 구매 제한 등 비즈니스적으로 가장 중요한 영역을 우선순위 높여 검증</li>
+                <li>결제 성공 후 실제로 이용 권한이 정상 부여되는지, 권한 없는 상태에서 우회하여 이용할 수 없는지, 결제 상태와 서비스 이용 권한이 어긋나는 경우가 없는지 확인</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>라프텔 OTT 콘텐츠 정책</h4>
+            <ul>
+                <li>판권 만료 콘텐츠 노출, 시즌/회차 이동, 구매 버튼 노출 여부, 콘텐츠 접근 가능 조건 검증</li>
+                <li>판권, 회차 이동, 구매 버튼 노출처럼 콘텐츠 이용 정책이 화면과 재생 플로우에 일관되게 반영되는지 확인</li>
+                <li>콘텐츠 다운로드 및 오프라인 재생, 동시 재생 제한, 재생 오류 케이스 플랫폼별 검증</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>라프텔 플랫폼 안정성</h4>
+            <ul>
+                <li>모바일 앱, 웹, TV 앱 환경에서 크래시, 무한 로딩, 빈 화면, 오프라인 재생 실패 이슈 확인</li>
+                <li>모바일 앱과 TV 앱처럼 사용 환경이 다른 플랫폼에서 성능과 접근성 리스크 별도 검토</li>
+                <li>사용자 접근 불가 혹은 즉시 이탈로 이어지는 문제는 릴리즈 리스크로 분리하여 공유</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>라프텔 프로필/사용자 상태</h4>
+            <ul>
+                <li>프로필 잠금, 프로필 삭제/수정, 콘텐츠 이용 연령 제한 관련 플로우 검증</li>
+                <li>사용자 상태에 따라 접근 가능 여부가 달라지는 기능은 정책 조건이 화면과 기능 동작에 일관되게 반영되는지 확인</li>
+                <li>사용자 상태가 변경된 후 상태에 맞는 화면이 노출되고 정의된 시나리오가 진행되는지 확인</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>비스테이지 Brand Custom(웹 빌더)</h4>
+            <ul>
+                <li>고객사가 섹션과 템플릿을 조합해 브랜드 페이지를 커스텀하는 기능 검증</li>
+                <li>섹션 순서 변경 시 데이터가 섞이는 문제, 기본 언어 값 누락 시 저장되지 않는 문제 등 데이터와 정책이 결합된 이슈 발견</li>
+                <li>다국어, 옵셔널 필드, 섹션 최대 복제 수, 마이그레이션 데이터 유실 가능성을 주요 테스트 포인트로 도출</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>비스테이지 POP(실시간 소통)</h4>
+            <ul>
+                <li>1:N 양방향 라이브/채팅 기능을 iOS/Android 환경에서 검증</li>
+                <li>Sendbird SDK 사용 특성상 재현 경로, 기기 상태, 로그를 함께 정리해 원인 판단에 필요한 정보를 공유</li>
+                <li>라이브 종료 후 토큰 만료, 앱 FG/BG 전환 시 카메라/오디오가 정상 동작하지 않는 이슈 확인</li>
+                <li>재현 빈도가 낮은 문제는 Datadog 로그 기반 이슈 추적</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>검증 관점</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>확인 내용</th>
+                <th>중요 리스크</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>이용 권한</td>
+                <td>멤버십/포인트 결제 후 권한 부여, 구매 제한, 권한 복원</td>
+                <td>결제 성공 후 권한 부여 실패, 이용 우회(어뷰징)</td>
+            </tr>
+            <tr>
+                <td>콘텐츠 정책</td>
+                <td>판권 만료, 회차/시즌 이동, 콘텐츠 접근 가능 조건</td>
+                <td>정책 위반, 만료 콘텐츠 노출, 잘못된 구매 유도</td>
+            </tr>
+            <tr>
+                <td>사용자 상태</td>
+                <td>본인 인증, 성인 여부, 연령 제한, 프로필 상태</td>
+                <td>접근 조건 불일치, 잠금/권한 상태 오류, 빈 화면</td>
+            </tr>
+            <tr>
+                <td>플랫폼 조건</td>
+                <td>Web, Mobile App, TV App, 앱 FG/BG, 오프라인 환경</td>
+                <td>플랫폼별 접근 불가, 크래시, 재생 실패</td>
+            </tr>
+            <tr>
+                <td>외부 의존성</td>
+                <td>외부 SDK, 라이브/채팅 상태, 로그 기반 추적</td>
+                <td>원인 판단을 위한 재현 정보와 로그 확보 필요</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>결과</h3>
+    <div class="result-list">
+        <div class="result">
+            <strong>도메인 정책 검증</strong>
+            판권, 프로필, 멤버십, 청소년 보호 등 OTT 도메인 정책 검증
+        </div>
+        <div class="result">
+            <strong>권한/상태값 검증</strong>
+            결제 상태, 멤버십 권한, 프로필 상태, 콘텐츠 상태가 일관되게 반영되는지 확인
+        </div>
+        <div class="result">
+            <strong>플랫폼별 리스크 반영</strong>
+            Web, Mobile App, TV App, 온/오프라인 환경에서 다르게 발생할 수 있는 이슈 확인
+        </div>
+        <div class="result">
+            <strong>재현 정보와 로그 공유</strong>
+            외부 SDK가 연동된 기능에서는 이슈 현상, 재현 경로, 기기 상태, 로그를 함께 정리해 원인 파악에 필요한 정보 공유
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 1. OTT 권한/콘텐츠 정책 검증</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>사용자/콘텐츠 상태</th>
+                    <th>확인 조건</th>
+                    <th>주요 리스크</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>권한 보유/미보유</td>
+                    <td>시청 가능 여부, 구매 가능 여부, 권한 복원</td>
+                    <td>권한 부여 실패 또는 무권한 접근</td>
+                </tr>
+                <tr>
+                    <td>판권 유효/만료</td>
+                    <td>재생 여부, 구매, 다운로드 버튼 노출 여부</td>
+                    <td>정책 위반 가능성</td>
+                </tr>
+                <tr>
+                    <td>프로필 상태/연령 제한</td>
+                    <td>콘텐츠 접근 및 재생, 관련 콘텐츠 이용 가능 여부</td>
+                    <td>접근 조건 불일치</td>
+                </tr>
+                <tr>
+                    <td>다운로드/오프라인</td>
+                    <td>다운로드, 만료 정보, 동시 재생 제한</td>
+                    <td>플랫폼별 재생 실패</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 2. 플랫폼별 검증 관점</h4>
+        <div class="example-grid">
+            <div class="card">
+                <h4>Mobile App</h4>
+                <ul>
+                    <li>오프라인 재생, PIP 등 사용 환경별 재생 경험</li>
+                    <li>인증/권한 상태 변화</li>
+                    <li>앱 FG/BG 전환</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>TV App</h4>
+                <ul>
+                    <li>리모컨 조작</li>
+                    <li>로딩 시간, 반응 속도 등 성능</li>
+                    <li>OS별 콘텐츠 재생 성능</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Case 4</div>
+        <div class="case-title">AI-assisted QA와 반복 업무 자동화</div>
+    </div>
+    <div class="impact">
+        <strong>핵심 성과</strong>
+        요구사항 리뷰, 테스트 실행 관리, 이슈 추적, 결과 리포팅 과정에서 단순 반복을 줄이고 리스크 판단에 더 집중할 수 있도록 개선
+    </div>
+
+    <ul>
+        <li>Spec 기반 AI 리뷰 프로세스를 설계하고, 산출물을 QA 검토용 초안으로 활용하는 방식 정리</li>
+        <li>Spec 업데이트 시 QA 채널에 변경 알림(슬랙봇)과 리뷰 요청이 발송되도록 하여 요구사항 변경에 대응할 수 있도록 개선</li>
+        <li>스프레드시트 기반 테스트 실행 결과와 Jira 이슈 정보를 연결해 이슈 리포팅과 트래킹 개선</li>
+        <li>반복 검증이 필요한 핵심 유저 플로우는 웹 E2E 테스트 자동화 대상으로 선정하여 운영</li>
+    </ul>
+
+    <h3>Spec 기반 요구사항 리뷰 자동화</h3>
+    <div class="flow flow-5">
+        <div class="flow-step">
+            <strong>Spec 작성</strong>
+            <span>PM이 기능 정책과 요구사항을 spec.md로 작성</span>
+        </div>
+        <div class="flow-step">
+            <strong>변경 알림</strong>
+            <span>Git에 저장된 Spec 업데이트 시 Slack QA 채널로 알림</span>
+        </div>
+        <div class="flow-step">
+            <strong>AI 리뷰</strong>
+            <span>테스트 조건, 핵심 정책, 예상 리스크 초안 추출</span>
+        </div>
+        <div class="flow-step">
+            <strong>QA 검토</strong>
+            <span>초안을 검토하고 누락 조건과 우선순위 보완</span>
+        </div>
+        <div class="flow-step">
+            <strong>PM 검토</strong>
+            <span>QA 검토 완료 후 PM 확인 요청</span>
+        </div>
+    </div>
+    <ul>
+        <li>기능별 평균 40~50개 수준의 테스트 조건 초안 확보</li>
+        <li>테스트 조건 추출과 테스트 플랜 초안 생성을 통해 테스트 설계 소요 시간을 약 80% 단축</li>
+        <li>AI 결과는 그대로 사용하지 않고 QA 검토용 초안으로 활용</li>
+    </ul>
+
+    <h3>테스트 실행 관리 및 리포트 자동화</h3>
+    <div class="flow">
+        <div class="flow-step">
+            <strong>테스트 실행</strong>
+            <span>스프레드시트에 테스트 케이스와 실행 결과 관리</span>
+        </div>
+        <div class="flow-step">
+            <strong>Jira 연결</strong>
+            <span>TC ID와 Jira 이슈 정보 연동</span>
+        </div>
+        <div class="flow-step">
+            <strong>결과 취합</strong>
+            <span>테스트 결과가 기입된 스프레드시트 데이터 확인</span>
+        </div>
+        <div class="flow-step">
+            <strong>리포트 생성</strong>
+            <span>대시보드 형태의 테스트 리포트 생성</span>
+        </div>
+    </div>
+    <ul>
+        <li>테스트 케이스 관리 툴 변경 후 스프레드시트에 기반해 테스트 케이스 및 실행 결과 관리</li>
+        <li>Jira 이슈와 테스트 케이스 정보를 연결해 이슈 리포팅과 트래킹 플로우 개선</li>
+        <li>테스트 결과가 기입된 스프레드시트 링크를 입력하면 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계 및 활용</li>
+    </ul>
+
+    <h3>필요한 범위에 한정하여 웹 E2E 자동화 도입</h3>
+    <ul>
+        <li>비교적 간편하게 구축할 수 있는 웹부터 E2E 테스트 자동화를 구축하고, P0/P1 핵심 유저 플로우를 대상으로 선정</li>
+        <li>서버 정기배포 전 기본 기능 검증에도 활용</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>예시 1. AI-assisted QA 리뷰 산출물 구조</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>산출물</th>
+                    <th>내용</th>
+                    <th>QA 검토 포인트</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>테스트 조건 초안</td>
+                    <td>요구사항에서 파생 가능한 정상/예외 조건</td>
+                    <td>누락 조건, 우선순위, 사용자 영향도 보완</td>
+                </tr>
+                <tr>
+                    <td>핵심 정책 정리</td>
+                    <td>기능 동작에 영향을 주는 정책 조건 요약</td>
+                    <td>정책 모호성, 예외 조건 확인</td>
+                </tr>
+                <tr>
+                    <td>리스크 포함 테스트 플랜 초안</td>
+                    <td>검증 범위, 예상 리스크, 우선순위 초안</td>
+                    <td>릴리즈 일정과 리스크 수준에 맞게 조정</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 2. QA 업무 프로세스 개선</h4>
+        <div class="qa-process-chart" aria-label="QA 업무 프로세스 개선 플로우차트">
+            <svg viewBox="0 0 1000 330" role="img" aria-label="킥오프부터 리포트 생성까지 이어지는 QA 업무 프로세스">
+                <defs>
+                    <marker id="qa-arrow" markerWidth="7" markerHeight="9" refX="6.5" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"></path>
+                    </marker>
+                </defs>
+
+                <!-- Top row -->
+                <rect class="qa-box" x="10" y="28" width="110" height="48"></rect>
+                <text class="qa-text" x="65" y="52">킥오프</text>
+
+                <rect class="qa-box" x="155" y="28" width="120" height="48"></rect>
+                <text class="qa-text" x="215" y="52">스펙 공유</text>
+
+                <rect class="qa-ai" x="315" y="28" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="375" y="52">AI 리뷰 실행</text>
+
+                <rect class="qa-pill" x="475" y="28" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="535" y="52">QA 검토</text>
+
+                <rect class="qa-box" x="635" y="28" width="130" height="48"></rect>
+                <text class="qa-text" x="700" y="52">스토리보드 공유</text>
+
+                <rect class="qa-ai" x="805" y="28" width="125" height="48" rx="24"></rect>
+                <text class="qa-text" x="867.5" y="52">AI TC 생성</text>
+
+                <!-- Middle row -->
+                <rect class="qa-pill" x="155" y="130" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="215" y="154">스펙 변경</text>
+
+                <rect class="qa-pill" x="315" y="130" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="375" y="154">스펙 변경 알림</text>
+
+                <rect class="qa-ai" x="475" y="130" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="535" y="154">AI 리뷰 재실행</text>
+
+                <rect class="qa-pill" x="805" y="130" width="125" height="48" rx="24"></rect>
+                <text class="qa-text" x="867.5" y="154">QA 검토</text>
+
+                <!-- Bottom row -->
+                <rect class="qa-pill" x="315" y="232" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="375" y="256">리포트 생성</text>
+
+                <rect class="qa-pill" x="475" y="232" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="535" y="256">TC-Jira 연결</text>
+
+                <rect class="qa-pill" x="635" y="232" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="695" y="256">테스트 실행</text>
+
+                <rect class="qa-box" x="805" y="232" width="125" height="48"></rect>
+                <text class="qa-text" x="867.5" y="256">개발 완료</text>
+
+                <!-- Arrows top -->
+                <path class="qa-line" d="M120 52 H155"></path>
+                <path class="qa-line" d="M275 52 H315"></path>
+                <path class="qa-line" d="M435 52 H475"></path>
+                <path class="qa-line" d="M595 52 H635"></path>
+                <path class="qa-line" d="M765 52 H805"></path>
+
+                <!-- Spec update branch -->
+                <path class="qa-line" d="M215 76 V130"></path>
+                <path class="qa-line" d="M275 154 H315"></path>
+                <path class="qa-line" d="M435 154 H475"></path>
+                <path class="qa-line" d="M535 130 V76"></path>
+
+                <!-- AI TC to QA review to dev done -->
+                <path class="qa-line" d="M867.5 76 V130"></path>
+                <path class="qa-line" d="M867.5 178 V232"></path>
+
+                <!-- Bottom row direction: dev done -> test -> TC-Jira -> report -->
+                <path class="qa-line" d="M805 256 H755"></path>
+                <path class="qa-line" d="M635 256 H595"></path>
+                <path class="qa-line" d="M475 256 H435"></path>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Case 5</div>
+        <div class="case-title">QA 운영 프로세스 구축과 배포 체계 개선</div>
+    </div>
+    <div class="impact">
+        제품 초기 단계에서 QA/배포 프로세스를 구축하거나 기존 프로세스 개선, 테스트 자산과 결과 공유 방식 문서화
+    </div>
+
+    <ul>
+        <li>조직과 서비스 변화에 맞춰 QA 프로세스, 배포 전 검증 플로우, 결과 공유 방식을 정리</li>
+        <li>최신 정책과 기능 기준으로 기존 테스트 케이스를 재정비하고, 우선순위/중요도 기준 문서화</li>
+    </ul>
+
+        <h3>QA 프로세스 구축/개선</h3>
+        <div class="card">
+            <ul>
+                <li>Test Plan, Test Result 등 QA 산출물 양식 정리</li>
+                <li>검증 프로세스 및 CS 대응 프로세스 구축</li>
+                <li>Jira 기반 일정 관리와 개발 진행 현황 시각화</li>
+                <li>1주 단위 스프린트 환경에서 실제 구현 범위 중심으로 테스트 범위 조정</li>
+            </ul>
+        </div>
+        <h3>배포 프로세스 재설계와 QA 환경 정비</h3>
+        <div class="card">
+            <ul>
+                <li>스쿼드 단위로 빠르게 실험하고 배포하는 제품 운영 방향에 맞춰 기존 통합 검증 중심의 배포 프로세스 재설계</li>
+                <li>'스쿼드 검증 → 통합 검증 → 배포' 프로세스를 '스쿼드 단위 검증 → P0 기본 기능 체크 → 배포' 구조로 전환</li>
+                <li>배포 슬롯제와 제출 간격 기준을 도입해 병렬 배포 과정의 머지 충돌과 배포 리스크 관리</li>
+                <li>핫픽스, 라이브러리 업데이트, 단발성 요청 작업은 일반 스쿼드 배포와 분리해 예외 검증 경로로 운영</li>
+                <li>스쿼드 단위 병렬 검증을 위해 QA 서버 확장, 환경 점유 기준, 테스트 계정 및 결제 테스트 기준 정리</li>
+                <li>QA 관점에서 feature/QA/release/production 환경과 브랜치 모델, 배포 유형별 검증 시나리오 정의</li>
+                <li>통합 검증 단계의 병목을 줄이고 스쿼드별 검증과 배포가 독립적으로 진행될 수 있는 운영 기반 마련</li>
+            </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>예시 1. QA 프로세스 개선 AS-IS / TO-BE</h4>
+        <div class="example-caption">- 1:1 대화형 모바일 서비스, 애자일 프로세스 내 MVP 개발</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>AS-IS</th>
+                    <th>TO-BE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>일정 관리</td>
+                    <td>Slack, Notion, Jira 등 여러 채널에 정보 분산</td>
+                    <td>Jira 작업 티켓 기준으로 일정, 작업, 품질 이슈 추적</td>
+                </tr>
+                <tr>
+                    <td>테스트 범위</td>
+                    <td>기능 전체를 넓게 확인하여 검증 시간 증가</td>
+                    <td>스프린트 구현 범위와 리스크 기준으로 검증 범위 조정</td>
+                </tr>
+                <tr>
+                    <td>결과 공유</td>
+                    <td>테스트 결과와 이슈 맥락을 별도로 설명해야 함</td>
+                    <td>테스트 결과, 이슈, 릴리즈 리스크 함께 공유</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="example-box">
+        <h4>예시 2. 배포 프로세스 개선 AS-IS / TO-BE</h4>
+        <div class="example-caption">- 라프텔(OTT+스토어)</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>AS-IS</th>
+                    <th>TO-BE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>제품 운영 방향</td>
+                    <td>여러 스쿼드의 변경 사항을 모아 통합 검증 후 배포</td>
+                    <td>스쿼드 단위로 빠르게 배포한 뒤 결과 확인</td>
+                </tr>
+                <tr>
+                    <td>배포 주체</td>
+                    <td>통합 빌드 기준으로 QA가 전체 변경 사항을 모아 검증</td>
+                    <td>각 스쿼드가 PM/PD/QA/FE 단위로 배포 범위 완결</td>
+                </tr>
+                <tr>
+                    <td>검증 프로세스</td>
+                    <td>스쿼드 검증 → 통합 검증 → 배포</td>
+                    <td>스쿼드 단위 검증 → P0 기본 기능 체크 → 배포</td>
+                </tr>
+                <tr>
+                    <td>주요 병목</td>
+                    <td>특정 스쿼드 검증 지연, 환경 점유가 전체 배포 일정에 영향</td>
+                    <td>스쿼드별 검증과 배포를 분리해 병렬 진행 가능</td>
+                </tr>
+                <tr>
+                    <td>배포 리스크 관리</td>
+                    <td>통합 검증 단계에서 여러 변경 사항을 한 번에 확인</td>
+                    <td>배포 슬롯제, 앱 제출 간격 조정, 예외 검증 경로로 리스크 분산</td>
+                </tr>
+                <tr>
+                    <td>QA 환경</td>
+                    <td>제한된 QA 환경을 여러 스쿼드에서 함께 사용</td>
+                    <td>QA 서버 확장 및 스쿼드별 환경 점유 기준 정리</td>
+                </tr>
+                <tr>
+                    <td>예외 케이스</td>
+                    <td>핫픽스, 라이브러리 업데이트, 단발성 요청 작업도 일반 배포와 섞일 수 있음</td>
+                    <td>핫픽스, 라이브러리 업데이트, 단발성 요청 작업 별도 분리</td>
+                </tr>
+                <tr>
+                    <td>문서화</td>
+                    <td>배포 환경과 검증 기준이 상황별로 분산</td>
+                    <td>QA 관점에서 환경, 브랜치 모델, 배포 유형별 검증 시나리오 문서화</td>
+                </tr>
+                <tr>
+                    <td>기대 효과</td>
+                    <td>안정성은 확보하지만 리드타임이 길어지고 속도가 느려질 수 있음</td>
+                    <td>스쿼드 단위 배포 속도를 높이면서 기본 품질 리스크는 관리</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="case">
+    <div class="case-head">
+        <div class="case-number">Appendix</div>
+        <div class="case-title">QA/CX 팀 운영과 성장 지원</div>
+    </div>
+    <div class="impact">
+        <ul>
+            <li>QA/CX 팀 리더로서 OKR 수립, 우선순위 조정, 리소스 배분 수행 및 구성원 성장 지원</li>
+            <li>프로덕트팀 위클리와 QA 스터디를 운영해 업무 현황, VOC 이슈, 자동화 진행 상황 공유</li>
+            <li>QA/CX 역량 모델과 레벨별 성장 기준을 정의하고, AI-native 로드맵 수립</li>
+            <li>개인별 역량 매핑과 피드백 리뷰를 통해 팀원별 성장 과제 및 레벨업 행동 구체화</li>
+            <li>주니어 QA 온보딩과 자동화 업무 위임을 통해 독립적인 스쿼드 참여 및 E2E 자동화 주도 지원</li>
+            <li>VOC가 QA 검증 기준과 제품 개선으로 이어지도록 QA-CS 품질 루프 구축 추진</li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>
