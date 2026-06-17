@@ -9,7 +9,7 @@
 :root{
     --text:#111;
     --muted:#6f6f6f;
-    --light:#9a9a9a;
+    --light:#aaa;
     --line:#eeeeee;
     --soft:#fafafa;
     --panel:#ffffff;
@@ -62,8 +62,37 @@ ul{padding-left:22px;margin:8px 0 0;}
 li{margin:3px 0;}
 .subtitle{
     color:var(--muted);
-    margin-bottom:56px;
+    margin-bottom:36px;
     font-size:15px;
+}
+.toc{
+    padding:20px 0;
+    margin:0 0 66px;
+}
+.toc-list{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.toc-list li{
+    margin:0;
+}
+.toc-item{
+    display:block;
+}
+.toc-list a{
+    color:var(--light);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:500;
+    line-height:1.5;
+}
+.toc-list a:hover{
+    text-decoration:underline;
+    text-underline-offset:3px;
 }
 .callout{
     margin-top:18px;
@@ -116,6 +145,9 @@ li{margin:3px 0;}
 .case{
     margin-top:112px;
     padding-top:0;
+}
+.toc + .case{
+    margin-top:20px;
 }
 .case-head{
     margin-bottom:16px;
@@ -381,6 +413,7 @@ li{margin:3px 0;}
     body{font-size:16px;padding:0 20px;}
     h1{font-size:32px;}
     .case-title{font-size:28px;}
+    .toc-list{grid-template-columns:1fr;}
     .metrics{grid-template-columns:1fr 1fr;}
     .two-col,.result-list,.example-grid{grid-template-columns:1fr;}
     .flow,#portfolio-flow{display:block;}
@@ -405,7 +438,18 @@ li{margin:3px 0;}
 <h1>김지유</h1>
 <div class="subtitle">Product QA Portfolio · Product Quality Engineer · QA Process Improvement</div>
 
-<section class="case">
+<nav class="toc" aria-label="포트폴리오 목차">
+    <ul class="toc-list">
+        <li><a class="toc-item" href="#case-1">- 1. 요구사항/정책 리뷰 단계에서 품질 리스크를 먼저 발견한 경험</a></li>
+        <li><a class="toc-item" href="#case-2">- 2. 플로우와 상태값 기반 Product Quality</a></li>
+        <li><a class="toc-item" href="#case-3">- 3. 도메인 정책과 플랫폼 조건이 복잡한 기능 검증</a></li>
+        <li><a class="toc-item" href="#case-4">- 4. AI-assisted QA와 반복 업무 자동화</a></li>
+        <li><a class="toc-item" href="#case-5">- 5. QA 운영 프로세스 구축과 배포 체계 개선</a></li>
+        <li><a class="toc-item" href="#appendix">- Appendix. QA/CX 팀 운영과 성장 지원</a></li>
+    </ul>
+</nav>
+
+<section class="case" id="case-1">
     <div class="case-head">
         <div class="case-number">Case 1</div>
         <div class="case-title">요구사항/정책 리뷰 단계에서 품질 리스크를 먼저 발견한 경험</div>
@@ -522,7 +566,7 @@ li{margin:3px 0;}
     </div>
 </section>
 
-<section class="case">
+<section class="case" id="case-2">
     <div class="case-head">
         <div class="case-number">Case 2</div>
         <div class="case-title">플로우와 상태값 기반 Product Quality</div>
@@ -658,7 +702,7 @@ li{margin:3px 0;}
     </div>
 </section>
 
-<section class="case">
+<section class="case" id="case-3">
     <div class="case-head">
         <div class="case-number">Case 3</div>
         <div class="case-title">도메인 정책과 플랫폼 조건이 복잡한 기능 검증</div>
@@ -849,7 +893,7 @@ li{margin:3px 0;}
     </div>
 </section>
 
-<section class="case">
+<section class="case" id="case-4">
     <div class="case-head">
         <div class="case-number">Case 4</div>
         <div class="case-title">AI-assisted QA와 반복 업무 자동화</div>
@@ -1037,7 +1081,7 @@ li{margin:3px 0;}
     </div>
 </section>
 
-<section class="case">
+<section class="case" id="case-5">
     <div class="case-head">
         <div class="case-number">Case 5</div>
         <div class="case-title">QA 운영 프로세스 구축과 배포 체계 개선</div>
@@ -1165,7 +1209,7 @@ li{margin:3px 0;}
     </div>
 </section>
 
-<section class="case">
+<section class="case" id="appendix">
     <div class="case-head">
         <div class="case-number">Appendix</div>
         <div class="case-title">QA/CX 팀 운영과 성장 지원</div>
