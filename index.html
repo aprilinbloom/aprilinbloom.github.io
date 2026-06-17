@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <title>김지유 Resume</title>
 <style>
 :root{
@@ -25,6 +25,7 @@ body{
     background:#fff;
     color:var(--text);
     font-size:12px;
+    font-weight:400;
     line-height:22px;
     letter-spacing:-0.02em;
 }
@@ -48,8 +49,16 @@ h1{
     font-size:33px;
     line-height:48px;
     font-weight:700;
-    margin:0 0 21px;
+    margin:0 0 8px;
     letter-spacing:-0.02em;
+}
+.keyword-line{
+    color:#666;
+    font-size:12px;
+    line-height:20px;
+    font-weight:500;
+    margin:0 0 21px;
+    letter-spacing:-0.01em;
 }
 h2{
     font-size:23px;
@@ -141,9 +150,7 @@ h2{
     margin:0;
     line-height:22px;
 }
-.experience-content li::marker,
-.skill-card li::marker,
-.simple-list li::marker{
+.experience-content li::marker, .skill-card li::marker, .simple-list li::marker{
     font-size:0.65em;
 }
 .skills-section{
@@ -212,7 +219,6 @@ h2{
     margin:0;
     line-height:22px;
 }
-
 @media (max-width:900px){
     .page-wrap{
         width:auto;
@@ -220,24 +226,20 @@ h2{
         min-height:auto;
         padding:0 24px 36px;
     }
-
     .page{
         width:auto;
         max-width:none;
         transform:none;
         padding:72px 0 96px;
     }
-
     .experience-item{
         grid-template-columns:1fr;
         gap:18px;
     }
-
     .skills-grid{
         grid-template-columns:1fr;
     }
 }
-
 @media (max-width:640px){
     body{
         font-size:12px;
@@ -256,7 +258,6 @@ h2{
         font-size:24px;
     }
 }
-
 @media print{
     .page-wrap{
         max-width:none;
@@ -275,212 +276,226 @@ h2{
 </head>
 <body>
 <div class="page-wrap">
- <main class="page">
-  <h1>김지유</h1>
-  <div class="summary-box">
-   <p>
-    7년 이상의 QA 경력을 바탕으로 OTT, SaaS 등 다양한 도메인에서 제품 개발 초기 단계부터 릴리즈까지 품질 관리를 수행해 왔습니다. 현재 MAU 약 100만 규모의 OTT 서비스에서 Product QA와 QA/CX Team Lead 역할을 맡고 있으며, 요구사항·정책 리뷰 단계에서 품질 리스크를 식별하고 사용자 영향도와 리스크 수준에 따라 검증 범위를 조정합니다.
-   </p>
-   <p>
-    탐색, 구매, 결제, 클레임 등 금액이 오가는 비즈니스 로직 검증 경험을 보유하고 있으며, E2E 자동화와 AI-assisted QA 프로세스를 통해 반복 업무를 줄이고 테스트 설계 효율을 높였습니다. 품질은 개발 과정 전반에서 함께 만들어진다고 생각하며, PM/디자이너/개발자/CX와 협업해 사용자 경험과 제품 안정성을 개선하는 방식을 지향합니다.
-   </p>
-  </div>
-  <h2>Work Experience</h2>
-  <section class="experience-item">
-   <aside class="experience-meta">
-    <h3>LAFTEL</h3>
-    <div class="role">Product QA / QA &amp; CX Team Lead</div>
-    <div class="period">2024.05 -</div>
-   </aside>
-   <div class="experience-content">
-    <p class="description-text">
-     MAU 약 100만 규모의 애니메이션 국내 OTT 서비스와 커머스 서비스, 동남아 애니메이션 OTT 서비스 품질 보증<br />
-     / Web, Mobile App, TV App
-    </p>
-    <h4 class="subsection-title">Product Quality</h4>
-    <ul>
-     <li>애자일 개발 환경에서 제품 기획, 요구사항 리뷰, 테스트 전략 수립, 릴리즈 검증, 결과 공유까지 프로젝트 QA 전 과정 수행</li>
-     <li>서비스 특성과 릴리즈 주기에 맞춰 요구사항 리뷰, P0 회귀 테스트, 릴리즈 리스크 공유를 포함한 QA 프로세스 제안 및 운영</li>
-     <li>주 1~3회 릴리즈 환경에서 사용자 영향도와 리스크 수준에 따라 검증 범위를 조정하고 릴리즈 의사결정에 필요한 품질 리스크 공유</li>
-     <li>약 500개 수준으로 관리되던 서비스 전반의 테스트 케이스를 최신 정책과 기능 기준으로 재정비하여 약 900개 규모로 확장</li>
-     <li>핵심 유저 플로우 중심의 P0 회귀 테스트 세트 약 70개 정의 및 지속 운영</li>
-     <li>신규 커머스 기능 개발 과정에서 상품 탐색, 구매, 결제, 클레임 등 금액이 오가는 비즈니스 로직과 엣지 케이스를 포함한 약 400개 테스트 케이스 설계 및 운영</li>
-     <li>기획 리뷰 단계에서 요구사항 누락, 정책 조건, 예외 시나리오, 사용자 영향도를 검토하여 개발 이전에 품질 리스크 식별</li>
-     <li>기능 단위 검증에서 탐색–구매–결제–클레임으로 이어지는 사용자 여정(User Journey) 중심 검증 방식으로 개선</li>
-     <li>기능 유형별 리스크 기반 탐색 포인트를 정리하여 테스트 케이스로 커버하기 어려운 예외 시나리오 보완</li>
-    </ul>
-    <h4 class="subsection-title">Quality Engineering</h4>
-    <ul>
-     <li>QA 파트 과제로 Playwright E2E 자동화를 도입하고, 반복 검증이 필요한 핵심 유저 플로우를 자동화 대상으로 선정</li>
-     <li>Web 서비스 핵심 P0/P1 시나리오 중심 100개 이상의 자동화 테스트를 운영</li>
-     <li>회귀 테스트 자동화를 통해 반복적인 수동 검증 부담을 줄이고 QA 프로세스 개선에 기여</li>
-    </ul>
-    <h4 class="subsection-title">AI-assisted QA</h4>
-    <ul>
-     <li>PM이 작성한 spec.md를 기반으로 AI 리뷰 프로세스를 설계하여 테스트 조건, 핵심 정책, 예상 리스크를 포함한 테스트 플랜 초안 생성</li>
-     <li>요구사항 및 정책 문서를 기반으로 기능별 평균 40~50개의 테스트 조건을 추출하고, QA 리뷰에 활용 가능한 테스트 시나리오 초안 확보</li>
-     <li>AI 기반 테스트 조건 추출과 테스트 플랜 초안 생성을 통해 테스트 설계 소요 시간 약 80% 단축</li>
-     <li>Git에 저장된 Spec 업데이트 시 슬랙 채널로 알림/리뷰 요청이 자동 발송되도록 하여 요구사항 변경 감지 및 QA 리뷰 프로세스 개선</li>
-     <li>요구사항 리뷰 단계에서 테스트 조건과 정책 리스크를 먼저 검토하도록 하여 테스트 설계 시점을 앞당김</li>
-     <li>스프레드시트 기반 테스트 실행 관리 과정에서 Jira 이슈와 테스트 케이스 정보를 연동하여 이슈 리포팅 및 추적 개선</li>
-     <li>테스트 결과가 기입된 스프레드시트 링크를 입력하면 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계 및 활용</li>
-    </ul>
-    <h4 class="subsection-title">QA Culture &amp; Team Leadership</h4>
-    <ul>
-     <li>QA 프로세스와 테스트 자산을 문서화 및 표준화하여 기획/디자인/개발 구성원과 품질 기준을 공유할 수 있도록 개선</li>
-     <li>기획 리뷰와 품질 기준 정의 과정을 제품 조직과 공유하여 품질을 함께 만드는 협업 방식 정착</li>
-     <li>CX Manager 및 QA Engineer로 구성된 팀을 리딩하며 우선순위 조정, 리소스 배분, 업무 분장 수행</li>
-     <li>반기 단위 Track Record Review와 상호 피드백을 통해 팀원 성장 방향 수립 및 성과 관리 지원</li>
-     <li>QA/CX 조직의 핵심 역량을 정의하고 분기별 역량 모델링을 진행, 성장 계획 수립 및 실행</li>
-    </ul>
-   </div>
-  </section>
-  <section class="experience-item">
-   <aside class="experience-meta">
-    <h3>Bemyfriends</h3>
-    <div class="role">QA Engineer</div>
-    <div class="period">2022.01 - 2023.11</div>
-   </aside>
-   <div class="experience-content">
-    <p class="description-text">
-     B2B/B2C SaaS 플랫폼 b.stage 품질 보증<br />
-     / Web, Mobile App
-    </p>
-    <ul>
-     <li>Console, Back-office, Web, Mobile App 전반의 품질 검증 및 릴리즈 관리 수행</li>
-     <li>콘텐츠, 커뮤니티, 커머스, 라이브 스트리밍, Web3 등 다양한 도메인 품질 검증 경험</li>
-     <li>신규 기능 개발 시 요구사항 및 정책 리뷰를 통한 품질 리스크 식별</li>
-     <li>사용자 영향도와 서비스 리스크를 고려한 테스트 전략 수립 및 품질 검증 수행</li>
-     <li>다양한 도메인의 제품 조직과 협업하며 품질 기준 정의 및 릴리즈 의사결정 지원</li>
-     <li>한국어, 영어, 일본어, 중국어(간체/번체), 스페인어 다국어 품질 검증 수행</li>
-     <li>Canary 환경 기반 단계적 배포 검증 경험</li>
-     <li>Selenium 기반 E2E 자동화 구축 및 운영</li>
-    </ul>
-   </div>
-  </section>
-  <section class="experience-item">
-   <aside class="experience-meta">
-    <h3>LIFIC</h3>
-    <div class="role">QA Engineer</div>
-    <div class="period">2021.06 - 2022.01</div>
-   </aside>
-   <div class="experience-content">
-    <p class="description-text">
-     뷰티/헬스 O2O 서비스 품질 보증<br />
-     Web, Mobile App
-    </p>
-    <ul>
-     <li>제품 초기 단계부터 합류하여 QA·배포 프로세스를 처음부터 수립하고 Jira 기반 일정 관리 체계를 구축</li>
-     <li>Back-office, Web, Mobile App 전반의 품질 검증 및 사용자 시나리오 기반 테스트 설계 수행</li>
-     <li>제품 개발 진행 현황 시각화 및 협업 프로세스 개선</li>
-     <li>운영 과정에서 발생하는 품질 이슈 정리 및 개선 과제화</li>
-    </ul>
-   </div>
-  </section>
-  <section class="experience-item">
-   <aside class="experience-meta">
-    <h3>Devsisters</h3>
-    <div class="role">QA Engineer</div>
-    <div class="period">2019.07 - 2020.11</div>
-   </aside>
-   <div class="experience-content">
-    <p class="description-text">
-     1:1 대화형 콘텐츠 서비스 Cookie talk 품질 보증<br />
-     / Mobile App
-    </p>
-    <ul>
-     <li>신규 서비스 기획 초기 단계부터 출시까지 전 과정에 참여하며 QA 프로세스 구축 및 애자일 개발 프로세스 개선</li>
-     <li>스프린트 단위 개발 환경에서 산출물/일감/이슈 추적 방식 정비, 실제 구현 범위 중심으로 테스트 범위를 조정하여 QA 프로세스 효율화</li>
-     <li>명세 기반·경험 기반 테스트 케이스 설계 및 GraphQL API 테스트 수행</li>
-     <li>사용자 경험 중심 시나리오 테스트 및 테스트 범위, 주기, 품질 기준 정의</li>
-    </ul>
-   </div>
-  </section>
-  <section class="experience-item">
-   <aside class="experience-meta">
-    <h3>Mediazen</h3>
-    <div class="role">QA Engineer</div>
-    <div class="period">2017.08 - 2019.05</div>
-   </aside>
-   <div class="experience-content">
-    <p class="description-text">
-     차량용 AVN 및 모바일 음성인식 플랫폼 품질 관리
-    </p>
-    <ul>
-     <li>차량용 AVN 및 모바일 음성인식 플랫폼에서 20개 언어 대상 음성인식 품질 테스트 수행</li>
-     <li>자동화 테스트 기반 인식률 검증 및 명세/경험 기반 테스트 케이스 설계</li>
-     <li>릴리즈 품질 검증 및 CS 재현 테스트 수행</li>
-    </ul>
-   </div>
-  </section>
-  <div class="section-divider"></div>
-  <h2 class="section-after-experience">Skills</h2>
-  <div class="skills-section">
-   <div class="skills-grid">
-    <div class="skill-card">
-     <h4>Product Quality</h4>
-     <ul>
-      <li>품질 전략 수립</li>
-      <li>테스트 설계</li>
-      <li>리스크 기반 테스트</li>
-      <li>탐색적 테스트</li>
-      <li>회귀 테스트</li>
-      <li>사용자 여정 기반 테스트</li>
-      <li>요구사항 및 정책 리뷰</li>
-      <li>릴리즈 품질 검증</li>
-      <li>플랫폼별 호환성 및 안정성 검증</li>
-     </ul>
-    </div>
-    <div class="section-divider skills-divider"></div>
-    <div class="skill-card">
-     <h4>Automation</h4>
-     <ul>
-      <li>Python</li>
-      <li>Playwright</li>
-      <li>Selenium</li>
-      <li>Appium</li>
-      <li>E2E 테스트 자동화</li>
-      <li>회귀 테스트 자동화</li>
-     </ul>
-    </div>
-    <div class="section-divider skills-divider"></div>
-    <div class="skill-card">
-     <h4>AI-assisted QA</h4>
-     <ul>
-      <li>요구사항 및 정책 리뷰</li>
-      <li>테스트 케이스 생성</li>
-      <li>테스트 조건 추출 및 검토</li>
-      <li>자동화 코드 생성 및 리팩토링</li>
-      <li>QA 자동화 도구 설계 및 활용</li>
-      <li>QA 업무 프로세스 최적화</li>
-     </ul>
-    </div>
-   </div>
-  </div>
-  <div class="section-divider"></div>
-  <h2>Tools</h2>
-  <div class="tool-badges">
-   <span class="tool-badge">Jira</span>
-   <span class="tool-badge">Confluence</span>
-   <span class="tool-badge">Slack</span>
-   <span class="tool-badge">Notion</span>
-   <span class="tool-badge">Figma</span>
-   <span class="tool-badge">TestRail</span>
-   <span class="tool-badge">Proxyman</span>
-   <span class="tool-badge">Datadog</span>
-  </div>
-  <div class="section-divider"></div>
-  <h2>Certification</h2>
-  <ul class="simple-list">
-   <li>ISTQB Foundation Level</li>
-  </ul>
-  <div class="section-divider"></div>
-  <h2>Language</h2>
-  <ul class="simple-list">
-   <li>Japanese (Conversational)</li>
-  </ul>
- </main>
+    <main class="page">
+        <h1>김지유</h1>
+        <div class="keyword-line">Product QA · Risk-based Testing · QA Process Improvement · E2E Automation · AI-assisted QA · Team Leadership</div>
+        <div class="summary-box">
+            <p>
+                7년 이상의 QA 경력을 바탕으로 OTT, SaaS, 커머스 등 다양한 도메인에서 제품 개발 초기 단계부터 릴리즈까지 품질 관리를 수행해 왔습니다. 현재 MAU 약 100만 규모의 OTT 서비스에서 Product QA와 QA/CX Team Lead 역할을 맡고 있으며, 요구사항·정책 리뷰 단계에서 품질 리스크를 식별하고 사용자 영향도와 리스크 수준에 따라 검증 범위를 조정합니다.
+            </p>
+            <p>
+                탐색, 구매, 결제, 클레임 등 금액이 오가는 비즈니스 로직 검증 경험을 보유하고 있으며, Playwright 기반 E2E 자동화와 AI-assisted QA 프로세스를 통해 반복 업무를 줄이고 테스트 설계 효율을 높였습니다. 품질은 개발 과정 전반에서 함께 만들어진다고 생각하며, PM/디자이너/개발자/CX와 협업해 사용자 경험과 제품 안정성을 개선하는 방식을 지향합니다.
+            </p>
+        </div>
+        <h2>Work Experience</h2>
+        <section class="experience-item">
+            <aside class="experience-meta">
+                <h3>LAFTEL</h3>
+                <div class="role">Product QA / QA &amp; CX Team Lead</div>
+                <div class="period">2024.05 -</div>
+            </aside>
+            <div class="experience-content">
+                <p class="description-text">
+                    MAU 약 100만 규모의 애니메이션 국내 OTT 서비스와 커머스 서비스, 동남아 애니메이션 OTT 서비스 품질 보증
+                    <br/>
+                    / Web, Mobile App, TV App
+                </p>
+                <h4 class="subsection-title">Key Achievements</h4>
+                <ul>
+                    <li>서비스 전반의 테스트 케이스를 최신 정책과 기능 기준으로 재정비하여 약 500개에서 900개 규모로 확장</li>
+                    <li>신규 커머스 기능에서 탐색, 구매, 결제, 클레임 플로우를 기준으로 약 400개 테스트 케이스 설계 및 운영</li>
+                    <li>스쿼드 단위 빠른 실험/배포 방향에 맞춰 통합 검증 중심의 배포 프로세스 재설계, 배포 슬롯제/예외 검증 케이스/QA 환경 점유 기준 정리</li>
+                    <li>Playwright 기반 Web 핵심 P0/P1 시나리오 중심 100개 이상의 자동화 테스트 운영</li>
+                </ul>
+                <h4 class="subsection-title">Product Quality</h4>
+                <ul>
+                    <li>애자일 개발 환경에서 제품 기획, 요구사항 리뷰, 테스트 전략 수립, 릴리즈 검증, 결과 공유까지 프로젝트 QA 전 과정 수행</li>
+                    <li>서비스 특성과 릴리즈 주기에 맞춰 요구사항 리뷰, P0 회귀 테스트, 릴리즈 리스크 공유를 포함한 QA 프로세스 제안 및 운영</li>
+                    <li>주 1~3회 릴리즈 환경에서 사용자 영향도와 리스크 수준에 따라 검증 범위를 조정하고 릴리즈 의사결정에 필요한 품질 리스크 공유</li>
+                    <li>기획 리뷰 단계에서 요구사항 누락, 정책 조건, 예외 시나리오, 사용자 영향도를 검토하여 개발 이전에 품질 리스크 식별</li>
+                    <li>기능 단위 검증에서 탐색–구매–결제–클레임으로 이어지는 사용자 여정(User Journey) 중심 검증 방식으로 개선</li>
+                    <li>기능 유형별 리스크 기반 탐색 포인트를 정리하여 테스트 케이스로 커버하기 어려운 예외 시나리오 보완</li>
+                </ul>
+                <h4 class="subsection-title">Quality Engineering</h4>
+                <ul>
+                    <li>QA 파트 과제로 Playwright E2E 자동화를 도입하고, 반복 검증이 필요한 핵심 유저 플로우를 자동화 대상으로 선정</li>
+                    <li>회귀 테스트 자동화를 통해 반복적인 수동 검증 부담을 줄이고 QA 프로세스 개선에 기여</li>
+                </ul>
+                <h4 class="subsection-title">AI-assisted QA</h4>
+                <ul>
+                    <li>PM이 작성한 spec.md를 기반으로 AI 리뷰 프로세스를 설계하여 테스트 조건, 핵심 정책, 예상 리스크를 포함한 테스트 플랜 초안 생성</li>
+                    <li>요구사항 및 정책 문서를 기반으로 기능별 평균 40~50개의 테스트 조건을 추출하고, QA 리뷰에 활용 가능한 테스트 시나리오 초안 확보</li>
+                    <li>Git에 저장된 Spec 업데이트 시 슬랙 채널로 알림/리뷰 요청이 자동 발송되도록 하여 요구사항 변경 감지 및 QA 리뷰 프로세스 개선</li>
+                    <li>요구사항 리뷰 단계에서 테스트 조건과 정책 리스크를 먼저 검토하도록 하여 테스트 설계 시점을 앞당김</li>
+                    <li>스프레드시트 기반 테스트 실행 관리 과정에서 Jira 이슈와 테스트 케이스 정보를 연동하여 이슈 리포팅 및 추적 개선</li>
+                    <li>테스트 결과가 기입된 스프레드시트 링크를 입력하면 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계 및 활용</li>
+                </ul>
+                <h4 class="subsection-title">QA Culture &amp; Team Leadership</h4>
+                <ul>
+                    <li>QA 프로세스와 테스트 자산을 문서화 및 표준화하여 기획/디자인/개발 구성원과 품질 기준을 공유할 수 있도록 개선</li>
+                    <li>기획 리뷰와 품질 기준 정의 과정을 제품 조직과 공유하여 품질을 함께 만드는 협업 방식 정착</li>
+                    <li>CX Manager 및 QA Engineer로 구성된 팀을 리딩하며 우선순위 조정, 리소스 배분, 업무 분장 수행</li>
+                    <li>반기 단위 Track Record Review와 상호 피드백을 통해 팀원 성장 방향 수립 및 성과 관리 지원</li>
+                    <li>QA/CX 조직의 핵심 역량을 정의하고 분기별 역량 모델링을 진행, 성장 계획 수립 및 실행</li>
+                </ul>
+            </div>
+        </section>
+        <section class="experience-item">
+            <aside class="experience-meta">
+                <h3>Bemyfriends</h3>
+                <div class="role">QA Engineer</div>
+                <div class="period">2022.01 - 2023.11</div>
+            </aside>
+            <div class="experience-content">
+                <p class="description-text">
+                    B2B/B2C SaaS 플랫폼 b.stage 품질 보증
+                    <br/>
+                    / Web, Mobile App
+                </p>
+                <ul>
+                    <li>Console, Back-office, Web, Mobile App 전반의 품질 검증 및 릴리즈 관리 수행</li>
+                    <li>콘텐츠, 커뮤니티, 커머스, 라이브 스트리밍, Web3 등 다양한 도메인 품질 검증 경험</li>
+                    <li>신규 기능 개발 시 요구사항 및 정책 리뷰를 통한 품질 리스크 식별</li>
+                    <li>설정형 웹 빌더 기능에서 다국어, 옵셔널 필드, 섹션 조합, 마이그레이션 데이터 등 복잡한 설정값 기반 검증 수행</li>
+                    <li>라이브/채팅 기능에서 외부 SDK 연동, iOS/Android 앱 상태 전환, 사용자 시나리오 기반 검증 및 재현 정보 정리</li>
+                    <li>사용자 영향도와 서비스 리스크를 고려한 테스트 전략 수립 및 품질 검증 수행</li>
+                    <li>다양한 도메인의 제품 조직과 협업하며 품질 기준 정의 및 릴리즈 의사결정 지원</li>
+                    <li>한국어, 영어, 일본어, 중국어(간체/번체), 스페인어 다국어 품질 검증 수행</li>
+                    <li>Canary 환경 기반 단계적 배포 검증 경험</li>
+                    <li>Selenium 기반 E2E 자동화 구축 및 운영</li>
+                </ul>
+            </div>
+        </section>
+        <section class="experience-item">
+            <aside class="experience-meta">
+                <h3>LIFIC</h3>
+                <div class="role">QA Engineer</div>
+                <div class="period">2021.06 - 2022.01</div>
+            </aside>
+            <div class="experience-content">
+                <p class="description-text">
+                    뷰티/헬스 O2O 서비스 품질 보증
+                    <br/>
+                    Web, Mobile App
+                </p>
+                <ul>
+                    <li>제품 초기 단계부터 합류하여 QA·배포 프로세스를 처음부터 수립하고 Jira 기반 일정 관리 체계를 구축</li>
+                    <li>Back-office, Web, Mobile App 전반의 품질 검증 및 사용자 시나리오 기반 테스트 설계 수행</li>
+                    <li>제품 개발 진행 현황 시각화 및 협업 프로세스 개선</li>
+                    <li>운영 과정에서 발생하는 품질 이슈 정리 및 개선 과제화</li>
+                </ul>
+            </div>
+        </section>
+        <section class="experience-item">
+            <aside class="experience-meta">
+                <h3>Devsisters</h3>
+                <div class="role">QA Engineer</div>
+                <div class="period">2019.07 - 2020.11</div>
+            </aside>
+            <div class="experience-content">
+                <p class="description-text">
+                    1:1 대화형 콘텐츠 서비스 Cookie talk 품질 보증
+                    <br/>
+                    / Mobile App
+                </p>
+                <ul>
+                    <li>신규 서비스 기획 초기 단계부터 출시까지 전 과정에 참여하며 QA 프로세스 구축 및 애자일 개발 프로세스 개선</li>
+                    <li>스프린트 단위 개발 환경에서 산출물/일감/이슈 추적 방식 정비, 실제 구현 범위 중심으로 테스트 범위를 조정하여 QA 프로세스 효율화</li>
+                    <li>명세 기반·경험 기반 테스트 케이스 설계 및 GraphQL API 테스트 수행</li>
+                    <li>사용자 경험 중심 시나리오 테스트 및 테스트 범위, 주기, 품질 기준 정의</li>
+                </ul>
+            </div>
+        </section>
+        <section class="experience-item">
+            <aside class="experience-meta">
+                <h3>Mediazen</h3>
+                <div class="role">QA Engineer</div>
+                <div class="period">2017.08 - 2019.05</div>
+            </aside>
+            <div class="experience-content">
+                <p class="description-text">
+                    차량용 AVN 및 모바일 음성인식 플랫폼 품질 관리
+                </p>
+                <ul>
+                    <li>차량용 AVN 및 모바일 음성인식 플랫폼에서 20개 언어 대상 음성인식 품질 테스트 수행</li>
+                    <li>자동화 테스트 기반 인식률 검증 및 명세/경험 기반 테스트 케이스 설계</li>
+                    <li>릴리즈 품질 검증 및 CS 재현 테스트 수행</li>
+                </ul>
+            </div>
+        </section>
+        <div class="section-divider">
+        </div>
+        <h2 class="section-after-experience">Skills</h2>
+        <div class="skills-section">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Product Quality</h4>
+                    <ul>
+                        <li>품질 전략 수립</li>
+                        <li>테스트 설계</li>
+                        <li>리스크 기반 테스트</li>
+                        <li>탐색적 테스트</li>
+                        <li>회귀 테스트</li>
+                        <li>사용자 여정 기반 테스트</li>
+                        <li>요구사항 및 정책 리뷰</li>
+                        <li>릴리즈 품질 검증</li>
+                        <li>플랫폼별 호환성 및 안정성 검증</li>
+                    </ul>
+                </div>
+                <div class="section-divider skills-divider">
+                </div>
+                <div class="skill-card">
+                    <h4>Automation</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>Playwright</li>
+                        <li>Selenium</li>
+                        <li>Appium</li>
+                        <li>E2E 테스트 자동화</li>
+                        <li>회귀 테스트 자동화</li>
+                    </ul>
+                </div>
+                <div class="section-divider skills-divider">
+                </div>
+                <div class="skill-card">
+                    <h4>AI-assisted QA</h4>
+                    <ul>
+                        <li>요구사항 및 정책 리뷰</li>
+                        <li>테스트 케이스 생성</li>
+                        <li>테스트 조건 추출 및 검토</li>
+                        <li>자동화 코드 생성 및 리팩토링</li>
+                        <li>QA 자동화 도구 설계 및 활용</li>
+                        <li>QA 업무 프로세스 최적화</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider">
+        </div>
+        <h2>Tools</h2>
+        <div class="tool-badges">
+            <span class="tool-badge">Jira</span>
+            <span class="tool-badge">Confluence</span>
+            <span class="tool-badge">Slack</span>
+            <span class="tool-badge">Notion</span>
+            <span class="tool-badge">Figma</span>
+            <span class="tool-badge">TestRail</span>
+            <span class="tool-badge">Proxyman</span>
+            <span class="tool-badge">Datadog</span>
+        </div>
+        <div class="section-divider">
+        </div>
+        <h2>Certification</h2>
+        <ul class="simple-list">
+            <li>ISTQB Foundation Level</li>
+        </ul>
+        <div class="section-divider">
+        </div>
+        <h2>Language</h2>
+        <ul class="simple-list">
+            <li>Japanese (Conversational)</li>
+        </ul>
+    </main>
 </div>
-
 </body>
 </html>
