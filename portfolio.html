@@ -22,13 +22,19 @@ body{
     font-family:'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
     font-size:14px;
     font-weight:400;
-    max-width:1040px;
+    max-width:1050px;
     margin:72px auto;
     padding:0 36px 120px;
     color:var(--text);
     line-height:1.78;
     letter-spacing:-0.005em;
     background:#fff;
+}
+@media (min-width:1200px){
+    body{
+        margin-left:max(36px, calc((100vw - 1050px) / 2 - 56px));
+        margin-right:auto;
+    }
 }
 h1{
     font-size:40px;
