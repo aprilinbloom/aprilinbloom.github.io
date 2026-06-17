@@ -3,13 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet"/>
 <title>김지유 Resume</title>
 <style>
 :root{
-    --text:#111;
+    --text:#222;
     --muted:#777;
     --light:#8a8a8a;
     --line:#ececec;
@@ -20,13 +18,13 @@
     box-sizing:border-box;
 }
 body{
-    font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    font-family:'SUIT', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
     margin:0;
     background:#fff;
     color:var(--text);
     font-size:12px;
     font-weight:400;
-    line-height:22px;
+    line-height:24px;
     letter-spacing:-0.02em;
 }
 .page-wrap{
@@ -47,8 +45,8 @@ body{
 }
 h1{
     font-size:33px;
+    font-weight:800;
     line-height:48px;
-    font-weight:700;
     margin:0 0 8px;
     letter-spacing:-0.02em;
 }
@@ -56,6 +54,7 @@ h1{
     color:#666;
     font-size:12px;
     line-height:20px;
+
     font-weight:500;
     margin:0 0 21px;
     letter-spacing:-0.01em;
@@ -63,7 +62,7 @@ h1{
 h2{
     font-size:23px;
     line-height:33px;
-    font-weight:700;
+    font-weight:800;
     margin:37px 0 21px;
     letter-spacing:-0.03em;
 }
@@ -102,14 +101,14 @@ h2{
     font-size:17px;
     line-height:25px;
     margin:0 0 7px;
-    font-weight:600;
+    font-weight:800;
     letter-spacing:-0.02em;
 }
 .experience-meta .role{
     color:#7f7f7f;
     font-size:12px;
     line-height:16px;
-    font-weight:500;
+    font-weight:600;
     margin-bottom:0;
     white-space:nowrap;
 }
@@ -125,11 +124,12 @@ h2{
     margin:0 0 24px;
     color:var(--text);
     line-height:22px;
+    font-weight:500;
 }
 .description-text::before{
     content:"Description";
     display:block;
-    font-weight:600;
+    font-weight:750;
     font-size:14px;
     line-height:20px;
     color:var(--text);
@@ -137,9 +137,9 @@ h2{
 }
 .subsection-title{
     font-size:14px;
+    font-weight:750;
     line-height:20px;
     margin:18px 0 5px;
-    font-weight:600;
     color:var(--text);
 }
 .experience-content ul{
@@ -148,7 +148,7 @@ h2{
 }
 .experience-content li{
     margin:0;
-    line-height:22px;
+    line-height:24px;
 }
 .experience-content li::marker, .skill-card li::marker, .simple-list li::marker{
     font-size:0.65em;
@@ -171,7 +171,7 @@ h2{
     font-size:14px;
     line-height:20px;
     margin:0 0 5px;
-    font-weight:600;
+    font-weight:800;
 }
 .skill-card ul{
     margin:0;
@@ -303,8 +303,8 @@ h2{
                 <h4 class="subsection-title">Key Achievements</h4>
                 <ul>
                     <li>신규 커머스 기능 출시 전 결제/권한/클레임 플로우에서 크리티컬 이슈 27건을 사전 발견</li>
-                    <li>기존 약 1주 소요되던 통합 검증을 규모에 따라 1~3일 수준으로 단축하고, 월 2회 수준의 통합 배포에서 주 1~3회 스쿼드 단위로 배포 가능한 구조로 전환</li>
-                    <li>스쿼드 단위 빠른 실험/배포 방향에 맞춰 통합 검증 중심의 배포 프로세스 재설계, 배포 슬롯제/예외 검증 케이스/QA 환경 점유 기준 정리</li>
+                    <li>기존 약 1주 소요되던 통합 검증을 평균 1~3일 수준으로 단축, 월 2~3회 수준의 통합 배포에서 주 1~3회 스쿼드 단위 배포가 가능한 구조로 전환</li>
+                    <li>스쿼드 단위 빠른 실험/배포 방향에 맞춰 배포 프로세스 재설계, 배포 슬롯제/예외 검증 케이스/QA 환경 점유 기준 정리</li>
                     <li>QA 환경 점유 기준과 테스트 계정/결제 테스트 기준을 정리해 스쿼드 간 QA 환경 충돌을 방지</li>
                     <li>노후 테스트 케이스를 최신 정책과 기능 기준으로 재정비하고, P0 회귀 세트를 분리하여 릴리즈 판단 기준으로 활용</li>
                 </ul>
@@ -319,14 +319,14 @@ h2{
                 </ul>
                 <h4 class="subsection-title">Quality Engineering</h4>
                 <ul>
-                    <li>QA 파트 과제로 Playwright E2E 자동화를 도입하고, 반복 검증이 필요한 핵심 유저 플로우를 자동화 대상으로 선정</li>
+                    <li>QA 파트 과제로 Playwright E2E 자동화를 도입, 반복 검증이 필요한 핵심 유저 플로우를 자동화 대상으로 선정</li>
                     <li>정기/비정기 서버 배포 전 웹 핵심 P0/P1 시나리오 100개 이상의 자동화 테스트를 실행해 반복 회귀 검증에 활용</li>
                 </ul>
                 <h4 class="subsection-title">AI-assisted QA</h4>
                 <ul>
                     <li>PM이 작성한 spec.md를 기반으로 AI 리뷰 프로세스를 설계하여 테스트 조건, 핵심 정책, 예상 리스크를 포함한 테스트 플랜 초안 생성</li>
                     <li>요구사항 및 정책 문서를 기반으로 기능별 평균 40~50개의 테스트 조건을 추출하고, QA 리뷰에 활용 가능한 테스트 시나리오 초안 확보</li>
-                    <li>AI-assisted QA 도입으로 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축하고, 확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
+                    <li>AI-assisted QA 도입으로 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축, 확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
                     <li>저장소의 Spec 업데이트 시 슬랙 채널로 알림/리뷰 요청이 자동 발송되도록 하여 요구사항 변경 감지 및 QA 리뷰 프로세스 개선</li>
                     <li>요구사항 리뷰 단계에서 테스트 조건과 정책 리스크를 먼저 검토하도록 하여 테스트 설계 시점을 앞당김</li>
                     <li>스프레드시트 기반 테스트 실행 관리 과정에서 Jira 이슈와 테스트 케이스 정보를 연동하여 이슈 리포팅 및 추적 개선</li>
@@ -358,7 +358,7 @@ h2{
                     <li>Console, Back-office, Web, Mobile App 전반의 품질 검증 및 릴리즈 관리 수행</li>
                     <li>콘텐츠, 커뮤니티, 커머스, 라이브 스트리밍, Web3 등 다양한 도메인 품질 검증 경험</li>
                     <li>설정형 웹 빌더(브랜드 커스텀) 기능 개발 시 제한된 리소스 환경에 맞춰 리스크 기반 테스트를 설계하고, 다국어/옵셔널 필드/섹션 조합/마이그레이션 데이터 등 복잡한 설정값 기반 검증 수행</li>
-                    <li>외부 SDK 기반 양방향 라이브/채팅 기능 개발 시 iOS/Android 사용자 시나리오 중심으로 검증하고, 협력사와 연동 이슈 트러블슈팅 협업 진행</li>
+                    <li>외부 SDK 기반 양방향 라이브/채팅 기능 개발 시 iOS/Android 사용자 시나리오 중심 검증, 협력사와 연동 이슈 트러블슈팅 협업 진행</li>
                     <li>외부 솔루션 기반 라이브 스트리밍 기능에서 송출 안정성, 화질/음질 등 성능 중점 검증</li>
                     <li>신규 기능 개발 시 요구사항 및 정책 리뷰를 통한 품질 리스크 식별, 사용자 영향도, 서비스 리스크 기반 테스트 전략 수립</li>
                     <li>한국어, 영어, 일본어, 중국어(간체/번체), 스페인어 다국어 품질 검증 수행</li>
