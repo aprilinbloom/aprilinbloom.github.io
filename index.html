@@ -129,7 +129,7 @@ h2{
 .description-text::before{
     content:"Description";
     display:block;
-    font-weight:750;
+    font-weight:700;
     font-size:14px;
     line-height:20px;
     color:var(--text);
@@ -137,7 +137,7 @@ h2{
 }
 .subsection-title{
     font-size:14px;
-    font-weight:750;
+    font-weight:700;
     line-height:20px;
     margin:18px 0 5px;
     color:var(--text);
@@ -259,17 +259,116 @@ h2{
     }
 }
 @media print{
+    @page{
+        size:A4;
+        margin:10mm;
+    }
+    html,
+    body{
+        width:auto;
+        margin:0;
+        padding:0;
+        background:#fff;
+        font-size:11px;
+        line-height:20px;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
     .page-wrap{
+        width:auto;
         max-width:none;
+        min-height:auto;
         margin:0;
         padding:0;
     }
     .page{
+        width:auto;
         max-width:none;
-        padding:24px 36px;
+        min-height:auto;
+        margin:0;
+        padding:0;
+        transform:none;
+    }
+    .summary-box{
+        max-width:none;
+        width:calc(100% - 2px);
     }
     .experience-item{
-        break-inside:avoid;
+        display:block;
+        grid-template-columns:168px minmax(0, 1fr);
+        gap:42px;
+        break-inside:auto !important;
+        page-break-inside:auto !important;
+        break-before:auto !important;
+        page-break-before:auto !important;
+        overflow:visible;
+    }
+    .experience-item::after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    .experience-meta{
+        float:left;
+        width:90px;
+    }
+    .experience-content{
+        margin-left:110px;
+        break-inside:auto !important;
+        page-break-inside:auto !important;
+    }
+    h1{
+        font-size:30px;
+        line-height:42px;
+    }
+    h2{
+        font-size:20px;
+        line-height:30px;
+    }
+    .summary-box p,
+    .description-text,
+    .experience-content li,
+    .skill-card li,
+    .simple-list li{
+        line-height:20px;
+    }
+    .skills-divider{
+        display:none;
+    }
+    .experience-meta h3{
+        font-size:15px;
+        line-height:22px;
+    }
+    .subsection-title,
+    .description-text::before,
+    .skill-card h4{
+        font-size:13px;
+        line-height:19px;
+    }
+    .experience-content ul,
+    .experience-content li{
+        break-inside:auto !important;
+        page-break-inside:auto !important;
+    }
+    .experience-meta .role{
+        white-space:normal;
+    }
+    h1,
+    h3,
+    .subsection-title,
+    .skill-card h4{
+        break-after:avoid;
+        page-break-after:avoid;
+    }
+    h2{
+        break-after:auto !important;
+        page-break-after:auto !important;
+    }
+    .summary-box,
+    .skill-card,
+    .tool-badge{
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
     }
 }
 </style>
@@ -278,6 +377,7 @@ h2{
 <div class="page-wrap">
     <main class="page">
         <h1>김지유</h1>
+        <div>2applebeans@naver.com</div>
         <div class="keyword-line">Product QA · Risk-based Testing · QA Process Improvement · E2E Automation · AI-assisted QA · Team Leadership</div>
         <div class="summary-box">
             <p>
@@ -291,7 +391,7 @@ h2{
         <section class="experience-item">
             <aside class="experience-meta">
                 <h3>LAFTEL</h3>
-                <div class="role">Product QA / QA &amp; CX Team Lead</div>
+                <div class="role">Product QA / Team Lead</div>
                 <div class="period">2024.05 -</div>
             </aside>
             <div class="experience-content">
@@ -326,7 +426,7 @@ h2{
                 <ul>
                     <li>PM이 작성한 spec.md를 기반으로 AI 리뷰 프로세스를 설계하여 테스트 조건, 핵심 정책, 예상 리스크를 포함한 테스트 플랜 초안 생성</li>
                     <li>요구사항 및 정책 문서를 기반으로 기능별 평균 40~50개의 테스트 조건을 추출하고, QA 리뷰에 활용 가능한 테스트 시나리오 초안 확보</li>
-                    <li>AI-assisted QA 도입으로 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축, 확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
+                    <li>AI-assisted QA 도입 후 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축, 확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
                     <li>저장소의 Spec 업데이트 시 슬랙 채널로 알림/리뷰 요청이 자동 발송되도록 하여 요구사항 변경 감지 및 QA 리뷰 프로세스 개선</li>
                     <li>요구사항 리뷰 단계에서 테스트 조건과 정책 리스크를 먼저 검토하도록 하여 테스트 설계 시점을 앞당김</li>
                     <li>스프레드시트 기반 테스트 실행 관리 과정에서 Jira 이슈와 테스트 케이스 정보를 연동하여 이슈 리포팅 및 추적 개선</li>

@@ -352,7 +352,7 @@ code{
     margin-top:0;
 }
 .example-caption{
-    font-size:14px;
+    font-size:13px;
     color:var(--light);
     margin-top:8px;
 }
@@ -455,8 +455,151 @@ code{
     }
 }
 @media print{
-    body{margin:20px auto;}
-    .case{page-break-inside:avoid;}
+    @page{
+        size:A4;
+        margin:12mm;
+    }
+    html,
+    body{
+        width:auto;
+        margin:0;
+        padding:0;
+        background:#fff;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+    body{
+        max-width:none;
+        font-size:13px;
+        line-height:1.68;
+        padding-right:4px;
+    }
+    .toc{
+        display:none;
+    }
+    h1{
+        font-size:30px;
+        line-height:1.2;
+    }
+    h2{
+        font-size:21px;
+    }
+    h3{
+        font-size:17px;
+    }
+    h4,
+    .result strong,
+    .qa-text,
+    .metric span,
+    .qa-process-caption{
+        font-size:14px;
+    }
+    .mini-step{
+        font-size:11px;
+    }
+    .example-caption{
+        font-size:11px;
+    }
+    .subtitle,
+    .note{
+        font-size:15px;
+    }
+    .metric strong{
+        font-size:24px;
+    }
+    .case-number,
+    .toc-list a{
+        font-size:12px;
+    }
+    .case-title{
+        font-size:24px;
+    }
+    .table{
+        width:calc(100% - 2px);
+        font-size:11px;
+        line-height:1.42;
+        word-break:keep-all;
+    }
+    .table th,
+    .table td{
+        padding:7px 8px;
+    }
+    .result-list{
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+        margin:10px 0 34px;
+    }
+    .result{
+        width:calc(100% - 4px);
+        min-height:72px;
+        padding:14px 16px;
+        font-size:12px;
+    }
+    .impact,
+    .metric,
+    .example-box,
+    .callout{
+        width:calc(100% - 4px);
+    }
+    .flow,
+    #portfolio-flow{
+        display:grid;
+        gap:14px;
+    }
+    .flow{
+        grid-template-columns:repeat(4, 1fr);
+    }
+    .flow.flow-5{
+        grid-template-columns:repeat(5, 1fr);
+    }
+    #portfolio-flow{
+        grid-template-columns:repeat(4, 1fr);
+    }
+    .flow-step{
+        min-height:84px;
+        padding:12px 12px 14px;
+        margin-bottom:0;
+    }
+    .flow-step strong,
+    .flow-step span{
+        font-size:11px;
+        line-height:1.55;
+    }
+    .flow-step:not(:last-child)::after{
+        content:"→";
+        left:auto;
+        right:-13px;
+        top:50%;
+        bottom:auto;
+        transform:translateY(-50%);
+        font-size:16px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    .case-head,
+    .result strong,
+    .card h4{
+        break-after:avoid;
+        page-break-after:avoid;
+    }
+    .case{
+        page-break-inside:auto;
+        break-inside:auto;
+    }
+    .result,
+    .metric,
+    .flow-step,
+    .card,
+    .example-box,
+    .table tr{
+        break-inside:avoid;
+        page-break-inside:avoid;
+    }
+    .qa-process-chart{
+        overflow:visible;
+    }
 }
 </style>
 </head>
@@ -894,6 +1037,7 @@ code{
                 </tr>
             </tbody>
         </table>
+        <div class="example-caption">* 일반적인 OTT 정책으로 든 예시</div>
     </div>
 
     <div class="example-box">
@@ -944,7 +1088,7 @@ code{
         </div>
         <div class="flow-step">
             <strong>변경 알림</strong>
-            <span>저장소의 Spec 업데이트 시 Slack QA 채널로 알림</span>
+            <span>저장소의 Spec 업데이트 시 슬랙 QA 채널로 알림</span>
         </div>
         <div class="flow-step">
             <strong>AI 리뷰</strong>
@@ -986,7 +1130,7 @@ code{
         </div>
     </div>
     <ul>
-        <li>테스트 케이스 관리 툴 변경 후 스프레드시트에 기반해 테스트 케이스 및 실행 결과 관리</li>
+        <li>테스트 케이스 관리 툴 변경 후 스프레드시트를 기반으로 테스트 케이스 및 실행 결과 관리</li>
         <li>Jira 이슈와 테스트 케이스 정보를 연결해 이슈 리포팅과 트래킹 플로우 개선</li>
         <li>테스트 결과가 기입된 스프레드시트 링크를 입력하면 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계 및 활용</li>
     </ul>
