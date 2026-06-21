@@ -341,6 +341,19 @@ code{
     font-weight:600;
     text-align:left;
 }
+.deployment-table th:first-child,
+.deployment-table td:first-child{
+    width:13%;
+    white-space:nowrap;
+}
+.deployment-table th:nth-child(2),
+.deployment-table td:nth-child(2){
+    width:44%;
+}
+.deployment-table th:nth-child(3),
+.deployment-table td:nth-child(3){
+    width:43%;
+}
 .example-box{
     border-left:2px solid #e3e3e3;
     border-radius:0;
@@ -1344,7 +1357,7 @@ code{
     <div class="example-box">
         <h4>예시 2. 배포 프로세스 개선 AS-IS / TO-BE</h4>
         <div class="example-caption">- 라프텔(OTT+스토어)</div>
-        <table class="table">
+        <table class="table deployment-table">
             <thead>
                 <tr>
                     <th>구분</th>
