@@ -10,11 +10,12 @@
     --text:#111;
     --muted:#6f6f6f;
     --light:#aaa;
-    --line:#eeeeee;
+    --line:#2b2e36;
     --soft:#fafafa;
     --panel:#ffffff;
-    --result:#f8f8f8;
-    --result-line:#e8e8e8;
+    --result:#fbfcff;
+    --result-line:#d8deea;
+    --table-line:#eee;
     --chip:#ffffff;
 }
 *{box-sizing:border-box;}
@@ -22,9 +23,9 @@ body{
     font-family:'SUIT', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
     font-size:15px;
     font-weight:400;
-    max-width:1120px;
-    margin:72px auto;
-    padding:0 36px 120px;
+    max-width:1180px;
+    margin:64px auto 88px;
+    padding:0 46px 132px;
     color:var(--text);
     line-height:1.78;
     letter-spacing:-0.002em;
@@ -32,7 +33,7 @@ body{
 }
 @media (min-width:1200px){
     body{
-        margin-left:max(36px, calc((100vw - 1120px) / 2 - 56px));
+        margin-left:max(46px, calc((100vw - 1180px) / 2 - 36px));
         margin-right:auto;
     }
 }
@@ -53,10 +54,16 @@ h2{
 }
 h3{
     font-size:18px;
-    font-weight:700;
+    font-weight:800;
     margin-top:40px;
-    margin-bottom:12px;
+    margin-bottom:20px;
+    width:fit-content;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--line);
     letter-spacing:-0.02em;
+}
+.case > ul + h3{
+    margin-top:50px;
 }
 h4{
     font-size:15px;
@@ -82,9 +89,11 @@ code{
     vertical-align:baseline;
 }
 .subtitle{
+    max-width:760px;
     color:var(--muted);
     margin-bottom:36px;
     font-size:16px;
+    line-height:1.65;
 }
 .toc{
     padding:20px 0;
@@ -141,7 +150,7 @@ code{
 .metrics{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
-    gap:14px;
+    gap:16px;
     margin:24px 0 6px;
 }
 .metric{
@@ -176,27 +185,35 @@ code{
 .case-number{
     display:inline-block;
     color:#222;
-    font-size:13px;
+    width:auto;
+    font-size:12px;
     font-weight:800;
-    letter-spacing:0em;
+    letter-spacing:0;
     text-transform:uppercase;
     margin-bottom:6px;
+    padding:0;
+    border:0;
+    background:transparent;
+    box-shadow:none;
 }
 .case-title{
+    max-width:none;
     font-size:28px;
     font-weight:800;
     line-height:1.28;
     letter-spacing:-0.01em;
+    padding-right:0;
 }
 .case-subtitle{
     display:none;
 }
 .impact{
-    margin:28px 0 48px;
-    padding:22px 24px;
+    margin:32px 0 54px;
+    padding:24px 28px;
     border:1px solid var(--result-line);
     border-radius:8px;
-    background:var(--soft);
+    background:linear-gradient(135deg, #ffffff 0%, #fbfcff 42%, #eef4ff 100%);
+    box-shadow:4px 4px 0 rgba(238, 244, 255, .6);
 }
 .impact strong{
     display:block;
@@ -221,8 +238,8 @@ code{
 .two-col{
     display:grid;
     grid-template-columns:1fr 1fr;
-    column-gap:46px;
-    row-gap:18px;
+    column-gap:62px;
+    row-gap:24px;
     margin:8px 0 26px;
 }
 .card{
@@ -232,6 +249,14 @@ code{
     margin-top:0;
     background:var(--panel);
 }
+.two-col .card{
+    border-left:1px solid var(--table-line);
+    padding:4px 0 16px 16px;
+}
+.example-grid .card{
+    border-left:1px solid var(--table-line);
+    padding:4px 0 16px 16px;
+}
 .card ul{
     line-height:1.7em;
     list-style:circle;
@@ -240,11 +265,22 @@ code{
 .card li{
     margin-bottom:5px;
 }
+.two-col .card ul,
+.example-grid .card ul{
+    line-height:1.62em;
+}
+.two-col .card li,
+.example-grid .card li{
+    margin-bottom:3px;
+}
 .card h4{
     font-weight:700;
-    margin:0 0 14px;
-    padding-bottom:10px;
-    border-bottom:1px solid var(--line);
+    font-size:16px;
+    margin:0 0 9px;
+    border-bottom:0;
+}
+.example-grid .card h4{
+    font-size:15px;
 }
 .case-summary-list{
     margin-bottom:25px;
@@ -252,7 +288,7 @@ code{
 .context-block{
     border-left:0px solid #e5e5e5;
     padding-left:16px;
-    margin:0 0 26px;
+    margin:0 0 38px;
     color:#333;
 }
 .flow{
@@ -267,7 +303,7 @@ code{
 }
 .flow-step{
     position:relative;
-    border:1px dashed var(--line);
+    border:1px dashed #cfd4dd;
     border-radius:8px;
     padding:22px 20px 24px;
     background:#fff;
@@ -297,15 +333,16 @@ code{
 .result-list{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:18px;
     margin:12px 0 48px;
 }
 .result{
-    border:1px solid var(--line);
+    border:1px solid var(--result-line);
     border-radius:8px;
     padding:18px 20px;
-    background:var(--result);
+    background:#fcfdff;
     min-height:92px;
+    box-shadow:4px 4px 0 rgba(216, 222, 234, .5);
 }
 .result strong{
     display:block;
@@ -327,17 +364,23 @@ code{
 .table{
     width:100%;
     border-collapse:collapse;
+    border-spacing:0;
+    overflow:visible;
+    border:0;
+    border-radius:0;
     margin:16px 0 24px;
-    font-size:15px;
+    font-size:14px;
     line-height:1.62;
+    background:#fff;
 }
 .table th,.table td{
-    border:1px solid var(--line);
+    border:1px solid var(--table-line);
     padding:10px 12px;
     vertical-align:top;
 }
 .table th{
-    background:#fbfbfb;
+    background:#fafafa;
+    color:var(--text);
     font-weight:600;
     text-align:left;
 }
@@ -355,14 +398,22 @@ code{
     width:43%;
 }
 .example-box{
-    border-left:2px solid #e3e3e3;
+    border-left:0;
+    border-top:0;
     border-radius:0;
-    padding:22px 24px;
+    padding:22px 24px 22px 34px;
     background:#fff;
     margin:22px 0 32px;
 }
+.review + .example-box{
+    margin-top:64px;
+}
+.case > h3 + ul + .example-box{
+    margin-top:64px;
+}
 .example-box h4{
     margin-top:0;
+    font-weight:700;
 }
 .example-caption{
     font-size:13px;
@@ -383,11 +434,11 @@ code{
     margin:12px 0;
 }
 .mini-step{
-    border:1px solid var(--line);
+    border:1px solid #d8dce5;
     border-radius:20px;
     padding:7px 13px;
     background:#fbfbfb;
-    font-size:15px;
+    font-size:14px;
     font-weight:500;
 }
 .mini-arrow{
@@ -422,7 +473,7 @@ code{
 }
 .qa-text{
     font-family:'SUIT', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-    font-size:15px;
+    font-size:13px;
     font-weight:600;
     fill:#202124;
     text-anchor:middle;
@@ -449,6 +500,7 @@ code{
 #portfolio-flow .flow-step{
     min-height:116px;
 }
+
 @media (max-width:860px){
     body{font-size:16px;padding:0 20px;}
     h1{font-size:32px;}
@@ -483,7 +535,7 @@ code{
     }
     body{
         max-width:none;
-        font-size:13px;
+        font-size:12px;
         line-height:1.68;
         padding-right:4px;
     }
@@ -491,51 +543,63 @@ code{
         display:none;
     }
     h1{
-        font-size:30px;
+        font-size:29px;
         line-height:1.2;
     }
     h2{
-        font-size:21px;
+        font-size:20px;
     }
     h3{
-        font-size:17px;
+        font-size:16px;
+        width:fit-content;
+        margin-top:32px;
+        margin-bottom:8px;
+        padding-bottom:7px;
+        border-bottom:1px solid var(--line);
+        font-weight:800;
     }
     h4,
     .result strong,
     .qa-text,
     .metric span,
     .qa-process-caption{
-        font-size:14px;
+        font-size:12px;
     }
     .mini-step{
-        font-size:11px;
+        font-size:10px;
     }
     .example-caption{
-        font-size:11px;
+        font-size:10px;
     }
     .subtitle,
     .note{
-        font-size:15px;
+        font-size:14px;
     }
     .metric strong{
-        font-size:24px;
+        font-size:23px;
     }
     .case-number,
     .toc-list a{
-        font-size:12px;
+        font-size:11px;
     }
     .case-title{
-        font-size:24px;
+        font-size:23px;
     }
     .table{
         width:calc(100% - 2px);
-        font-size:11px;
+        font-size:10px;
         line-height:1.42;
         word-break:keep-all;
     }
     .table th,
     .table td{
+        border:1px solid var(--table-line);
         padding:7px 8px;
+    }
+    .table th{
+        background:#fafafa;
+        color:var(--text);
+        font-weight:600;
     }
     .result-list{
         grid-template-columns:repeat(2, 1fr);
@@ -546,7 +610,23 @@ code{
         width:calc(100% - 4px);
         min-height:72px;
         padding:14px 16px;
-        font-size:12px;
+        font-size:11px;
+        border:1px solid var(--result-line);
+        background:#fcfdff;
+        box-shadow:4px 4px 0 rgba(216, 222, 234, .5);
+    }
+    .impact{
+        border:1px solid var(--result-line);
+        background:linear-gradient(135deg, #ffffff 0%, #fbfcff 42%, #eef4ff 100%);
+        box-shadow:4px 4px 0 rgba(238, 244, 255, .6);
+    }
+    .card h4{
+        border-bottom:0;
+        font-weight:700;
+    }
+    .example-box{
+        padding-left:34px;
+        border-left:0;
     }
     .impact,
     .metric,
@@ -575,7 +655,7 @@ code{
     }
     .flow-step strong,
     .flow-step span{
-        font-size:11px;
+        font-size:10px;
         line-height:1.55;
     }
     .flow-step:not(:last-child)::after{
@@ -585,7 +665,7 @@ code{
         top:50%;
         bottom:auto;
         transform:translateY(-50%);
-        font-size:16px;
+        font-size:15px;
     }
     h1,
     h2,
@@ -600,6 +680,43 @@ code{
     .case{
         page-break-inside:auto;
         break-inside:auto;
+        margin-top:90px;
+    }
+    .toc + .case{
+        margin-top:16px;
+    }
+    .two-col{
+        row-gap:18px;
+    }
+    .card{
+        border:0;
+        padding:4px 0 12px;
+    }
+    .two-col .card{
+        border-left:1px solid var(--table-line);
+        padding:4px 0 12px 12px;
+    }
+    .example-grid .card{
+        border-left:1px solid var(--table-line);
+        padding:4px 0 12px 12px;
+    }
+    .card ul{
+        line-height:1.65;
+    }
+    .card li{
+        margin-bottom:3px;
+    }
+    .two-col .card ul,
+    .example-grid .card ul{
+        line-height:1.55;
+    }
+    .two-col .card li,
+    .example-grid .card li{
+        margin-bottom:2px;
+    }
+    .card h4{
+        margin-bottom:7px;
+        padding-bottom:0;
     }
     .result,
     .metric,
@@ -919,7 +1036,7 @@ code{
         <div class="card">
             <h4>라프텔 OTT 콘텐츠 정책</h4>
             <ul>
-                <li>판권 만료 콘텐츠 노출, 시즌/회차 이동, 구매 버튼 노출 여부, 콘텐츠 접근 가능 조건 검증</li>
+                <li>판권 만료 콘텐츠 노출, 시즌/회차 이동, 구매 버튼 노출, 콘텐츠 접근 가능 조건 검증</li>
                 <li>판권, 회차 이동, 구매 버튼 노출처럼 콘텐츠 이용 정책이 화면과 재생 플로우에 일관되게 반영되는지 확인</li>
                 <li>콘텐츠 다운로드 및 오프라인 재생, 동시 재생 제한, 재생 오류 케이스 플랫폼별 검증</li>
             </ul>
@@ -1214,30 +1331,30 @@ code{
                 <text class="qa-text" x="867.5" y="52">AI TC 생성</text>
 
                 <!-- Middle row -->
-                <rect class="qa-pill" x="155" y="130" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="215" y="154">스펙 변경</text>
+                <rect class="qa-pill" x="155" y="116" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="215" y="140">스펙 변경</text>
 
-                <rect class="qa-pill" x="315" y="130" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="375" y="154">스펙 변경 알림</text>
+                <rect class="qa-pill" x="315" y="116" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="375" y="140">스펙 변경 알림</text>
 
-                <rect class="qa-ai" x="475" y="130" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="535" y="154">AI 리뷰 재실행</text>
+                <rect class="qa-ai" x="475" y="116" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="535" y="140">AI 리뷰 재실행</text>
 
-                <rect class="qa-pill" x="805" y="130" width="125" height="48" rx="24"></rect>
-                <text class="qa-text" x="867.5" y="154">QA 검토</text>
+                <rect class="qa-pill" x="805" y="116" width="125" height="48" rx="24"></rect>
+                <text class="qa-text" x="867.5" y="140">QA 검토</text>
 
                 <!-- Bottom row -->
-                <rect class="qa-pill" x="315" y="232" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="375" y="256">리포트 생성</text>
+                <rect class="qa-pill" x="315" y="204" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="375" y="228">리포트 생성</text>
 
-                <rect class="qa-pill" x="475" y="232" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="535" y="256">TC-Jira 연결</text>
+                <rect class="qa-pill" x="475" y="204" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="535" y="228">TC-Jira 연결</text>
 
-                <rect class="qa-pill" x="635" y="232" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="695" y="256">테스트 실행</text>
+                <rect class="qa-pill" x="635" y="204" width="120" height="48" rx="24"></rect>
+                <text class="qa-text" x="695" y="228">테스트 실행</text>
 
-                <rect class="qa-box" x="805" y="232" width="125" height="48"></rect>
-                <text class="qa-text" x="867.5" y="256">개발 완료</text>
+                <rect class="qa-box" x="805" y="204" width="125" height="48"></rect>
+                <text class="qa-text" x="867.5" y="228">개발 완료</text>
 
                 <!-- Arrows top -->
                 <path class="qa-line" d="M120 52 H155"></path>
@@ -1247,19 +1364,19 @@ code{
                 <path class="qa-line" d="M765 52 H805"></path>
 
                 <!-- Spec update branch -->
-                <path class="qa-line" d="M215 76 V130"></path>
-                <path class="qa-line" d="M275 154 H315"></path>
-                <path class="qa-line" d="M435 154 H475"></path>
-                <path class="qa-line" d="M535 130 V76"></path>
+                <path class="qa-line" d="M215 76 V116"></path>
+                <path class="qa-line" d="M275 140 H315"></path>
+                <path class="qa-line" d="M435 140 H475"></path>
+                <path class="qa-line" d="M535 116 V76"></path>
 
                 <!-- AI test case to QA review to dev done -->
-                <path class="qa-line" d="M867.5 76 V130"></path>
-                <path class="qa-line" d="M867.5 178 V232"></path>
+                <path class="qa-line" d="M867.5 76 V116"></path>
+                <path class="qa-line" d="M867.5 164 V204"></path>
 
                 <!-- Bottom row direction: dev done -> test -> test case-Jira -> report -->
-                <path class="qa-line" d="M805 256 H755"></path>
-                <path class="qa-line" d="M635 256 H595"></path>
-                <path class="qa-line" d="M475 256 H435"></path>
+                <path class="qa-line" d="M805 228 H755"></path>
+                <path class="qa-line" d="M635 228 H595"></path>
+                <path class="qa-line" d="M475 228 H435"></path>
             </svg>
         </div>
     </div>
