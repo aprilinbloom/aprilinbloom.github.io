@@ -1,1555 +1,1237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
-<title>김지유 Portfolio</title>
-<style>
-:root{
-    --text:#111;
-    --muted:#6f6f6f;
-    --light:#aaa;
-    --line:#2b2e36;
-    --soft:#fafafa;
-    --panel:#ffffff;
-    --result:#fbfcff;
-    --result-line:#d8deea;
-    --table-line:#eee;
-    --chip:#ffffff;
-}
-*{box-sizing:border-box;}
-body{
-    font-family:'SUIT', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-    font-size:15px;
-    font-weight:400;
-    max-width:1180px;
-    margin:64px auto 88px;
-    padding:0 46px 132px;
-    color:var(--text);
-    line-height:1.78;
-    letter-spacing:-0.002em;
-    background:#fff;
-}
-@media (min-width:1200px){
-    body{
-        margin-left:max(46px, calc((100vw - 1180px) / 2 - 36px));
-        margin-right:auto;
-    }
-}
-h1{
-    font-size:40px;
-    line-height:1.15;
-    margin:0 0 30px;
-    font-weight:800;
-    letter-spacing:-0.02em;
-}
-h2{
-    font-size:22px;
-    font-weight:700;
-    margin-top:64px;
-    padding-bottom:10px;
-    border-bottom:1px solid var(--line);
-    letter-spacing:-0.01em;
-}
-h3{
-    font-size:18px;
-    font-weight:700;
-    margin-top:40px;
-    margin-bottom:20px;
-    width:fit-content;
-    padding-bottom:10px;
-    border-bottom:2px solid var(--line);
-    letter-spacing:-0.01em;
-}
-.case > ul + h3{
-    margin-top:50px;
-}
-h4{
-    font-size:15px;
-    font-weight:700;
-    margin:0 0 8px;
-}
-p{margin:0 0 14px;}
-ul{padding-left:22px;margin:8px 0 0;}
-li{margin:3px 0;}
-li::marker{
-    font-size:0.77em;
-}
-code{
-    display:inline-block;
-    padding:2px 6px;
-    border:1px solid #e8e8e8;
-    border-radius:4px;
-    background:#f7f7f7;
-    color:#333;
-    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size:0.92em;
-    line-height:1.45;
-    vertical-align:baseline;
-}
-.subtitle{
-    max-width:760px;
-    color:var(--muted);
-    margin-bottom:36px;
-    font-size:16px;
-    line-height:1.65;
-}
-.toc{
-    padding:20px 0;
-    margin:0 0 66px;
-}
-.toc-list{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-    margin:0;
-    padding:0;
-    list-style:none;
-}
-.toc-list li{
-    margin:0;
-}
-.toc-item{
-    display:block;
-}
-.toc-list a{
-    color:var(--light);
-    text-decoration:none;
-    font-size:13px;
-    font-weight:500;
-    line-height:1.5;
-}
-.toc-list a:hover{
-    text-decoration:underline;
-    text-underline-offset:3px;
-}
-.callout{
-    margin-top:18px;
-    padding:22px 24px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:8px;
-}
-.callout p{margin:0;}
-.callout p + p{margin-top:14px;}
-.note{
-    background:#fffaf0;
-    border:1px solid #efe4c8;
-    border-radius:8px;
-    padding:16px 18px;
-    margin:18px 0;
-    font-size:16px;
-    color:#4b5563;
-}
-.note strong{
-    display:inline-block;
-    color:#222;
-    margin-bottom:4px;
-}
-.metrics{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:16px;
-    margin:24px 0 6px;
-}
-.metric{
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:18px;
-    background:#fff;
-}
-.metric strong{
-    display:block;
-    font-size:25px;
-    line-height:1.25;
-    margin-bottom:6px;
-    font-weight:700;
-}
-.metric span{
-    display:block;
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.6;
-}
-.case{
-    margin-top:112px;
-    padding-top:0;
-}
-.toc + .case{
-    margin-top:20px;
-}
-.case-head{
-    margin-bottom:16px;
-}
-.case-number{
-    display:inline-block;
-    color:#222;
-    width:auto;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:0;
-    text-transform:uppercase;
-    margin-bottom:6px;
-    padding:0;
-    border:0;
-    background:transparent;
-    box-shadow:none;
-}
-.case-title{
-    max-width:none;
-    font-size:25px;
-    font-weight:800;
-    line-height:1.28;
-    letter-spacing:-0.01em;
-    padding-right:0;
-}
-.case-subtitle{
-    display:none;
-}
-.impact{
-    margin:32px 0 54px;
-    padding:24px 28px;
-    border:1px solid var(--result-line);
-    border-radius:8px;
-    background:linear-gradient(135deg, #ffffff 0%, #fbfcff 42%, #eef4ff 100%);
-    box-shadow:4px 4px 0 rgba(238, 244, 255, .6);
-}
-.impact strong{
-    display:block;
-    margin-bottom:6px;
-    font-size:16px;
-    font-weight:700;
-}
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:18px 0 28px;
-}
-.tag{
-    border:1px solid #dadce0;
-    padding:7px 18px;
-    border-radius:999px;
-    font-size:16px;
-    color:#333;
-    background:#fff;
-}
-.two-col{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    column-gap:62px;
-    row-gap:24px;
-    margin:8px 0 26px;
-}
-.card{
-    border:0;
-    border-radius:0;
-    padding:8px 0 20px;
-    margin-top:0;
-    background:var(--panel);
-}
-.two-col .card{
-    border-left:1px solid var(--table-line);
-    padding:4px 0 16px 16px;
-}
-.example-grid .card{
-    border-left:1px solid var(--table-line);
-    padding:4px 0 16px 16px;
-}
-.card ul{
-    line-height:1.7em;
-    list-style:circle;
-    padding-left:15px;
-}
-.card li{
-    margin-bottom:5px;
-}
-.two-col .card ul,
-.example-grid .card ul{
-    line-height:1.62em;
-}
-.two-col .card li,
-.example-grid .card li{
-    margin-bottom:3px;
-}
-.card h4{
-    font-weight:700;
-    font-size:16px;
-    margin:0 0 9px;
-    border-bottom:0;
-}
-.example-grid .card h4{
-    font-size:15px;
-}
-.case-summary-list{
-    margin-bottom:25px;
-}
-.context-block{
-    border-left:0px solid #e5e5e5;
-    padding-left:16px;
-    margin:0 0 38px;
-    color:#333;
-}
-.flow{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    align-items:stretch;
-    gap:28px;
-    margin:10px 0 34px;
-}
-.flow.flow-5{
-    grid-template-columns:repeat(5, 1fr);
-}
-.flow-step{
-    position:relative;
-    border:1px dashed #cfd4dd;
-    border-radius:8px;
-    padding:22px 20px 24px;
-    background:#fff;
-    min-height:132px;
-}
-.flow-step:not(:last-child)::after{
-    content:"→";
-    position:absolute;
-    right:-22px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#555;
-    font-size:20px;
-    font-weight:300;
-}
-.flow-step strong{
-    display:block;
-    font-size:15px;
-    font-weight:700;
-    margin-bottom:6px;
-}
-.flow-step span{
-    color:#222;
-    font-size:15px;
-    line-height:1.7;
-}
-.result-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-    margin:12px 0 48px;
-}
-.result{
-    border:1px solid var(--result-line);
-    border-radius:8px;
-    padding:18px 20px;
-    background:#fcfdff;
-    min-height:92px;
-    box-shadow:4px 4px 0 rgba(216, 222, 234, .5);
-}
-.result strong{
-    display:block;
-    margin-bottom:6px;
-    font-size:15px;
-    font-weight:700;
-}
-.review{
-    border-left:0;
-    padding:0;
-    margin-top:30px;
-    color:#222;
-}
-.review h4{
-    margin:0 0 6px;
-    font-size:19px;
-    font-weight:800;
-}
-.table{
-    width:100%;
-    border-collapse:collapse;
-    border-spacing:0;
-    overflow:visible;
-    border:0;
-    border-radius:0;
-    margin:16px 0 24px;
-    font-size:14px;
-    line-height:1.62;
-    background:#fff;
-}
-.table th,.table td{
-    border:1px solid var(--table-line);
-    padding:10px 12px;
-    vertical-align:top;
-}
-.table th{
-    background:#fafafa;
-    color:var(--text);
-    font-weight:600;
-    text-align:left;
-}
-.deployment-table th:first-child,
-.deployment-table td:first-child{
-    width:13%;
-    white-space:nowrap;
-}
-.deployment-table th:nth-child(2),
-.deployment-table td:nth-child(2){
-    width:44%;
-}
-.deployment-table th:nth-child(3),
-.deployment-table td:nth-child(3){
-    width:43%;
-}
-.example-box{
-    border-left:0;
-    border-top:0;
-    border-radius:0;
-    padding:22px 24px 22px 34px;
-    background:#fff;
-    margin:22px 0 32px;
-}
-.review + .example-box{
-    margin-top:64px;
-}
-.case > h3 + ul + .example-box{
-    margin-top:64px;
-}
-.example-box h4{
-    margin-top:0;
-    font-weight:700;
-}
-.example-caption{
-    font-size:13px;
-    color:var(--light);
-    margin-top:8px;
-}
-.example-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin:14px 0 20px;
-}
-.mini-flow{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    align-items:center;
-    margin:12px 0;
-}
-.mini-step{
-    border:1px solid #d8dce5;
-    border-radius:20px;
-    padding:7px 13px;
-    background:#fbfbfb;
-    font-size:14px;
-    font-weight:500;
-}
-.mini-arrow{
-    color:#555;
-    font-weight:300;
-}
-
-.qa-process-chart{
-    width:100%;
-    overflow-x:hidden;
-    margin:16px 0 6px;
-}
-.qa-process-chart svg{
-    width:100%;
-    height:auto;
-    display:block;
-}
-.qa-box{
-    fill:#ffffff;
-    stroke:#dfe3e8;
-    stroke-width:1.2;
-}
-.qa-pill{
-    fill:#fafafa;
-    stroke:#dfe3e8;
-    stroke-width:1.2;
-}
-.qa-ai{
-    fill:#fafafa;
-    stroke:#dfe3e8;
-    stroke-width:1.2;
-}
-.qa-text{
-    font-family:'SUIT', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-    font-size:13px;
-    font-weight:600;
-    fill:#202124;
-    text-anchor:middle;
-    dominant-baseline:middle;
-}
-.qa-line{
-    stroke:#555;
-    stroke-width:1.2;
-    fill:none;
-    marker-end:url(#qa-arrow);
-}
-.qa-process-caption{
-    margin-top:10px;
-    color:#aaa;
-    font-size:15px;
-}
-
-#portfolio-flow{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:28px;
-    margin:20px 0 34px;
-}
-#portfolio-flow .flow-step{
-    min-height:116px;
-}
-
-@media (max-width:860px){
-    body{font-size:16px;padding:0 20px;}
-    h1{font-size:32px;}
-    .case-title{font-size:28px;}
-    .toc-list{grid-template-columns:1fr;}
-    .metrics{grid-template-columns:1fr 1fr;}
-    .two-col,.result-list,.example-grid{grid-template-columns:1fr;}
-    .flow,#portfolio-flow{display:block;}
-    .flow-step{margin-bottom:28px;}
-    .flow-step:not(:last-child)::after{
-        content:"↓";
-        left:50%;
-        right:auto;
-        top:auto;
-        bottom:-27px;
-        transform:translateX(-50%);
-    }
-}
-@media print{
-    @page{
-        size:A4;
-        margin:12mm;
-    }
-    html,
-    body{
-        width:auto;
-        margin:0;
-        padding:0;
-        background:#fff;
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
-    }
-    body{
-        max-width:none;
-        font-size:12px;
-        line-height:1.68;
-        padding-right:4px;
-    }
-    .toc{
-        display:none;
-    }
-    h1{
-        font-size:29px;
-        line-height:1.2;
-    }
-    h2{
-        font-size:20px;
-    }
-    h3{
-        font-size:16px;
-        width:fit-content;
-        margin-top:32px;
-        margin-bottom:8px;
-        padding-bottom:7px;
-        border-bottom:1px solid var(--line);
-        font-weight:800;
-    }
-    h4,
-    .result strong,
-    .qa-text,
-    .metric span,
-    .qa-process-caption{
-        font-size:12px;
-    }
-    .mini-step{
-        font-size:10px;
-    }
-    .example-caption{
-        font-size:10px;
-    }
-    .subtitle,
-    .note{
-        font-size:14px;
-    }
-    .metric strong{
-        font-size:23px;
-    }
-    .case-number,
-    .toc-list a{
-        font-size:11px;
-    }
-    .case-title{
-        font-size:20px;
-    }
-    .table{
-        width:calc(100% - 2px);
-        font-size:10px;
-        line-height:1.42;
-        word-break:keep-all;
-    }
-    .table th,
-    .table td{
-        border:1px solid var(--table-line);
-        padding:7px 8px;
-    }
-    .table th{
-        background:#fafafa;
-        color:var(--text);
-        font-weight:600;
-    }
-    .result-list{
-        grid-template-columns:repeat(2, 1fr);
-        gap:12px;
-        margin:10px 0 34px;
-    }
-    .result{
-        width:calc(100% - 4px);
-        min-height:72px;
-        padding:14px 16px;
-        font-size:11px;
-        border:1px solid var(--result-line);
-        background:#fcfdff;
-        box-shadow:4px 4px 0 rgba(216, 222, 234, .5);
-    }
-    .impact{
-        border:1px solid var(--result-line);
-        background:linear-gradient(135deg, #ffffff 0%, #fbfcff 42%, #eef4ff 100%);
-        box-shadow:4px 4px 0 rgba(238, 244, 255, .6);
-    }
-    .card h4{
-        border-bottom:0;
-        font-weight:700;
-    }
-    .example-box{
-        padding-left:34px;
-        border-left:0;
-    }
-    .impact,
-    .metric,
-    .example-box,
-    .callout{
-        width:calc(100% - 4px);
-    }
-    .flow,
-    #portfolio-flow{
-        display:grid;
-        gap:14px;
-    }
-    .flow{
-        grid-template-columns:repeat(4, 1fr);
-    }
-    .flow.flow-5{
-        grid-template-columns:repeat(5, 1fr);
-    }
-    #portfolio-flow{
-        grid-template-columns:repeat(4, 1fr);
-    }
-    .flow-step{
-        min-height:84px;
-        padding:12px 12px 14px;
-        margin-bottom:0;
-    }
-    .flow-step strong,
-    .flow-step span{
-        font-size:10px;
-        line-height:1.55;
-    }
-    .flow-step:not(:last-child)::after{
-        content:"→";
-        left:auto;
-        right:-13px;
-        top:50%;
-        bottom:auto;
-        transform:translateY(-50%);
-        font-size:15px;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    .case-head,
-    .result strong,
-    .card h4{
-        break-after:avoid;
-        page-break-after:avoid;
-    }
-    .case{
-        page-break-inside:auto;
-        break-inside:auto;
-        margin-top:90px;
-    }
-    .toc + .case{
-        margin-top:16px;
-    }
-    .two-col{
-        row-gap:18px;
-    }
-    .card{
-        border:0;
-        padding:4px 0 12px;
-    }
-    .two-col .card{
-        border-left:1px solid var(--table-line);
-        padding:4px 0 12px 12px;
-    }
-    .example-grid .card{
-        border-left:1px solid var(--table-line);
-        padding:4px 0 12px 12px;
-    }
-    .card ul{
-        line-height:1.65;
-    }
-    .card li{
-        margin-bottom:3px;
-    }
-    .two-col .card ul,
-    .example-grid .card ul{
-        line-height:1.55;
-    }
-    .two-col .card li,
-    .example-grid .card li{
-        margin-bottom:2px;
-    }
-    .card h4{
-        margin-bottom:7px;
-        padding-bottom:0;
-    }
-    .result,
-    .metric,
-    .flow-step,
-    .card,
-    .example-box,
-    .table tr{
-        break-inside:avoid;
-        page-break-inside:avoid;
-    }
-    .qa-process-chart{
-        overflow:visible;
-    }
-}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Jiyoo Kim - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@1.0.0/dist/wanted-sans.css">
+    <style>
+        :root{
+            --ink:#2a2a2a;
+            --muted:#747474;
+            --line:#5d5d5d;
+            --hair:#d9d9d9;
+            --paper:#fff;
+            --band:#fafafa;
+            --soft:#f5f5f4;
+            --width:1040px;
+        }
+        *{box-sizing:border-box;}
+        html{scroll-behavior:smooth;background:var(--paper);}
+        body{
+            margin:0;
+            color:var(--ink);
+            background:var(--paper);
+            font-family:"Wanted Sans",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+            font-size:14px;
+            font-weight:400;
+            line-height:1.48;
+            letter-spacing:-.002em;
+            word-break:keep-all;
+        }
+        main{overflow:hidden;}
+        a{color:inherit;}
+        p{margin:0 0 14px;}
+        ul{margin:10px 0 0;padding-left:20px;}
+        li{margin:5px 0;}
+        li::marker{font-size:.72em;}
+        strong{font-weight:500;}
+        .project{
+            padding:78px max(34px, calc((100vw - var(--width)) / 2)) 92px;
+            background:var(--paper);
+        }
+        .project:nth-of-type(even){background:var(--band);}
+        .related-project{background:#fafafa !important;}
+        .project + .project::before{
+            content:"";
+            display:block;
+            width:110px;
+            height:1px;
+            margin:-78px auto 76px;
+            background:#303030;
+        }
+        /* AI-assisted QA 이후는 Product Quality와 같은 연속된 흰색 레이아웃 */
+        #ai-assisted-qa,
+        #ai-assisted-qa ~ .project{
+            background:var(--paper) !important;
+        }
+        #ai-assisted-qa ~ .project::before{
+            display:none;
+        }
+        #brand-custom::before{display:none;}
+        .section-heading{
+            margin:0 0 56px;
+            padding:4px 0 0 24px;
+            border-left:7px solid #2c2c2c;
+        }
+        .section-title{
+            margin:0;
+            font-family:"IBM Plex Mono",monospace;
+            font-size:42px;
+            font-weight:600;
+            line-height:1;
+            letter-spacing:-.050em;
+            word-spacing:-.24em;
+        }
+        .section-subtitle{
+            margin:12px 0 0;
+            color:#333;
+            font-family:"Wanted Sans",sans-serif;
+            font-size:13px;
+            font-weight:400;
+            line-height:1.45;
+            letter-spacing:-.002em;
+        }
+.section-badge{
+  display:inline-block;
+  margin-right:7px;
+  padding:2px 7px 3px;
+  border:1px solid #d3d3d3;
+  border-radius:8px;
+            color:#555;
+            font-size:11px;
+            font-weight:400;
+            line-height:1.2;
+            letter-spacing:0;
+            vertical-align:1px;
+        }
+        .lead{
+            max-width:960px;
+            margin-bottom:48px;
+            font-size:16px;
+            line-height:1.52;
+        }
+        .lead-list{
+            padding-left:0;
+            list-style:none;
+        }
+        .lead-list li{padding-left:0;margin:0 0 8px;}
+        .lead-list li:last-child{margin-bottom:0;}
+        #ai-assisted-qa .lead{margin-bottom:18px;}
+        #qa-process .subsection > .lead{margin-bottom:24px;}
+        #qa-process .process-next-case{margin-top:28px;}
+        #laftel-store .lead{margin-bottom:24px;}
+        .store-description{margin-bottom:14px;}
+        .store-description p{margin:0;}
+        .store-description p + p{margin-top:7px;}
+        .subsection{margin:0 0 54px;}
+        .subsection:last-child{margin-bottom:0;}
+        .subsection-title{
+            margin:0 0 18px;
+            font-size:18px;
+            font-weight:600;
+            letter-spacing:-.002em;
+        }
+        .subsection-title .index{
+            margin-right:8px;
+            font-variant-numeric:tabular-nums;
+        }
+        .summary-list{margin-top:12px;}
+        .review-description{
+            margin:0 0 18px;
+            color:#555;
+        }
+        .domain-emphasis{
+            margin:14px 0 24px;
+            padding-left:20px;
+            color:#333;
+            font-weight:500;
+        }
+        .box{
+            width:95%;
+            margin-top:28px;
+            margin-left:auto;
+            margin-right:auto;
+            padding:30px 34px 32px;
+            border:1.5px solid var(--line);
+            border-radius:8px;
+            background:rgba(255,255,255,.72);
+        }
+        .box + .box{margin-top:18px;}
+        .box-title{
+            margin:0 0 22px;
+            font-size:17px;
+            font-weight:600;
+        }
+        .box-title .symbol,.process-card h3 .symbol{margin-right:5px;}
+        .process{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:0;
+            margin:0 0 30px;
+        }
+        .process-step{
+            position:relative;
+            min-height:78px;
+            padding:0 30px 0 0;
+        }
+        .process-step:not(:last-child)::after{
+            content:"";
+            position:absolute;
+            top:8px;
+            right:14px;
+            width:9px;
+            height:9px;
+            border-top:1.5px solid #aaa;
+            border-right:1.5px solid #aaa;
+            transform:rotate(45deg);
+        }
+        .process-step b{display:block;margin-bottom:5px;font-size:14px;font-weight:600;}
+        .process-step span{display:block;color:#666;font-size:12px;line-height:1.55;}
+        .matrix{
+            width:100%;
+            border-collapse:collapse;
+            table-layout:auto;
+            font-size:13px;
+            line-height:1.5;
+            letter-spacing:-.002em;
+        }
+        .matrix th,.matrix td{
+            padding:10px 12px;
+            border-bottom:1px solid #e4e4e4;
+            text-align:left;
+            vertical-align:top;
+        }
+        .matrix th{
+            background:#f5f5f5;
+            font-weight:400;
+        }
+        .matrix tr:last-child td{border-bottom:0;}
+        .submatrix{margin-top:28px;}
+        .review-table th,.review-table td{
+            padding:6px 18px;
+        }
+        .review-table{
+            width:auto;
+            max-width:100%;
+            table-layout:auto;
+        }
+        .result-box{background:#f8f8f8;}
+        .related-project .point-box{background:#fafafa;}
+        .related-project .result-box{background:#fff;}
+        .related-project .matrix th{background:#f5f5f5;}
+        .result-list strong{font-weight:500;}
+        .case-panel{
+            width:95%;
+            margin:30px auto 0;
+            padding:0;
+            background:transparent;
+        }
+        .case-panel-title{
+            margin:0 0 22px;
+            font-size:18px;
+            font-weight:600;
+        }
+        .case-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:26px 28px;
+        }
+        .case-grid > div{
+            padding:30px 38px 32px;
+            background:#fafafa;
+            border-radius:6px;
+        }
+        .case-grid h4{
+            margin:0 0 12px;
+            font-size:16px;
+            font-weight:500;
+        }
+        .case-grid ul{
+            margin-top:0;
+            color:#666;
+            line-height:1.58;
+        }
+        .case-grid li{margin:4px 0;}
+        .approach-group{
+            display:inline-block;
+            width:fit-content;
+            max-width:calc(100% - 44px);
+            margin:30px 0 0 44px;
+            vertical-align:top;
+        }
+        .approach-heading{
+            width:100%;
+            margin:0;
+            padding:9px 14px;
+            background:#fafafa;
+            font-size:13px;
+            font-weight:400;
+        }
+        .approach-group .matrix{
+            width:auto;
+            max-width:100%;
+        }
+        .approach-group .matrix th{
+            background:#fbfbfb;
+            font-weight:400;
+        }
+        .platform-table ul{margin:0;padding-left:18px;}
+        .platform-table li{margin:3px 0;}
+        .platform-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:36px;
+            max-width:760px;
+        }
+        .platform-grid h4{margin:0 0 8px;font-size:15px;font-weight:500;}
+        .split{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:38px;
+        }
+        .split h4{
+            margin:0 0 10px;
+            font-size:14px;
+            font-weight:600;
+        }
+        .split + .split{margin-top:28px;}
+        .process-card-grid{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:20px;
+            width:95%;
+            margin:28px auto 0;
+        }
+        .process-card{
+            min-width:0;
+            width:auto;
+            margin:0;
+        }
+        .process-card-grid .box + .box{margin-top:0;}
+        #qa-process .process-card:first-child{background:#fff;}
+        .process-card h3{
+            margin:0 0 22px;
+            font-size:17px;
+            font-weight:600;
+            line-height:1.35;
+        }
+        .process-card p{margin:0 0 12px;}
+        .process-card .compact{margin:0;}
+        .process-card .compact > li{margin:0 0 18px;}
+        .process-card .compact > li:last-child{margin-bottom:0;}
+        .process-card .compact > li > ul{
+            margin:3px 0 0;
+            padding-left:18px;
+        }
+        .process-card .compact > li > ul > li{margin:3px 0;}
+        .process-context{margin:0 0 6px;}
+        .process-context .compact{margin:0;}
+        .process-context .compact > li > ul{
+            margin:8px 0 0;
+            padding-left:18px;
+        }
+        .process-context .compact > li > ul > li{margin:3px 0;}
+        .process-outcome-list{
+            width:95%;
+            margin:0 auto;
+        }
+        .process-outcome-list li{margin:5px 0;line-height:1.52;}
+        .qa-process-gallery{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:16px;
+            width:95%;
+            margin:24px auto 0;
+        }
+        .qa-process-gallery .gallery-hero{
+            grid-column:1 / -1;
+            height:auto;
+            justify-self:start;
+            width:calc(50% - 8px);
+            max-width:100%;
+        }
+        .qa-process-gallery .gallery-hero img{
+            width:auto;
+            max-width:100%;
+        }
+        .qa-process-gallery figure{
+            margin:0;
+            overflow:hidden;
+            border:1px solid #ececec;
+            background:transparent;
+            padding:14px 14px 0;
+        }
+        .qa-process-gallery figcaption{
+            margin:0 0 10px;
+            font-size:14px;
+            font-weight:500;
+            line-height:1.35;
+        }
+        .qa-process-gallery img{
+            display:block;
+            width:100%;
+            height:auto;
+        }
+        /* Brand Custom은 피그마의 체크리스트 흐름처럼 한 열로 읽힌다. */
+        #brand-custom .split{
+            grid-template-columns:1fr;
+            gap:0;
+        }
+        #brand-custom .split + .split{margin-top:0;}
+        #brand-custom .split h4{font-weight:400;}
+        #brand-custom .split .compact{margin-top:0;}
+        #brand-custom .split .compact > li{margin:0 0 12px;}
+        #brand-custom .split .compact > li:last-child{margin-bottom:0;}
+        #brand-custom .split .compact > li > ul{margin:6px 0 0;padding-left:18px;}
+        #brand-custom .split .compact > li > ul > li{margin:3px 0;}
+        #brand-custom .point-box > .compact > li{margin:0 0 18px;}
+        #brand-custom .point-box > .compact > li:last-child{margin-bottom:0;}
+        #brand-custom .point-box > .compact > li > ul{margin:3px 0 0;padding-left:18px;}
+        #brand-custom .point-box > .compact > li > ul > li{margin:3px 0;}
+        #brand-custom .summary-list .example{
+            margin:4px 0 4px 2px;
+            list-style:none;
+        }
+        .compact{margin-top:5px;}
+        .compact li{margin:3px 0;}
+        .result-list{margin-top:0;}
+        .result-list li{margin:3px 0;}
+        .result-table{
+            width:auto;
+            max-width:100%;
+            border-collapse:collapse;
+            font-size:inherit;
+        }
+        .result-table td{
+            padding:3px 0;
+            vertical-align:top;
+        }
+        .result-table td:first-child{
+            width:auto;
+            padding-right:16px;
+            font-weight:500;
+            white-space:nowrap;
+        }
+        .result-table td:first-child::before{
+            content:"•";
+            margin-right:8px;
+        }
+        .support-text{color:#727272;font-size:13px;}
+        .artifact-list{
+            margin:0 0 18px;
+            color:#727272;
+            font-size:13px;
+            line-height:1.55;
+        }
+        .artifact-list li{margin:5px 0;}
+        .artifact-list ul{margin:4px 0 0;padding-left:22px;}
+        .purchase-flow{
+            display:flex;
+            flex-wrap:nowrap;
+            align-items:center;
+            gap:0;
+            margin:18px 0 26px;
+        }
+        .purchase-flow .flow-step{
+            flex:0 0 auto;
+            padding:8px;
+            background:#f1f1f1;
+            color:#333;
+            font-size:12px;
+            line-height:1.35;
+            white-space:nowrap;
+        }
+        .purchase-flow .flow-arrow{
+            flex:0 0 auto;
+            width:8px;
+            height:8px;
+            margin:0 8px;
+            border-top:1.5px solid #aaa;
+            border-right:1.5px solid #aaa;
+            font-size:0;
+            line-height:0;
+            transform:rotate(45deg);
+        }
+        .links{
+            margin:22px 0 0;
+            color:#777;
+            font-size:12px;
+            line-height:1.7;
+        }
+        .links a{
+            display:block;
+            width:fit-content;
+            color:inherit;
+            text-decoration:underline;
+            text-underline-offset:3px;
+        }
+        .links .link-icon{
+            display:inline-block;
+            margin-right:5px;
+            text-decoration:none;
+        }
+        .artifact{
+            margin:38px 0 0;
+        }
+        .artifact figcaption{
+            margin-bottom:18px;
+            color:#777;
+            font-size:15px;
+            font-weight:600;
+        }
+        .artifact-window{
+            height:980px;
+            overflow:hidden;
+            border:1px solid #ececec;
+            background:#f6f8fb;
+        }
+        .artifact-window img{
+            display:block;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:top center;
+        }
+        /* 원본 캡처 우측 가장자리의 편집 UI 조각은 보이지 않게 한다. */
+        #brand-custom .artifact-window img{
+            width:101.8%;
+            max-width:none;
+        }
+        .qa-figure{
+            display:block;
+            width:100%;
+            margin-top:30px;
+            border:1px solid #ececec;
+        }
+        .empty-project{
+            min-height:820px;
+        }
+        .empty-project .section-heading{margin-bottom:0;}
+        .flow-list{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            margin:28px 0;
+            border-top:1px solid var(--hair);
+            border-bottom:1px solid var(--hair);
+        }
+        .flow-item{
+            min-height:126px;
+            padding:22px 18px;
+            border-right:1px solid var(--hair);
+        }
+        .flow-item:last-child{border-right:0;}
+        .flow-item b{display:block;margin-bottom:8px;font-size:14px;}
+        .flow-item span{color:#666;font-size:12px;line-height:1.5;}
+        .metric-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:14px;
+            margin-top:26px;
+        }
+        .metric{
+            padding:22px 24px;
+            border:1.5px solid var(--line);
+            border-radius:8px;
+        }
+        .metric strong{
+            display:block;
+            margin-bottom:6px;
+            font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size:28px;
+            font-weight:700;
+            letter-spacing:-.04em;
+        }
+        .metric span{color:#555;font-size:13px;}
+        .lead-grid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:18px;
+            margin-top:28px;
+        }
+        .lead-card{
+            padding:26px 28px;
+            border:1.5px solid var(--line);
+            border-radius:8px;
+        }
+        .lead-card h3{margin:0 0 11px;font-size:16px;}
+        #team-leading{padding-bottom:140px;}
+        #team-leading .point-box{background:transparent;}
+        #team-leading .point-box .summary-list{margin-top:0;}
+        @media (max-width:760px){
+            html,
+            body{
+                width:100%;
+                max-width:100%;
+                overflow-x:hidden;
+                font-size:14px;
+                word-break:break-word;
+                overflow-wrap:anywhere;
+            }
+            main,
+            .project,
+            .subsection{
+                width:100%;
+                max-width:100%;
+                min-width:0;
+                overflow-x:hidden;
+            }
+            .project{padding:52px 22px 66px;}
+            .project + .project::before{margin-top:-52px;margin-bottom:50px;}
+            .section-heading{margin-bottom:38px;padding-left:17px;}
+            .section-title{font-size:34px;}
+            .lead{font-size:15px;}
+            .box{
+                width:100%;
+                max-width:100%;
+                min-width:0;
+                margin-left:0;
+                margin-right:0;
+                padding:24px 20px;
+            }
+            .result-table td:first-child{padding-right:16px;white-space:normal;}
+            .process,.split,.metric-grid,.lead-grid,.process-card-grid{grid-template-columns:1fr;}
+            .process > *,
+            .split > *,
+            .metric-grid > *,
+            .lead-grid > *,
+            .process-card-grid > *,
+            .case-grid > *,
+            .platform-grid > *{min-width:0;}
+            .process-card-grid{width:100%;}
+            .qa-process-gallery{width:100%;}
+            .case-grid,.platform-grid{grid-template-columns:1fr;}
+            .case-panel{width:100%;}
+            .process-step{min-height:0;padding:0 0 22px;}
+            .process-step:not(:last-child)::after{
+                top:auto;
+                right:auto;
+                bottom:6px;
+                left:2px;
+                width:7px;
+                height:7px;
+                transform:rotate(135deg);
+            }
+            .flow-list{grid-template-columns:1fr 1fr;}
+            .flow-item:nth-child(2){border-right:0;}
+            .flow-item:nth-child(-n+2){border-bottom:1px solid var(--hair);}
+            .artifact-window{height:560px;}
+            .empty-project{min-height:600px;}
+            .matrix,
+            .review-table{
+                width:100%;
+                min-width:0;
+                table-layout:fixed;
+                font-size:12px;
+            }
+            .matrix th,
+            .matrix td{
+                padding-left:7px;
+                padding-right:7px;
+                overflow-wrap:anywhere;
+            }
+            .purchase-flow{flex-wrap:wrap;row-gap:7px;}
+            .purchase-flow .flow-step{padding:7px;font-size:11px;}
+            .purchase-flow .flow-arrow{width:7px;height:7px;margin:0 6px;}
+            .approach-group{max-width:calc(100% - 14px);margin-left:14px;}
+        }
+        @media print{
+            @page{size:A4 portrait;margin:14mm 10mm;}
+            html,body{
+                -webkit-print-color-adjust:exact;
+                print-color-adjust:exact;
+            }
+            body{font-size:10px;line-height:1.4;}
+            main{overflow:visible;}
+            .project{
+                padding:24px 28px 36px;
+                break-before:page;
+                page-break-before:always;
+            }
+            .project:first-child{break-before:auto;page-break-before:auto;}
+            .project + .project::before{display:none;}
+            .section-heading{margin-bottom:26px;}
+            .section-title{
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size:29px;
+                word-spacing:normal;
+            }
+            .section-subtitle{font-size:9px;}
+            .section-badge{font-size:7.5px;}
+            .lead{margin-bottom:26px;font-size:12px;}
+            .subsection{margin-bottom:32px;}
+            .subsection-title{font-size:13px;}
+            .review-description{color:var(--ink);font-size:10px;}
+            .box{
+                width:95%;
+                margin-top:14px;
+                padding:16px 20px 18px;
+                -webkit-box-decoration-break:clone;
+                box-decoration-break:clone;
+            }
+            .box + .box{margin-top:12px;}
+            .box-title{margin-bottom:12px;font-size:12px;}
+            .process-step b,
+            .flow-item b{font-size:10px;font-weight:500;}
+            .process-step span,
+            .flow-item span{font-size:9px;}
+            .matrix{font-size:9px;}
+            .result-table{font-size:10px;}
+            .matrix th,
+            .matrix td{padding:5px 7px;}
+            .review-table th,
+            .review-table td{padding:4px 7px;}
+            .process{
+                grid-template-columns:repeat(2,1fr);
+                row-gap:5px;
+                margin-bottom:18px;
+            }
+            .split,
+            .process-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .metric-grid{grid-template-columns:repeat(3,1fr);}
+            .lead-grid,
+            .case-grid,
+            .platform-grid,
+            .qa-process-gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
+            .process-card-grid,
+            .qa-process-gallery{width:95%;}
+            .process-card{
+                height:100%;
+                margin:0;
+                padding:16px 18px 18px;
+            }
+            .process-card h3{margin-bottom:14px;font-size:12px;}
+            .process-card .compact > li{margin-bottom:10px;}
+            .process-step{
+                min-height:0;
+                padding:0 30px 0 0;
+            }
+            .process-step b{margin-bottom:3px;}
+            .process-step:not(:last-child)::after{
+                top:8px;
+                right:14px;
+                bottom:auto;
+                left:auto;
+                width:9px;
+                height:9px;
+                transform:rotate(45deg);
+            }
+            .process-step:nth-child(2)::after{display:none;}
+            .flow-list{grid-template-columns:repeat(2,1fr);}
+            .flow-item:nth-child(2){border-right:0;}
+            .flow-item:nth-child(-n+2){border-bottom:1px solid var(--hair);}
+            .purchase-flow{flex-wrap:wrap;}
+            .case-panel{margin-top:20px;}
+            .case-panel-title{margin-bottom:13px;font-size:12px;}
+            .case-grid{gap:12px 14px;}
+            .case-grid > div{padding:15px 18px 17px;}
+            .case-grid h4{margin-bottom:8px;font-size:10.5px;font-weight:500;}
+            .case-grid ul{line-height:1.44;}
+            .case-grid li{margin:2px 0;}
+            .approach-group{
+                display:block;
+                width:auto;
+                max-width:calc(100% - 44px);
+                margin:18px 0 0 44px;
+                break-inside:avoid;
+                page-break-inside:avoid;
+            }
+            .approach-group .matrix{width:100%;}
+            .approach-heading{padding:6px 9px;font-size:10px;}
+            .platform-grid{gap:16px;}
+            .platform-grid h4,
+            .split h4,
+            .lead-card h3,
+            .qa-process-gallery figcaption{font-size:10.5px;}
+            .support-text,
+            .artifact-list{font-size:10px;}
+            .purchase-flow .flow-step{font-size:9px;}
+            .links{font-size:9px;line-height:1.55;}
+            .links .link-icon{font-size:.9em;}
+            .artifact figcaption{font-size:10px;}
+            .metric strong{font-size:20px;}
+            .metric span{font-size:9px;}
+            .result-box{
+                break-inside:avoid;
+                page-break-inside:avoid;
+            }
+            #team-leading{padding-bottom:80px;}
+            .artifact-window{height:220mm;}
+            .empty-project{min-height:auto;}
+            .box-title,
+            .subsection-title,
+            .process-step,
+            .flow-item,
+            .case-grid > div,
+            .process-card,
+            .matrix tr,
+            .qa-process-gallery figure,
+            .artifact{
+                break-inside:avoid;
+                page-break-inside:avoid;
+            }
+            .box-title,
+            .subsection-title{
+                break-after:avoid;
+                page-break-after:avoid;
+            }
+            .matrix thead{display:table-header-group;}
+        }
+    </style>
 </head>
 <body>
+<main>
+    <section class="project" id="product-quality">
+        <header class="section-heading">
+            <h1 class="section-title">Product Quality</h1>
+            <p class="section-subtitle"><span class="section-badge">Case.1</span>Product QA</p>
+        </header>
 
-<h1>김지유</h1>
+        <div class="subsection" id="quality-review">
+            <h2 class="subsection-title">1. 요구사항/정책 리뷰 단계에서 품질 리스크 식별</h2>
+            <p class="review-description">요구사항과 정책 리뷰 단계에서 누락된 조건, 예외 시나리오, 사용자 영향도를 먼저 검토해 개발 이전에 품질 리스크 식별(Shift-left)</p>
+            <ul class="summary-list">
+                <li>QA 관점에서 요구사항과 정책 검토, 누락된 조건과 예외 시나리오 정리</li>
+                <li>사용자 영향도와 리스크 수준을 기준으로 검증 우선순위 산정</li>
+                <li>릴리즈 전 제품 조직이 판단할 수 있도록 품질 리스크와 검증 결과를 정리하여 공유</li>
+                <li>반복 확인이 필요한 핵심 유저 플로우는 P0 회귀 테스트 세트로 분리해 릴리즈 검증 기준으로 활용</li>
+            </ul>
 
-<nav class="toc" aria-label="포트폴리오 목차">
-    <ul class="toc-list">
-        <li><a class="toc-item" href="#case-1">* 1. 플로우와 상태값 기반 Product Quality</a></li>
-        <li><a class="toc-item" href="#case-2">* 2. 요구사항/정책 리뷰 단계에서 품질 리스크를 먼저 발견한 경험</a></li>
-        <li><a class="toc-item" href="#case-3">* 3. 도메인 정책과 플랫폼 조건이 복잡한 기능 검증</a></li>
-        <li><a class="toc-item" href="#case-4">* 4. AI-assisted QA와 반복 업무 자동화</a></li>
-        <li><a class="toc-item" href="#case-5">* 5. QA 운영 프로세스 구축과 배포 체계 개선</a></li>
-        <li><a class="toc-item" href="#appendix">* Appendix. QA/CX 팀 운영과 성장 지원</a></li>
-    </ul>
-</nav>
+            <div class="box">
+                <h3 class="box-title"><span class="symbol">🔍</span>접근</h3>
+                <div class="process">
+                    <div class="process-step"><b>요구사항 확인</b><span>정책, 화면, 운영 조건을 함께 확인</span></div>
+                    <div class="process-step"><b>리스크 도출</b><span>누락 조건, 예외 시나리오 및 사용자 영향 검토</span></div>
+                    <div class="process-step"><b>범위 조정</b><span>릴리즈 일정과 영향도에 따라 테스트 우선순위 설정</span></div>
+                    <div class="process-step"><b>공유</b><span>제품 조직에 릴리즈 판단에 필요한 품질 리스크 공유</span></div>
+                </div>
+                <table class="matrix review-table">
+                    <thead><tr><th>리뷰</th><th>항목</th><th>체크 사항</th></tr></thead>
+                    <tbody>
+                        <tr><td>사용자 상태</td><td>로그인 여부, 권한 유무, 권한 변경 여부 상태가 정의되어 있는가?</td><td>접근 가능 조건 확인</td></tr>
+                        <tr><td>정책 조건</td><td>명확한 제한 조건, 만료 조건, 예외 조건이 있는가?</td><td>누락 정책 확인</td></tr>
+                        <tr><td>결제/금액</td><td>결제 성공 후 권한 또는 재화가 정상 부여되는가?</td><td>사용자 피해 방지</td></tr>
+                        <tr><td>실패 케이스</td><td>실패/취소/중단 시 사용자가 이해할 수 있는 안내가 있는가?</td><td>UX/CS 리스크 확인</td></tr>
+                        <tr><td>릴리즈 리스크</td><td>이번 릴리즈에서 반드시 확인해야 할 핵심 항목은 무엇인가?</td><td>검증 범위 조정</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-<section class="case" id="case-1">
-    <div class="case-head">
-        <div class="case-number">Case 1</div>
-        <div class="case-title">플로우와 상태값 기반 Product Quality</div>
-    </div>
-    <div class="impact">
-        <strong>핵심 성과</strong>
-        상품 진열 및 탐색, 구매, 결제, 클레임 등 금액이 오가는 플로우에서 정책 분기와 상태 조합 검증
-    </div>
-
-    <div class="context-block">
-        단순 화면 검증보다 정책과 상태값 조합이 중요한 커머스 기능 고려<br>
-        여러 상태와 설정값 변경에 따라 결과가 달라지므로 예외 상황에서의 사용자 영향도까지 함께 확인 필요
-    </div>
-    <ul>
-        <li>상품 탐색, 구매, 결제, 문의, 클레임으로 이어지는 유저 플로우를 기준으로 테스트 범위 정리</li>
-        <li>결제 상태, 구매 여부, 클레임 가능 조건, 운영자 설정값 등 많은 상태 조합 조건을 우선 검증 대상으로 선정</li>
-        <li>정책 누락이나 예외 조건을 요구사항 리뷰 단계에서 확인하고, 테스트 케이스와 탐색 포인트로 보완</li>
-        <li>결제와 연결된 영역인 만큼 사용자 피해 가능성이 큰 영역을 우선순위 높여 검증</li>
-    </ul>
-
-    <h3>접근</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>구분</th>
-                <th>확인 내용</th>
-                <th>리스크</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>구매 상태</td>
-                <td>구매 전/후, 구매 제한, 구매 이력 조건</td>
-                <td>권한 부여 오류, 구매 상태 불일치</td>
-            </tr>
-            <tr>
-                <td>결제 상태</td>
-                <td>결제 성공/실패/취소, 결제 완료 후 화면 및 권한 변화</td>
-                <td>금액 처리 오류, 사용자 혼란</td>
-            </tr>
-            <tr>
-                <td>클레임 정책</td>
-                <td>취소/환불(전체/부분) 가능 조건, 기간, 상태별 제한</td>
-                <td>잘못된 클레임 허용 또는 차단</td>
-            </tr>
-            <tr>
-                <td>운영자 설정</td>
-                <td>상품 상태, 노출 여부, 판매 조건 변경</td>
-                <td>실제 정책과 사용자 화면 불일치</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>결과</h3>
-    <div class="result-list">
-        <div class="result">
-            <strong>출시 전 크리티컬 이슈 27건 사전 발견</strong>
-            결제/권한/클레임 플로우에서 사용자 피해로 이어질 수 있는 주요 리스크 식별
+            <div class="box result-box">
+                <h3 class="box-title"><span class="symbol">⛳</span>결과</h3>
+                <table class="result-table">
+                    <tbody>
+                        <tr><td>리스크 발견 시점을 앞으로</td><td>구현 후 테스트 단계가 아닌 기획/정책 리뷰 단계에서 먼저 확인</td></tr>
+                        <tr><td>테스트 우선순위를 명확하게</td><td>사용자 영향도와 리스크 수준을 기준으로 릴리즈 전 반드시 확인해야 할 영역 정리</td></tr>
+                        <tr><td>릴리즈 의사결정 지원</td><td>제품 조직에 릴리즈 전 품질 상태와 잔여 리스크 공유</td></tr>
+                        <tr><td>핵심 플로우를 기준으로</td><td>릴리즈 검증 기준으로 P0 회귀 테스트 세트 활용</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="result">
-            <strong>약 400개 테스트 케이스 설계(라프텔)</strong>
-            결제/권한/클레임 플로우의 정상/예외 조건을 약 400개 테스트 케이스로 구조화
-        </div>
-        <div class="result">
-            <strong>금액/권한 정합성 우선 검증</strong>
-            결제, 구매, 클레임 조건이 결합된 비즈니스 로직을 사용자 영향도 기준으로 검증
-        </div>
-        <div class="result">
-            <strong>예외 조건 보완</strong>
-            테스트 케이스로 커버하기 어려운 조건은 탐색 포인트로 별도 관리
-        </div>
-    </div>
 
-    <div class="example-box">
-        <h4>예시 1. 스토어 구매/주문 플로우</h4>
-        <p>
-            상품 탐색부터 결제, 주문 완료, 주문 상세, 1:1 문의까지 이어지는 플로우를 기준으로 테스트 범위 구조화
+        <div class="subsection" id="domain-platform">
+            <h2 class="subsection-title"><span class="index">2.</span>도메인 정책과 플랫폼 조건이 복잡한 기능 검증</h2>
+            <ul class="summary-list">
+                <li><strong>라프텔(OTT):</strong> 사용자의 결제/멤버십 상태, 콘텐츠 판권 등 이용 정책, 프로필 상태, 연령 제한, 기기/플랫폼 조건 등</li>
+                <li><strong>비스테이지(SaaS):</strong> 사용자의 결제/멤버십 상태, 권한 유무 및 사용자가 직접 설정하는 다양한 설정값과 다국어</li>
+            </ul>
+            <p class="domain-emphasis">→ 라프텔과 비스테이지 모두 정책과 권한 검증이 중요</p>
+            <ul class="summary-list">
+                <li>멤버십, 포인트, 구매 제한, 권한 복원처럼 결제 이후 실제 이용 권한과 연결되는 플로우 검증</li>
+                <li>테스트 포인트로 판권 만료, 프로필 상태(활성/잠금 여부), 본인 인증, 연령 제한과 같이 OTT 도메인 정책과 사용자 상태가 결합된 조건 정리</li>
+                <li>콘텐츠 다운로드/오프라인 재생, 동시 재생 제한, DRM, TV 앱, 모바일 앱과 같이 플랫폼별로 다르게 발생할 수 있는 리스크 검증</li>
+                <li>비마이프렌즈에서는 설정형 Web(빌더) 기능과 라이브(영상통화 및 채팅) 기능에서 데이터 조합, 외부 SDK와의 연동, 앱 상태 전환 리스크 등 검증</li>
+            </ul>
+
+            <div class="case-panel">
+                <h3 class="case-panel-title">대표 사례</h3>
+                <div class="case-grid">
+                    <div>
+                        <h4>라프텔 멤버십 권한</h4>
+                        <ul class="compact"><li>IAP 결제, 멤버십 업/다운그레이드, 포인트 이용, 권한 복원, 구매 제한 등 비즈니스적으로 가장 중요한 영역을 우선순위 높여 검증</li><li>결제 성공 후 실제로 이용 권한이 정상 부여되는지, 권한 없는 상태에서 우회하여 이용할 수 없는지, 결제 상태와 서비스 이용 권한이 어긋나는 경우가 없는지 확인</li></ul>
+                    </div>
+                    <div>
+                        <h4>라프텔 OTT 콘텐츠 정책</h4>
+                        <ul class="compact"><li>판권 만료 콘텐츠 노출, 시즌/회차 이동, 구매 버튼 노출, 콘텐츠 접근 가능 조건 검증</li><li>판권, 회차 이동, 구매 버튼 노출처럼 콘텐츠 이용 정책이 화면과 재생 플로우에 일관되게 반영되는지 확인</li><li>콘텐츠 다운로드 및 오프라인 재생, 동시 재생 제한, 재생 오류 케이스 플랫폼별 검증</li></ul>
+                    </div>
+                    <div>
+                        <h4>라프텔 플랫폼 안정성</h4>
+                        <ul class="compact"><li>모바일 앱, 웹, TV 앱에서 크래시, 무한 로딩, 빈 화면, 오프라인 재생 실패 확인</li><li>모바일 앱과 TV 앱처럼 사용 환경이 다른 플랫폼의 성능/접근성 리스크 검토</li><li>사용자 접근 불가 혹은 즉시 이탈로 이어지는 문제는 릴리즈 리스크로 분리하여 공유</li></ul>
+                    </div>
+                    <div>
+                        <h4>라프텔 프로필/사용자 상태</h4>
+                        <ul class="compact"><li>프로필 잠금, 프로필 삭제/수정, 콘텐츠 이용 연령 제한 관련 플로우 검증</li><li>사용자 상태에 따라 접근 가능 여부가 달라지는 기능은 정책 조건이 화면과 기능 동작에 일관되게 반영되는지 확인</li><li>사용자 상태가 변경된 후 상태에 맞는 화면이 노출되고 정의된 시나리오가 진행되는지 확인</li></ul>
+                    </div>
+                    <div>
+                        <h4>비스테이지 Brand Custom(웹 빌더)</h4>
+                        <ul class="compact"><li>고객사가 섹션과 템플릿을 조합해 브랜드 페이지를 커스텀하는 기능 검증</li><li>섹션 순서 변경 시 데이터가 섞이는 문제, 기본 언어 값 누락 시 저장되지 않는 문제 등 데이터와 정책이 결합된 이슈 발견</li><li>다국어, 옵셔널 필드, 섹션 최대 복제 수, 마이그레이션 데이터 유실 가능성을 주요 테스트 포인트로 도출</li></ul>
+                    </div>
+                    <div>
+                        <h4>비스테이지 POP(실시간 소통)</h4>
+                        <ul class="compact"><li>1:N 양방향 라이브/채팅 기능을 iOS/Android 환경에서 검증</li><li>Sendbird SDK 사용 특성상 재현 경로, 기기 상태, 로그를 함께 정리해 원인 판단에 필요한 정보를 공유</li><li>라이브 종료 후 토큰 만료, 앱 FG/BG 전환 시 카메라/오디오가 정상 동작하지 않는 이슈 확인</li><li>재현 빈도가 낮은 문제는 Datadog 로그 기반 이슈 추적</li></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3 class="box-title"><span class="symbol">🔍</span>접근</h3>
+                <table class="matrix review-table">
+                    <thead><tr><th>구분</th><th>확인 내용</th><th>주요 리스크</th></tr></thead>
+                    <tbody>
+                        <tr><td>이용 권한</td><td>멤버십/포인트 결제 후 권한 부여, 구매 제한, 권한 복원</td><td>결제 성공 후 권한 부여 실패, 이용 우회(어뷰징)</td></tr>
+                        <tr><td>콘텐츠 정책</td><td>판권 만료, 회차/시즌 이동, 콘텐츠 접근 가능 조건</td><td>정책 위반, 만료 콘텐츠 노출, 잘못된 구매 유도</td></tr>
+                        <tr><td>사용자 상태</td><td>본인 인증, 성인 여부, 연령 제한, 프로필 상태</td><td>접근 조건 불일치, 잠금/권한 상태 오류, 빈 화면</td></tr>
+                        <tr><td>플랫폼 조건</td><td>Web, Mobile App, TV App, 앱 FG/BG, 오프라인 환경</td><td>플랫폼별 접근 불가, 크래시, 재생 실패</td></tr>
+                        <tr><td>외부 의존성</td><td>외부 SDK, 라이브/채팅 상태, 로그 기반 추적</td><td>원인 판단을 위한 재현 정보와 로그 확보 필요</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="approach-group">
+                    <h4 class="approach-heading">OTT 권한/콘텐츠 정책 검증</h4>
+                    <table class="matrix review-table">
+                        <thead><tr><th>사용자/콘텐츠 상태</th><th>확인 내용</th><th>주요 리스크</th></tr></thead>
+                        <tbody>
+                            <tr><td>권한 보유/미보유</td><td>시청 가능 여부, 구매 가능 여부, 권한 복원</td><td>권한 부여 실패 또는 무권한 접근</td></tr>
+                            <tr><td>판권 유효/만료</td><td>재생 여부, 구매, 다운로드 버튼 노출 여부</td><td>정책 위반 가능성</td></tr>
+                            <tr><td>프로필 상태/연령 제한</td><td>콘텐츠 접근 및 재생, 관련 콘텐츠 이용 가능 여부</td><td>접근 조건 불일치</td></tr>
+                            <tr><td>다운로드/오프라인</td><td>다운로드, 만료 정보, 동시 재생 제한</td><td>플랫폼별 재생 실패</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="approach-group">
+                    <h4 class="approach-heading">플랫폼별 검증</h4>
+                    <table class="matrix review-table platform-table">
+                        <thead><tr><th>모바일 앱</th><th>티비 앱</th></tr></thead>
+                        <tbody>
+                            <tr><td>오프라인 재생, PIP 등 사용 환경별 재생 경험</td><td>리모컨 조작</td></tr>
+                            <tr><td>인증/권한 상태 변화</td><td>로딩 시간, 반응 속도 등 성능</td></tr>
+                            <tr><td>앱 FG/BG 전환</td><td>OS별 콘텐츠 재생 성능</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box result-box">
+                <h3 class="box-title"><span class="symbol">⛳</span>결과</h3>
+                <table class="result-table">
+                    <tbody>
+                        <tr><td>도메인 정책 검증</td><td>판권, 프로필, 멤버십, 청소년 보호 등 OTT 도메인 정책 검증</td></tr>
+                        <tr><td>권한/상태값 검증</td><td>결제 상태, 멤버십 권한, 프로필 상태, 콘텐츠 상태가 일관되게 반영되는지 확인</td></tr>
+                        <tr><td>플랫폼별 리스크 반영</td><td>Web, Mobile App, TV App, 온/오프라인 환경에서 다르게 발생할 수 있는 이슈 확인</td></tr>
+                        <tr><td>재현 정보와 로그 공유</td><td>외부 SDK가 연동된 기능에서는 이슈 현상, 재현 경로, 기기 상태, 로그를 함께 정리해 원인 파악에 필요한 정보 공유</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="project related-project" id="laftel-store">
+        <header class="section-heading">
+            <h2 class="section-title">Laftel Store</h2>
+            <p class="section-subtitle"><span class="section-badge">대표 프로젝트 #1</span>참여: QA(100%)</p>
+        </header>
+
+        <p class="lead"><strong>OTT와의 연결과 상품 진열 및 탐색, 구매, 결제, 클레임 등 금액이 오가는 플로우에서 정책 분기와 상태 조합 검증</strong></p>
+        <div class="store-description">
+            <p>정책과 상태값 조합이 중요한 커머스, 여러 상태와 설정값 변경에 따라 결과가 달라지므로 예외 상황에서의 사용자 영향도까지 함께 확인 필요</p>
+            <p>OTT와 결합된 형태로 기존 OTT 정책과 계정, 동선을 비롯한 사용자 경험과 전체적인 서비스 톤과 같은 정성적인 요소도 고려</p>
+        </div>
+        <ul class="summary-list">
+            <li>상품 탐색, 구매, 결제, 문의, 클레임으로 이어지는 유저 플로우를 기준으로 테스트 범위 정리</li>
+            <li>계정의 권한, 결제 상태, 구매 여부, 클레임 가능 조건, 운영자 설정값 등 많은 상태 조합 조건을 우선 검증 대상으로 선정</li>
+            <li>정책 누락이나 예외 조건을 요구사항 리뷰 단계에서 확인하고, 테스트 케이스와 탐색 포인트로 보완</li>
+            <li>결제와 연결된 영역인 만큼 사용자 피해 가능성이 큰 영역을 우선순위 높여 검증</li>
+        </ul>
+
+        <div class="box point-box">
+            <h3 class="box-title"><span class="symbol">🔍</span>포인트</h3>
+            <p><strong>상품 탐색부터 결제, 주문 완료, 주문 상세, 1:1 문의까지 이어지는 플로우를 기준으로 테스트 범위 구조화</strong></p>
+            <div class="purchase-flow" aria-label="구매 플로우">
+                <span class="flow-step">상품 상세</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">구매</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">로그인 여부 체크</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">계정 상태 체크</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">스토어 가입 여부 체크</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">체크아웃</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">결제</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">주문 완료</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">주문 상세</span><span class="flow-arrow" aria-hidden="true">&gt;</span>
+                <span class="flow-step">문의/주문 취소</span>
+            </div>
+            <table class="matrix matrix-3 review-table">
+                <thead><tr><th>구분</th><th>확인 내용</th><th>리스크</th></tr></thead>
+                <tbody>
+                    <tr><td>구매 상태</td><td>구매 전/후, 구매 제한, 구매 이력 조건</td><td>권한 부여 오류, 구매 상태 불일치</td></tr>
+                    <tr><td>결제 상태</td><td>결제 성공/실패/취소, 결제 완료 후 화면 및 권한 변화</td><td>금액 처리 오류, 사용자 혼란</td></tr>
+                    <tr><td>클레임 정책</td><td>취소/환불(전체/부분) 가능 조건, 기간, 상태별 제한</td><td>잘못된 클레임 허용 또는 차단</td></tr>
+                    <tr><td>운영자 설정</td><td>상품 상태, 노출 여부, 판매 조건 변경</td><td>실제 정책과 사용자 화면 불일치</td></tr>
+                </tbody>
+            </table>
+            <table class="matrix matrix-3 review-table submatrix">
+                <thead><tr><th>검증 조건</th><th>확인 항목</th><th>우선순위</th></tr></thead>
+                <tbody>
+                    <tr><td>결제 금액</td><td>상품 가격, 할인, 배송비, 최종 결제 금액 일치 여부</td><td>금전 피해 가능성 있으므로 최우선</td></tr>
+                    <tr><td>주문 상태</td><td>결제 성공/실패/취소 이후 주문 내역 접근 가능 여부</td><td>CS와 환불 처리에 직접 영향</td></tr>
+                    <tr><td>클레임 조건</td><td>취소/환불/교환/반품(전체/부분) 가능 조건</td><td>소비자 분쟁 가능성</td></tr>
+                    <tr><td>사용자 안내</td><td>배송비, 발송 예정일, 구매 제한, 결제 실패, 클레임 불가 등 안내 문구와 버튼 상태</td><td>사용자 혼란과 중복 문의 방지</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box point-box">
+            <h3 class="box-title"><span class="symbol">⛳</span>진행 결과</h3>
+            <table class="result-table">
+                <tbody>
+                    <tr><td>출시 전 크리티컬 이슈 27건 사전 발견</td><td>권한/결제/클레임 플로우에서 사용자 피해로 이어질 수 있는 주요 리스크 식별</td></tr>
+                    <tr><td>약 400개 테스트 케이스 설계(라프텔)</td><td>권한/결제/클레임 플로우의 정상/예외 조건을 약 400개 테스트 케이스로 구조화</td></tr>
+                    <tr><td>금액/권한 정합성 우선 검증</td><td>결제, 구매, 클레임 조건이 결합된 비즈니스 로직을 사용자 영향도 기준으로 검증</td></tr>
+                    <tr><td>예외 조건 보완</td><td>테스트 케이스로 커버하기 어려운 조건은 탐색 포인트로 별도 관리</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="project related-project" id="brand-custom">
+        <header class="section-heading">
+            <h2 class="section-title">Brand Custom</h2>
+            <p class="section-subtitle"><span class="section-badge">대표 프로젝트 #2</span>참여: QA(100%)</p>
+        </header>
+
+        <ul class="summary-list">
+            <li>사용자가 블록을 조립하듯 스페이스를 커스터마이징할 수 있는 기능 제공</li>
+            <li>기존 구성 요소를 섹션화하며 업그레이드된 기능 추가
+                <div class="example">e.g., 이미지 업로드만 가능하던 커버에 동영상 업로드 추가 제공</div>
+            </li>
+            <li>몇 종류의 신규 섹션과 템플릿을 불러오고 섹션을 편집할 수 있는 섹션 에디터 개발</li>
+            <li>기능의 컨셉을 이해하고, 섹션 하나하나를 살피며 데이터를 확인하는 한편 사용자의 동선 고려</li>
+        </ul>
+        <p class="links">
+            <a href="https://bemyfriends.com/article/announcements-post-101-kr/" target="_blank" rel="noopener noreferrer"><span class="link-icon" aria-hidden="true">🔗</span>비스테이지, ‘브랜드 커스텀’ 기능 업데이트∙∙∙"나만의 차별화된 플랫폼 구축 가능"</a>
+            <a href="https://bstage.in/article/announcements-post-91-kr/?hl=ko" target="_blank" rel="noopener noreferrer"><span class="link-icon" aria-hidden="true">🔗</span>비스테이지, 고객사 맞춤 브랜딩 강화…‘브랜드 커스텀’ 기능 대폭 업그레이드</a>
         </p>
-        <div class="mini-flow">
-            <span class="mini-step">상품 상세</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">로그인</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">약관 동의</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">체크아웃</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">결제</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">주문 완료</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">주문 상세</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">문의</span>
-            <span class="mini-arrow">/</span>
-            <span class="mini-step">주문 취소</span>
-        </div>
-    </div>
 
-    <div class="example-box">
-        <h4>예시 2. 금액/상태값 검증 기준표</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>검증 조건</th>
-                    <th>확인 항목</th>
-                    <th>우선순위 판단</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>결제 금액</td>
-                    <td>상품 가격, 할인, 배송비, 최종 결제 금액 일치 여부</td>
-                    <td>금전 피해 가능성 있으므로 최우선</td>
-                </tr>
-                <tr>
-                    <td>주문 상태</td>
-                    <td>결제 성공/실패/취소 이후 주문 내역 접근 가능 여부</td>
-                    <td>CS와 환불 처리에 직접 영향</td>
-                </tr>
-                <tr>
-                    <td>클레임 조건</td>
-                    <td>취소/환불/교환/반품(전체/부분) 가능 조건</td>
-                    <td>소비자 분쟁 가능성</td>
-                </tr>
-                <tr>
-                    <td>사용자 안내</td>
-                    <td>배송비, 발송 예정일, 구매 제한, 결제 실패, 클레임 불가 등 안내 문구와 버튼 상태</td>
-                    <td>사용자 혼란과 중복 문의 방지</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-
-<section class="case" id="case-2">
-    <div class="case-head">
-        <div class="case-number">Case 2</div>
-        <div class="case-title">요구사항/정책 리뷰 단계에서 품질 리스크를 먼저 발견한 경험</div>
-    </div>
-    <div class="impact">
-        <strong>핵심 성과</strong>
-        요구사항과 정책 리뷰 단계에서 누락된 조건, 예외 시나리오, 사용자 영향도를 먼저 검토해 개발 이전에 품질 리스크 식별
-    </div>
-
-    <ul class="case-summary-list">
-        <li>QA 관점에서 요구사항과 정책 검토, 누락된 조건과 예외 시나리오 정리</li>
-        <li>사용자 영향도와 리스크 수준을 기준으로 검증 우선순위 산정</li>
-        <li>릴리즈 전 제품 조직이 판단할 수 있도록 품질 리스크와 검증 결과를 정리하여 공유</li>
-        <li>반복 확인이 필요한 핵심 유저 플로우는 P0 회귀 테스트 세트로 분리해 릴리즈 검증 기준으로 활용</li>
-    </ul>
-
-    <h3>접근</h3>
-    <div class="flow">
-        <div class="flow-step">
-            <strong>요구사항 확인</strong>
-            <span>정책, 화면, 운영 조건 함께 확인</span>
-        </div>
-        <div class="flow-step">
-            <strong>리스크 도출</strong>
-            <span>누락 조건, 예외 시나리오, 사용자 영향도 검토</span>
-        </div>
-        <div class="flow-step">
-            <strong>범위 조정</strong>
-            <span>릴리즈 일정과 영향도에 따라 검증 우선순위 설정</span>
-        </div>
-        <div class="flow-step">
-            <strong>공유</strong>
-            <span>제품 조직에 릴리즈 판단에 필요한 품질 리스크 공유</span>
-        </div>
-    </div>
-
-    <h3>결과</h3>
-    <div class="result-list">
-        <div class="result">
-            <strong>리스크 발견 시점 앞당김</strong>
-            개발 완료 후가 아니라 기획/정책 리뷰 단계에서 품질 리스크를 먼저 확인
-        </div>
-        <div class="result">
-            <strong>검증 우선순위 명확화</strong>
-            사용자 영향도와 리스크 수준을 기준으로 릴리즈 전 반드시 봐야 할 영역 정리
-        </div>
-        <div class="result">
-            <strong>릴리즈 의사결정 지원</strong>
-            릴리즈 전 품질 상태와 잔여 리스크 제품 조직에 공유
-        </div>
-        <div class="result">
-            <strong>핵심 플로우 기준화</strong>
-            P0 회귀 테스트 세트를 릴리즈 검증의 기준으로 활용
-        </div>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 1. 리뷰 체크리스트</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>리뷰</th>
-                    <th>항목</th>
-                    <th>QA 관점</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>사용자 상태</td>
-                    <td>로그인 여부, 권한 유무, 권한 변경 여부 상태가 정의되어 있는가?</td>
-                    <td>접근 가능 조건 확인</td>
-                </tr>
-                <tr>
-                    <td>정책 조건</td>
-                    <td>명확한 제한 조건, 만료 조건, 예외 조건이 있는가?</td>
-                    <td>누락 정책 확인</td>
-                </tr>
-                <tr>
-                    <td>결제/금액</td>
-                    <td>결제 성공 후 권한 또는 재화가 정상 부여되는가?</td>
-                    <td>사용자 피해 방지</td>
-                </tr>
-                <tr>
-                    <td>실패 케이스</td>
-                    <td>실패/취소/중단 시 사용자가 이해할 수 있는 안내가 있는가?</td>
-                    <td>UX/CS 리스크 확인</td>
-                </tr>
-                <tr>
-                    <td>릴리즈 리스크</td>
-                    <td>이번 릴리즈에서 반드시 확인해야 할 핵심 항목은 무엇인가?</td>
-                    <td>검증 범위 조정</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="example-caption">* QA 리뷰 관점을 설명하기 위해 재구성한 예시</div>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 2. 요구사항 리뷰 → 테스트 설계 플로우</h4>
-        <div class="mini-flow">
-            <span class="mini-step">요구사항 확인</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">정책/상태값 분해</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">누락 조건 체크</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">사용자 영향도 판단</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">검증 우선순위 설정</span>
-            <span class="mini-arrow">→</span>
-            <span class="mini-step">릴리즈 리스크 확인</span>
-        </div>
-    </div>
-</section>
-
-<section class="case" id="case-3">
-    <div class="case-head">
-        <div class="case-number">Case 3</div>
-        <div class="case-title">도메인 정책과 플랫폼 조건이 복잡한 기능 검증</div>
-    </div>
-    <div class="impact">
-        <strong>핵심 성과</strong>
-        OTT 멤버십/권한, 콘텐츠 이용 정책, 프로필/청소년 보호, 다운로드/오프라인 재생, TV 앱, 설정형 Web 기능, 실시간 라이브 기능과 같이 도메인 정책과 플랫폼 조건이 복잡하게 얽힌 기능 검증
-    </div>
-
-    <div class="context-block">
-        라프텔(OTT): 사용자의 결제/멤버십 상태, 콘텐츠 판권, 프로필 상태, 연령 제한, 기기/플랫폼 조건 등<br>
-        비스테이지(SaaS): 사용자의 결제/멤버십 상태, 권한 유무 및 사용자가 직접 설정하는 다양한 설정값과 다국어<br>
-        <b>정책과 권한 검증 중요</b>
-    </div>
-
-    <ul>
-        <li>멤버십, 포인트, 구매 제한, 권한 복원처럼 결제 이후 실제 이용 권한과 연결되는 플로우 검증</li>
-        <li>판권 만료, 프로필 상태(활성화/잠금 여부), 본인 인증, 연령 제한과 같이 OTT 도메인 정책과 사용자 상태가 결합된 조건을 테스트 포인트로 정리</li>
-        <li>콘텐츠 다운로드/오프라인 재생, 동시 재생 제한, DRM, TV 앱, 모바일 앱과 같이 플랫폼별로 다르게 발생할 수 있는 리스크 검증</li>
-        <li>비마이프렌즈에서는 설정형 Web(빌더) 기능과 라이브(영상통화 및 채팅) 기능에서 데이터 조합, 외부 SDK와의 연동, 앱 상태 전환 리스크 등 검증</li>
-    </ul>
-
-    <h3>대표 사례</h3>
-    <div class="two-col">
-        <div class="card">
-            <h4>라프텔 멤버십/권한</h4>
-            <ul>
-                <li>IAP 결제, 멤버십 업/다운그레이드, 포인트 이용, 권한 복원, 구매 제한 등 비즈니스적으로 가장 중요한 영역을 우선순위 높여 검증</li>
-                <li>결제 성공 후 실제로 이용 권한이 정상 부여되는지, 권한 없는 상태에서 우회하여 이용할 수 없는지, 결제 상태와 서비스 이용 권한이 어긋나는 경우가 없는지 확인</li>
+        <div class="box point-box">
+            <h3 class="box-title"><span class="symbol">🔍</span>포인트</h3>
+            <ul class="compact">
+                <li><strong>섹션</strong><ul>
+                    <li>내용을 수정하고 순서를 바꿀 때 문제가 없을까?</li>
+                    <li>하나의 섹션을 최대 지원 개수만큼 복제한 경우는?</li>
+                    <li>모바일/웹 뷰에 동일한 타입의 섹션을 추가한 뒤 서로 다른 값으로 적용했을 때에는?</li>
+                </ul></li>
+                <li><strong>스테이지에 설정된 기본 언어와 지원 언어 개념</strong><ul>
+                    <li>따로 validation 하지 않는 섹션 에디터에서 / 입력값이 옵션화된 섹션의 모든 필드를 비워둔 경우</li>
+                    <li>기본 언어는 비워두고 지원 언어값만 채운 경우</li>
+                </ul></li>
+                <li><strong>마이그레이션</strong><ul>
+                    <li>마이그레이션 과정에서 데이터가 유실되거나 아예 누락되는 항목이 없어야 함</li>
+                </ul></li>
+                <li><strong>기능 활용 용도</strong><ul>
+                    <li>고객은 섹션 이름대로 정해진 대로만 사용할까? (리스트, 캐러셀 등)</li>
+                    <li>(브랜드 컨셉이 미니멀일 경우) 모든 섹션을 제거하고 사용하고자 하는 니즈도 있을 듯한데</li>
+                </ul></li>
             </ul>
         </div>
-        <div class="card">
-            <h4>라프텔 OTT 콘텐츠 정책</h4>
-            <ul>
-                <li>판권 만료 콘텐츠 노출, 시즌/회차 이동, 구매 버튼 노출, 콘텐츠 접근 가능 조건 검증</li>
-                <li>판권, 회차 이동, 구매 버튼 노출처럼 콘텐츠 이용 정책이 화면과 재생 플로우에 일관되게 반영되는지 확인</li>
-                <li>콘텐츠 다운로드 및 오프라인 재생, 동시 재생 제한, 재생 오류 케이스 플랫폼별 검증</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h4>라프텔 플랫폼 안정성</h4>
-            <ul>
-                <li>모바일 앱, 웹, TV 앱에서 크래시, 무한 로딩, 빈 화면, 오프라인 재생 실패 확인</li>
-                <li>모바일 앱과 TV 앱처럼 사용 환경이 다른 플랫폼의 성능/접근성 리스크 검토</li>
-                <li>사용자 접근 불가 혹은 즉시 이탈로 이어지는 문제는 릴리즈 리스크로 분리하여 공유</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h4>라프텔 프로필/사용자 상태</h4>
-            <ul>
-                <li>프로필 잠금, 프로필 삭제/수정, 콘텐츠 이용 연령 제한 관련 플로우 검증</li>
-                <li>사용자 상태에 따라 접근 가능 여부가 달라지는 기능은 정책 조건이 화면과 기능 동작에 일관되게 반영되는지 확인</li>
-                <li>사용자 상태가 변경된 후 상태에 맞는 화면이 노출되고 정의된 시나리오가 진행되는지 확인</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h4>비스테이지 Brand Custom(웹 빌더)</h4>
-            <ul>
-                <li>고객사가 섹션과 템플릿을 조합해 브랜드 페이지를 커스텀하는 기능 검증</li>
-                <li>섹션 순서 변경 시 데이터가 섞이는 문제, 기본 언어 값 누락 시 저장되지 않는 문제 등 데이터와 정책이 결합된 이슈 발견</li>
-                <li>다국어, 옵셔널 필드, 섹션 최대 복제 수, 마이그레이션 데이터 유실 가능성을 주요 테스트 포인트로 도출</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h4>비스테이지 POP(실시간 소통)</h4>
-            <ul>
-                <li>1:N 양방향 라이브/채팅 기능을 iOS/Android 환경에서 검증</li>
-                <li>Sendbird SDK 사용 특성상 재현 경로, 기기 상태, 로그를 함께 정리해 원인 판단에 필요한 정보를 공유</li>
-                <li>라이브 종료 후 토큰 만료, 앱 FG/BG 전환 시 카메라/오디오가 정상 동작하지 않는 이슈 확인</li>
-                <li>재현 빈도가 낮은 문제는 Datadog 로그 기반 이슈 추적</li>
-            </ul>
-        </div>
-    </div>
 
-    <h3>검증 관점</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>구분</th>
-                <th>확인 내용</th>
-                <th>중요 리스크</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>이용 권한</td>
-                <td>멤버십/포인트 결제 후 권한 부여, 구매 제한, 권한 복원</td>
-                <td>결제 성공 후 권한 부여 실패, 이용 우회(어뷰징)</td>
-            </tr>
-            <tr>
-                <td>콘텐츠 정책</td>
-                <td>판권 만료, 회차/시즌 이동, 콘텐츠 접근 가능 조건</td>
-                <td>정책 위반, 만료 콘텐츠 노출, 잘못된 구매 유도</td>
-            </tr>
-            <tr>
-                <td>사용자 상태</td>
-                <td>본인 인증, 성인 여부, 연령 제한, 프로필 상태</td>
-                <td>접근 조건 불일치, 잠금/권한 상태 오류, 빈 화면</td>
-            </tr>
-            <tr>
-                <td>플랫폼 조건</td>
-                <td>Web, Mobile App, TV App, 앱 FG/BG, 오프라인 환경</td>
-                <td>플랫폼별 접근 불가, 크래시, 재생 실패</td>
-            </tr>
-            <tr>
-                <td>외부 의존성</td>
-                <td>외부 SDK, 라이브/채팅 상태, 로그 기반 추적</td>
-                <td>원인 판단을 위한 재현 정보와 로그 확보 필요</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="box result-box">
+            <h3 class="box-title"><span class="symbol">⛳</span>진행 결과</h3>
+            <ul class="result-list">
+                <li>섹션간 순서 변경 시 데이터가 섞이며 오염되어 저장할 수 없는 오류 발견</li>
+                <li>기본 언어에 값이 없으면 저장할 수 없는 오류 발견</li>
+                <li>극단적으로 빈 페이지를 유지하고자 하는 니즈가 있었고, 그에 맞춰 필수 노출해야 하는 정보만 남겨두고 empty 페이지의 문구조차 보이지 않도록 개선</li>
+                <li>섹션을 최대한 다양한 형태로 사용 / 하이엔드, 디자이너 브랜드 등 여러 컨셉으로 커스텀한 테스트 산출물은 마케팅에서 레퍼런스로 활용</li>
+            </ul>
+        </div>
 
-    <h3>결과</h3>
-    <div class="result-list">
-        <div class="result">
-            <strong>도메인 정책 검증</strong>
-            판권, 프로필, 멤버십, 청소년 보호 등 OTT 도메인 정책 검증
-        </div>
-        <div class="result">
-            <strong>권한/상태값 검증</strong>
-            결제 상태, 멤버십 권한, 프로필 상태, 콘텐츠 상태가 일관되게 반영되는지 확인
-        </div>
-        <div class="result">
-            <strong>플랫폼별 리스크 반영</strong>
-            Web, Mobile App, TV App, 온/오프라인 환경에서 다르게 발생할 수 있는 이슈 확인
-        </div>
-        <div class="result">
-            <strong>재현 정보와 로그 공유</strong>
-            외부 SDK가 연동된 기능에서는 이슈 현상, 재현 경로, 기기 상태, 로그를 함께 정리해 원인 파악에 필요한 정보 공유
-        </div>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 1. OTT 권한/콘텐츠 정책 검증</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>사용자/콘텐츠 상태</th>
-                    <th>확인 조건</th>
-                    <th>주요 리스크</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>권한 보유/미보유</td>
-                    <td>시청 가능 여부, 구매 가능 여부, 권한 복원</td>
-                    <td>권한 부여 실패 또는 무권한 접근</td>
-                </tr>
-                <tr>
-                    <td>판권 유효/만료</td>
-                    <td>재생 여부, 구매, 다운로드 버튼 노출 여부</td>
-                    <td>정책 위반 가능성</td>
-                </tr>
-                <tr>
-                    <td>프로필 상태/연령 제한</td>
-                    <td>콘텐츠 접근 및 재생, 관련 콘텐츠 이용 가능 여부</td>
-                    <td>접근 조건 불일치</td>
-                </tr>
-                <tr>
-                    <td>다운로드/오프라인</td>
-                    <td>다운로드, 만료 정보, 동시 재생 제한</td>
-                    <td>플랫폼별 재생 실패</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="example-caption">* 일반적인 OTT 정책으로 든 예시</div>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 2. 플랫폼별 검증 관점</h4>
-        <div class="example-grid">
-            <div class="card">
-                <h4>Mobile App</h4>
-                <ul>
-                    <li>오프라인 재생, PIP 등 사용 환경별 재생 경험</li>
-                    <li>인증/권한 상태 변화</li>
-                    <li>앱 FG/BG 전환</li>
-                </ul>
+        <figure class="artifact">
+            <figcaption>기능&amp;마이그레이션 체크리스트 준비</figcaption>
+            <ul class="artifact-list">
+                <li>디자인을 빠르게 확인할 수 있도록 시안을 첨부할 수 있는 지면 선택, 인풋-아웃풋 확인 형태로 설계</li>
+                <li>짧은 테스트 기간동안 빠르게 요소를 확인하며 동시에 다양한 조합을 고려하고자 함
+                    <ul><li>모든 조건을 문서화할 수 없으므로 탐색 포인트로 체크하고, 실제 고객이 사용하듯 여러 컨셉을 정해 설정하는 방식도 활용</li></ul>
+                </li>
+                <li>범주별 마이그레이션 항목을 추려 준비하고 테스트 환경에서 사전 실행 후 확인</li>
+            </ul>
+            <div class="artifact-window">
+                <img src="포트폴리오 자료/stage_custom_002.jpg" alt="Brand Custom 기능 및 마이그레이션 체크리스트 예시">
             </div>
-            <div class="card">
-                <h4>TV App</h4>
-                <ul>
-                    <li>리모컨 조작</li>
-                    <li>로딩 시간, 반응 속도 등 성능</li>
-                    <li>OS별 콘텐츠 재생 성능</li>
-                </ul>
+        </figure>
+    </section>
+
+    <section class="project" id="ai-assisted-qa">
+        <header class="section-heading">
+            <h2 class="section-title">AI-assisted QA</h2>
+            <p class="section-subtitle"><span class="section-badge">Case.2</span>AI를 활용한 업무 효율화 및 자동화</p>
+        </header>
+
+        <p class="lead"><strong>요구사항 리뷰, 테스트 실행 관리, 이슈 추적, 결과 리포팅 과정에서 단순 반복을 줄이고 리스크 판단에 더 집중할 수 있도록 QA 업무 개선</strong></p>
+
+        <ul class="summary-list">
+            <li>Spec 기반 AI 리뷰 프로세스를 설계하고, 산출물을 QA 검토용 테스트 플랜 초안으로 활용</li>
+            <li>Spec 업데이트 시 QA 채널에 변경 알림과 리뷰 요청이 발송되도록 해 요구사항 변경에 대응</li>
+            <li>스프레드시트 기반 테스트 실행 결과와 Jira 이슈 정보를 연결해 이슈 리포팅과 트래킹 개선</li>
+            <li>반복 검증이 필요한 핵심 유저 플로우를 웹 E2E 테스트 자동화 대상으로 선정해 운영</li>
+        </ul>
+
+        <div class="box point-box">
+            <h3 class="box-title"><span class="symbol">🔍</span>포인트</h3>
+            <div class="process">
+                <div class="process-step"><b>Spec 작성</b><span>PM이 기능 정책 및 요구사항 작성</span></div>
+                <div class="process-step"><b>변경 알림</b><span>저장소의 스펙 업데이트 시 채널로 알림</span></div>
+                <div class="process-step"><b>AI 리뷰</b><span>테스트 조건, 핵심 정책, 예상 리스크 초안 추출</span></div>
+                <div class="process-step"><b>QA 검토</b><span>누락 조건과 우선순위 보완 & PM 확인 요청</span></div>
+            </div>
+            <table class="matrix review-table">
+                <thead>
+                    <tr><th>산출물</th><th>내용</th><th>QA 검토 포인트</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>테스트 조건 초안</td><td>요구사항에서 파생 가능한 정상·예외 조건</td><td>누락 조건, 우선순위, 사용자 영향도 보완</td></tr>
+                    <tr><td>핵심 정책 정리</td><td>기능 동작에 영향을 주는 정책 조건 요약</td><td>정책 모호성, 예외 조건 확인</td></tr>
+                    <tr><td>테스트 플랜 초안</td><td>검증 범위, 예상 리스크, 우선순위 정리</td><td>릴리즈 일정과 리스크 수준에 맞게 조정</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box result-box">
+            <h3 class="box-title"><span class="symbol">⛳</span>진행 결과</h3>
+            <ul class="result-list">
+                <li>기능별 평균 40~50개 수준의 테스트 조건 초안 확보</li>
+                <li>AI-assisted QA 도입으로 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축</li>
+                <li>확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
+                <li>스프레드시트와 Jira 정보를 연결하고 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계</li>
+                <li>정기·비정기 서버 배포 전 100개 이상의 핵심 P0/P1 자동화 테스트를 실행해 반복 회귀 검증에 활용</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="project" id="qa-process">
+        <header class="section-heading">
+            <h2 class="section-title">QA Process</h2>
+            <p class="section-subtitle"><span class="section-badge">Case.3</span>QA 프로세스 구축과 개선</p>
+        </header>
+
+        <div class="subsection">
+            <h2 class="subsection-title">QA 프로세스 구축</h2>
+            <p class="lead"><strong>1. 개발 조직의 첫 QA로 합류 후 QA 프로세스 설계 및 문서화</strong></p>
+            <div class="qa-process-gallery" aria-label="QA 프로세스 자료">
+                <figure class="gallery-hero"><figcaption>Jira 티켓을 활용해 양식 생성, 사내 전파</figcaption><img src="포트폴리오 자료/image 1.png" alt="QA 프로세스 Jira 티켓"></figure>
+                <figure><figcaption>Test Plan</figcaption><img src="포트폴리오 자료/test_plan.png" alt="Test Plan"></figure>
+                <figure><figcaption>Test Result</figcaption><img src="포트폴리오 자료/test_result.png" alt="Test Result"></figure>
+                <figure><figcaption>QA 프로세스 설계</figcaption><img src="포트폴리오 자료/qa_checklist.png" alt="QA Checklist"></figure>
+                <figure><figcaption>CS 대응 프로세스 설계</figcaption><img src="포트폴리오 자료/cs_checklist.png" alt="CS Checklist"></figure>
             </div>
         </div>
-    </div>
-</section>
 
-<section class="case" id="case-4">
-    <div class="case-head">
-        <div class="case-number">Case 4</div>
-        <div class="case-title">AI-assisted QA와 반복 업무 자동화</div>
-    </div>
-    <div class="impact">
-        <strong>핵심 성과</strong>
-        요구사항 리뷰, 테스트 실행 관리, 이슈 추적, 결과 리포팅 과정에서 단순 반복을 줄이고 리스크 판단에 더 집중할 수 있도록 개선
-    </div>
-
-    <ul>
-        <li>Spec 기반 AI 리뷰 프로세스를 설계하고, 산출물을 QA 검토용 초안으로 활용하는 방식 정리</li>
-        <li>Spec 업데이트 시 QA 채널에 변경 알림(슬랙봇)과 리뷰 요청이 발송되도록 하여 요구사항 변경에 대응할 수 있도록 개선</li>
-        <li>스프레드시트 기반 테스트 실행 결과와 Jira 이슈 정보를 연결해 이슈 리포팅과 트래킹 개선</li>
-        <li>반복 검증이 필요한 핵심 유저 플로우는 웹 E2E 테스트 자동화 대상으로 선정하여 운영</li>
-    </ul>
-
-    <h3>4-1. Spec 기반 요구사항 리뷰 자동화</h3>
-    <div class="flow flow-5">
-        <div class="flow-step">
-            <strong>Spec 작성</strong>
-            <span>PM이 기능 정책과 요구사항을 spec.md로 작성</span>
+        <div class="subsection">
+            <h2 class="subsection-title">QA 프로세스 개선</h2>
+            <p class="lead"><strong>2. 스쿼드 단위로 빠르게 배포하고 실험하는 제품 운영 방향에 맞춰 배포 프로세스 재설계</strong></p>
+            <ul class="compact process-outcome-list">
+                <li>라프텔(APP/WEB)
+                    <ul>
+                        <li>2개 이상의 스쿼드 작업을 모아 통합 빌드 준비</li>
+                        <li>통합 빌드 검증 후 배포 → 월 1회 배포 가능 수준</li>
+                        <li>비즈니스 전략이 바뀌고 빠른 실험이 필요해진 상황</li>
+                        <li>MAU 230만 이상의 서비스인 만큼 자주 빠르게 배포하면서도 일정 수준의 퀄리티는 반드시 확보되어야 함</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="process-card-grid">
+                <div class="box point-box process-card">
+                    <h3 class="box-title"><span class="symbol">🔍</span>AS-IS</h3>
+                    <ul class="compact">
+                        <li><strong>스쿼드 검증 → 통합 검증 → 배포</strong><ul>
+                            <li>여러 스쿼드의 변경 사항을 모아 통합 검증 후 배포</li>
+                            <li>통합 빌드 기준으로 QA가 전체 변경 사항을 모아 검증</li>
+                            <li>특정 스쿼드 검증 지연 시 환경 점유 문제로 전체 배포 일정이 딜레이</li>
+                            <li>스쿼드 검증 후 통합 빌드에서 다시 한 번 스쿼드 검증 진행</li>
+                            <li>통합 검증 단계에서 여러 변경 사항을 한 번에 확인하는 리스크</li>
+                            <li>QA 리드타임이 길어지고 속도가 느린 문제</li>
+                        </ul></li>
+                        <li><strong>1개 뿐인 테스트 환경</strong><ul>
+                            <li>제한된 QA 환경을 여러 스쿼드에서 함께 사용</li>
+                            <li>핫픽스, 라이브러리 업데이트, 단발성 요청 작업도 일반 배포와 섞일 수 있음</li>
+                        </ul></li>
+                        <li><strong>긴 검증 리드타임</strong><ul>
+                            <li>2인 기준 약 1주 소요</li>
+                        </ul></li>
+                        <li><strong>느린 배포 주기</strong><ul>
+                            <li>월 1회 수준 통합 배포</li>
+                        </ul></li>
+                    </ul>
+                </div>
+                <div class="box result-box process-card">
+                    <h3 class="box-title"><span class="symbol">⛳</span>TO-BE</h3>
+                    <ul class="compact">
+                        <li><strong>스쿼드 단위 검증 → P0 기본 기능 체크 → 배포</strong><ul>
+                            <li>스쿼드 단위로 빠르게 배포한 뒤 결과 확인</li>
+                            <li>각 스쿼드에서 PM/PD/QA/FE 단위로 배포 범위 완결</li>
+                            <li>스쿼드별 검증과 배포를 분리하여 병렬 진행 가능해짐</li>
+                            <li>스쿼드 검증 중복 실행 차단(리소스 절감)</li>
+                            <li>배포 슬롯제와 제출 간격 기준을 정의하여 병렬 배포 과정의 머지 충돌과 배포 리스크 관리</li>
+                        </ul></li>
+                        <li><strong>QA 환경 확장 및 스쿼드별 환경 점유 룰 정리</strong><ul>
+                            <li>feature/dev/qa/production으로 분리, 스쿼드 병렬 개발을 위해 feat/qa 5까지 확장하고 점유 환경 관리 규칙 정의</li>
+                            <li>핫픽스, 라이브러리 업데이트, 단발성 요청 작업은 일반 스쿼드 배포와 별도 분리</li>
+                        </ul></li>
+                        <li><strong>검증 리드타임 단축</strong><ul>
+                            <li>1인 기준 규모에 따라 1~3일 수준</li>
+                        </ul></li>
+                        <li><strong>빠른 배포 주기</strong><ul>
+                            <li>주 1~3회 스쿼드 단위 배포</li>
+                        </ul></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="lead process-next-case"><strong>3. 분산된 업무 방식을 Jira 중심의 운영 프로세스로 개선</strong></p>
+            <div class="process-context">
+                <ul class="compact">
+                    <li>1:1 대화형 모바일 서비스(iOS/Android)
+                        <ul>
+                            <li>코어에 집중한 기능 위주로 스펙을 최소화하여 런칭 목표로 개발 중인 상황</li>
+                            <li>애자일 프로세스(*1주 단위 스프린트 배포) 내에서 iOS, Android 빌드 각각 검증 필요</li>
+                            <li>대화 서비스이므로 대화방을 생성한 쪽과 입장한 쪽으로 나눠 검증</li>
+                            <li>테스트 기간: 1~2일</li>
+                            <li>테스트 인원: 1명</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="process-card-grid">
+                <div class="box point-box process-card">
+                    <h3 class="box-title"><span class="symbol">🔍</span>AS-IS</h3>
+                    <ul class="compact">
+                        <li><strong>스프레드 시트로 작성된 마일스톤 공유 방식으로 이루어진 개발 일감, 일정 산정</strong><ul><li>기능 개발 진척도를 한눈에 파악하기 어려움</li><li>문서 관리의 번거로움</li></ul></li>
+                        <li><strong>Slack, Notion, Jira 등 개별 채널에서 각각 배포/관리된 기획 산출물</strong><ul><li>파편화되어 추적이 어렵고 번거로워 팀 내에 공유가 제대로 이뤄지지 않았음</li><li>버그 리포트 시에도 스펙 논의 등으로 유관자들 사이 티켓이 왔다갔다하며 시간이 낭비되는 경우 빈번</li></ul></li>
+                        <li><strong>명세 기반 사전 작성한 테스트 케이스 기반 테스트 수행</strong><ul><li>아직 구현되지 않은 기능이 많아 N/T, N/A 항목 다수 존재</li><li>테스트 범위가 넓어져 테스트에 소요되는 시간이 길어짐(제한된 리소스)</li></ul></li>
+                    </ul>
+                </div>
+                <div class="box result-box process-card">
+                    <h3 class="box-title"><span class="symbol">⛳</span>TO-BE</h3>
+                    <ul class="compact">
+                        <li><strong>스크럼 도입 제안(Jira 활용)</strong><ul><li>칸반 보드 및 워크플로, 스토리 포인트 등 세팅 후 티켓으로 개발 일감 관리</li><li>완료된 일감, 지연된 일감 등 보드를 통해 개발 진척도를 한눈에 파악 가능</li><li>팀 구성원들의 일감도 함께 공유되어 각자의 작업 현황 파악 용이</li><li>일감과 관련된 이슈를 연결할 수 있어 보다 편한 관리</li><li>스프린트 시작 시 등록한 티켓(개발 일감) 확인, 테스트 범위를 좁혀 테스트 기간 단축</li></ul></li>
+                        <li><strong>기획 산출물 배포 채널 또한 Jira로 통일</strong><ul><li>하위 일감을 아우르는 티켓 내에서 업데이트된 정책과 과거 산출물 추척 가능</li></ul></li>
+                        <li><strong>테스트 케이스 대신 스프린트에 등록된 티켓(개발 일감)을 활용한 탐색적 테스트 수행</strong><ul><li>실제 구현된 기능 위주로 테스트할 수 있게 됨</li><li>이전보다 빠른 테스트 가능</li><li>TC 작성에 쓰던 시간을 API 테스트 또는 핵심 기능 검수에 활용할 수 있게 됨</li></ul></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="flow-step">
-            <strong>변경 알림</strong>
-            <span>저장소의 Spec 업데이트 시 슬랙 QA 채널로 알림</span>
+    </section>
+
+    <section class="project" id="team-leading">
+        <header class="section-heading">
+            <h2 class="section-title">Team Leading</h2>
+            <p class="section-subtitle"><span class="section-badge">Appendix</span>팀 리딩 및 매니징</p>
+        </header>
+
+        <div class="box point-box">
+            <ul class="summary-list">
+                <li>QA/CX 팀 리더로서 OKR 수립, 우선순위 조정, 리소스 배분 수행 및 구성원 성장 지원</li>
+                <li>프로덕트팀 위클리와 QA 스터디를 운영해 업무 현황, VOC 이슈, 자동화 진행 상황 공유</li>
+                <li>QA/CX 역량 모델과 레벨별 성장 기준을 정의하고, AI-native 로드맵 수립</li>
+                <li>개인별 역량 매핑과 피드백 리뷰를 통해 팀원별 성장 과제 및 레벨업 행동 구체화</li>
+                <li>주니어 QA 온보딩과 자동화 업무 위임을 통해 독립적인 스쿼드 참여 및 E2E 자동화 주도 지원</li>
+                <li>VOC가 QA 검증 기준과 제품 개선으로 이어지도록 QA-CS 품질 루프 구축 추진</li>
+            </ul>
         </div>
-        <div class="flow-step">
-            <strong>AI 리뷰</strong>
-            <span>테스트 조건, 핵심 정책, 예상 리스크 초안 추출</span>
-        </div>
-        <div class="flow-step">
-            <strong>QA 검토</strong>
-            <span>초안을 검토하고 누락 조건과 우선순위 보완</span>
-        </div>
-        <div class="flow-step">
-            <strong>PM 검토</strong>
-            <span>QA 검토 완료 후 PM 확인 요청</span>
-        </div>
-    </div>
-    <ul>
-        <li>기능별 평균 40~50개 수준의 테스트 조건 초안 확보</li>
-        <li>AI-assisted QA 도입으로 약 1일 소요되던 테스트 조건 초안 작성을 1시간 수준으로 단축</li>
-        <li>확보한 시간을 고위험 정책과 예외 조건 검토에 재투입</li>
-        <li>AI 결과는 그대로 사용하지 않고 QA 검토용 초안으로 활용</li>
-    </ul>
-
-    <h3>4-2. 테스트 실행 관리 및 리포트 자동화</h3>
-    <div class="flow">
-        <div class="flow-step">
-            <strong>테스트 실행</strong>
-            <span>스프레드시트에 테스트 케이스와 실행 결과 관리</span>
-        </div>
-        <div class="flow-step">
-            <strong>Jira 연결</strong>
-            <span>테스트 케이스 ID와 Jira 이슈 정보 연동</span>
-        </div>
-        <div class="flow-step">
-            <strong>결과 취합</strong>
-            <span>테스트 결과가 기입된 스프레드시트 데이터 확인</span>
-        </div>
-        <div class="flow-step">
-            <strong>리포트 생성</strong>
-            <span>대시보드 형태의 테스트 리포트 생성</span>
-        </div>
-    </div>
-    <ul>
-        <li>테스트 케이스 관리 툴 변경 후 스프레드시트를 기반으로 테스트 케이스 및 실행 결과 관리</li>
-        <li>Jira 이슈와 테스트 케이스 정보를 연결해 이슈 리포팅과 트래킹 플로우 개선</li>
-        <li>테스트 결과가 기입된 스프레드시트 링크를 입력하면 대시보드 형태의 테스트 리포트를 생성하는 내부 도구 설계 및 활용</li>
-    </ul>
-
-    <h3>4-3. 필요 범위 한정 웹 E2E 자동화 도입</h3>
-    <ul>
-        <li>비교적 간편하게 구축할 수 있는 웹부터 E2E 테스트 자동화를 구축하고, P0/P1 핵심 유저 플로우를 대상으로 선정</li>
-        <li>정기/비정기 서버 배포 전 100개 이상의 핵심 P0/P1 자동화 테스트를 실행해 반복 회귀 검증에 활용</li>
-    </ul>
-
-    <div class="example-box">
-        <h4>예시 1. AI-assisted QA 리뷰 산출물 구조</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>산출물</th>
-                    <th>내용</th>
-                    <th>QA 검토 포인트</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>테스트 조건 초안</td>
-                    <td>요구사항에서 파생 가능한 정상/예외 조건</td>
-                    <td>누락 조건, 우선순위, 사용자 영향도 보완</td>
-                </tr>
-                <tr>
-                    <td>핵심 정책 정리</td>
-                    <td>기능 동작에 영향을 주는 정책 조건 요약</td>
-                    <td>정책 모호성, 예외 조건 확인</td>
-                </tr>
-                <tr>
-                    <td>리스크 포함 테스트 플랜 초안</td>
-                    <td>검증 범위, 예상 리스크, 우선순위 초안</td>
-                    <td>릴리즈 일정과 리스크 수준에 맞게 조정</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 2. QA 업무 프로세스 개선</h4>
-        <div class="qa-process-chart" aria-label="QA 업무 프로세스 개선 플로우차트">
-            <svg viewBox="0 0 1000 330" role="img" aria-label="킥오프부터 리포트 생성까지 이어지는 QA 업무 프로세스">
-                <defs>
-                    <marker id="qa-arrow" markerWidth="7" markerHeight="9" refX="6.5" refY="3.5" orient="auto" markerUnits="strokeWidth">
-                        <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"></path>
-                    </marker>
-                </defs>
-
-                <!-- Top row -->
-                <rect class="qa-box" x="10" y="28" width="110" height="48"></rect>
-                <text class="qa-text" x="65" y="52">킥오프</text>
-
-                <rect class="qa-box" x="155" y="28" width="120" height="48"></rect>
-                <text class="qa-text" x="215" y="52">스펙 공유</text>
-
-                <rect class="qa-ai" x="315" y="28" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="375" y="52">AI 리뷰 실행</text>
-
-                <rect class="qa-pill" x="475" y="28" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="535" y="52">QA 검토</text>
-
-                <rect class="qa-box" x="635" y="28" width="130" height="48"></rect>
-                <text class="qa-text" x="700" y="52">스토리보드 공유</text>
-
-                <rect class="qa-ai" x="805" y="28" width="125" height="48" rx="24"></rect>
-                <text class="qa-text" x="867.5" y="52">AI TC 생성</text>
-
-                <!-- Middle row -->
-                <rect class="qa-pill" x="155" y="116" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="215" y="140">스펙 변경</text>
-
-                <rect class="qa-pill" x="315" y="116" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="375" y="140">스펙 변경 알림</text>
-
-                <rect class="qa-ai" x="475" y="116" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="535" y="140">AI 리뷰 재실행</text>
-
-                <rect class="qa-pill" x="805" y="116" width="125" height="48" rx="24"></rect>
-                <text class="qa-text" x="867.5" y="140">QA 검토</text>
-
-                <!-- Bottom row -->
-                <rect class="qa-pill" x="315" y="204" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="375" y="228">리포트 생성</text>
-
-                <rect class="qa-pill" x="475" y="204" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="535" y="228">TC-Jira 연결</text>
-
-                <rect class="qa-pill" x="635" y="204" width="120" height="48" rx="24"></rect>
-                <text class="qa-text" x="695" y="228">테스트 실행</text>
-
-                <rect class="qa-box" x="805" y="204" width="125" height="48"></rect>
-                <text class="qa-text" x="867.5" y="228">개발 완료</text>
-
-                <!-- Arrows top -->
-                <path class="qa-line" d="M120 52 H155"></path>
-                <path class="qa-line" d="M275 52 H315"></path>
-                <path class="qa-line" d="M435 52 H475"></path>
-                <path class="qa-line" d="M595 52 H635"></path>
-                <path class="qa-line" d="M765 52 H805"></path>
-
-                <!-- Spec update branch -->
-                <path class="qa-line" d="M215 76 V116"></path>
-                <path class="qa-line" d="M275 140 H315"></path>
-                <path class="qa-line" d="M435 140 H475"></path>
-                <path class="qa-line" d="M535 116 V76"></path>
-
-                <!-- AI test case to QA review to dev done -->
-                <path class="qa-line" d="M867.5 76 V116"></path>
-                <path class="qa-line" d="M867.5 164 V204"></path>
-
-                <!-- Bottom row direction: dev done -> test -> test case-Jira -> report -->
-                <path class="qa-line" d="M805 228 H755"></path>
-                <path class="qa-line" d="M635 228 H595"></path>
-                <path class="qa-line" d="M475 228 H435"></path>
-            </svg>
-        </div>
-    </div>
-</section>
-
-<section class="case" id="case-5">
-    <div class="case-head">
-        <div class="case-number">Case 5</div>
-        <div class="case-title">QA 운영 프로세스 구축과 배포 체계 개선</div>
-    </div>
-    <div class="impact">
-        <strong>핵심 성과</strong>
-        통합 검증 중심의 배포 병목을 줄이고, 스쿼드 단위로 빠르게 검증/배포할 수 있는 운영 체계 구축
-    </div>
-
-    <ul>
-        <li>조직과 서비스 변화에 맞춰 QA 프로세스, 배포 전 검증 플로우, 결과 공유 방식을 정리</li>
-        <li>최신 정책과 기능 기준으로 기존 테스트 케이스를 재정비하고, 우선순위/중요도 기준 문서화</li>
-    </ul>
-
-    <h3>5-1. QA 프로세스 구축/개선</h3>
-    <div class="card">
-        <ul>
-            <li>테스트 플랜, 테스트 결과 등 QA 산출물 양식 정리</li>
-            <li>검증 프로세스 및 CS 대응 프로세스 구축</li>
-            <li>Jira 기반 일정 관리와 개발 진행 현황 시각화</li>
-            <li>1주 단위 스프린트 환경에서 실제 구현 범위 중심으로 테스트 범위 조정</li>
-        </ul>
-    </div>
-    <h3>5-2. 배포 프로세스 재설계와 QA 환경 정비</h3>
-    <div class="card">
-        <ul>
-            <li>스쿼드 단위로 빠르게 실험하고 배포하는 제품 운영 방향에 맞춰 기존 통합 검증 중심의 배포 프로세스 재설계</li>
-            <li><code>스쿼드 검증 → 통합 검증 → 배포</code>에서 <code>스쿼드 단위 검증 → P0 기본 기능 체크 → 배포</code> 구조로 전환</li>
-            <li>배포 슬롯제와 제출 간격 기준을 도입해 병렬 배포 과정의 머지 충돌과 배포 리스크 관리</li>
-            <li>핫픽스, 라이브러리 업데이트, 단발성 요청 작업은 일반 스쿼드 배포와 분리해 예외 검증 경로로 운영</li>
-            <li>스쿼드 단위 병렬 검증을 위해 QA 서버 확장, 환경 점유 기준, 테스트 계정 및 결제 테스트 기준 정리</li>
-            <li>QA 관점에서 feature/QA/release/production 환경과 브랜치 모델, 배포 유형별 검증 시나리오 정의</li>
-            <li>기존 약 1주 소요되던 통합 검증을 규모에 따라 1~3일 수준으로 단축</li>
-            <li>월 2회 수준의 통합 배포에서 주 1~3회 스쿼드 단위 배포가 가능한 구조로 전환</li>
-            <li>QA 환경 점유 기준을 정리해 스쿼드 간 QA 환경 충돌이 발생하지 않도록 개선</li>
-        </ul>
-    </div>
-
-    <h3>결과</h3>
-    <div class="result-list">
-        <div class="result">
-            <strong>검증 리드타임 약 1주 → 1~3일</strong>
-            통합 검증 중심의 병목을 줄이고 배포 규모에 따라 검증 범위를 조정
-        </div>
-        <div class="result">
-            <strong>앱 배포 빈도 월 2회 → 주 1~3회</strong>
-            스쿼드 단위 검증과 P0 기본 기능 체크 중심으로 빠른 배포 운영 지원
-        </div>
-        <div class="result">
-            <strong>QA 환경 점유 충돌 제거</strong>
-            QA 서버 확장, 환경 점유 기준, 테스트 계정 및 결제 테스트 기준을 정리
-        </div>
-        <div class="result">
-            <strong>예외 검증 경로 분리</strong>
-            핫픽스, 라이브러리 업데이트, 단발성 요청 작업을 일반 배포와 분리해 리스크 관리
-        </div>
-    </div>
-
-    <div class="example-box">
-        <h4>예시 1. QA 프로세스 개선 AS-IS / TO-BE</h4>
-        <div class="example-caption">- 1:1 대화형 모바일 서비스, 애자일 프로세스 내 MVP 개발</div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>구분</th>
-                    <th>AS-IS</th>
-                    <th>TO-BE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>일정 관리</td>
-                    <td>Slack, Notion, Jira 등 여러 채널에 정보 분산</td>
-                    <td>Jira 작업 티켓 기준으로 일정, 작업, 품질 이슈 추적</td>
-                </tr>
-                <tr>
-                    <td>테스트 범위</td>
-                    <td>기능 전체를 넓게 확인하여 검증 시간 증가</td>
-                    <td>스프린트 구현 범위와 리스크 기준으로 검증 범위 조정</td>
-                </tr>
-                <tr>
-                    <td>결과 공유</td>
-                    <td>테스트 결과와 이슈 맥락을 별도로 설명해야 함</td>
-                    <td>테스트 결과, 이슈, 릴리즈 리스크 함께 공유</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="example-box">
-        <h4>예시 2. 배포 프로세스 개선 AS-IS / TO-BE</h4>
-        <div class="example-caption">- 라프텔(OTT+스토어)</div>
-        <table class="table deployment-table">
-            <thead>
-                <tr>
-                    <th>구분</th>
-                    <th>AS-IS</th>
-                    <th>TO-BE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>제품 운영 방향</td>
-                    <td>여러 스쿼드의 변경 사항을 모아 통합 검증 후 배포</td>
-                    <td>스쿼드 단위로 빠르게 배포한 뒤 결과 확인</td>
-                </tr>
-                <tr>
-                    <td>배포 주체</td>
-                    <td>통합 빌드 기준으로 QA가 전체 변경 사항을 모아 검증</td>
-                    <td>각 스쿼드가 PM/PD/QA/FE 단위로 배포 범위 완결</td>
-                </tr>
-                <tr>
-                    <td>검증 프로세스</td>
-                    <td>스쿼드 검증 → 통합 검증 → 배포</td>
-                    <td>스쿼드 단위 검증 → P0 기본 기능 체크 → 배포</td>
-                </tr>
-                <tr>
-                    <td>주요 병목</td>
-                    <td>특정 스쿼드 검증 지연, 환경 점유가 전체 배포 일정에 영향</td>
-                    <td>스쿼드별 검증과 배포를 분리해 병렬 진행 가능</td>
-                </tr>
-                <tr>
-                    <td>배포 리스크 관리</td>
-                    <td>통합 검증 단계에서 여러 변경 사항을 한 번에 확인</td>
-                    <td>배포 슬롯제, 앱 제출 간격 조정, 예외 검증 경로로 리스크 분산</td>
-                </tr>
-                <tr>
-                    <td>QA 환경</td>
-                    <td>제한된 QA 환경을 여러 스쿼드에서 함께 사용</td>
-                    <td>QA 서버 확장 및 스쿼드별 환경 점유 기준 정리</td>
-                </tr>
-                <tr>
-                    <td>예외 케이스</td>
-                    <td>핫픽스, 라이브러리 업데이트, 단발성 요청 작업도 일반 배포와 섞일 수 있음</td>
-                    <td>핫픽스, 라이브러리 업데이트, 단발성 요청 작업 별도 분리</td>
-                </tr>
-                <tr>
-                    <td>문서화</td>
-                    <td>배포 환경과 검증 기준이 상황별로 분산</td>
-                    <td>QA 관점에서 환경, 브랜치 모델, 배포 유형별 검증 시나리오 문서화</td>
-                </tr>
-                <tr>
-                    <td>기대 효과</td>
-                    <td>안정성은 확보하지만 리드타임이 길어지고 속도가 느려질 수 있음</td>
-                    <td>스쿼드 단위 배포 속도를 높이면서 기본 품질 리스크는 관리</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="case" id="appendix">
-    <div class="case-head">
-        <div class="case-number">Appendix</div>
-        <div class="case-title">QA/CX 팀 운영과 성장 지원</div>
-    </div>
-    <div class="impact">
-        <ul>
-            <li>QA/CX 팀 리더로서 OKR 수립, 우선순위 조정, 리소스 배분 수행 및 구성원 성장 지원</li>
-            <li>프로덕트팀 위클리와 QA 스터디를 운영해 업무 현황, VOC 이슈, 자동화 진행 상황 공유</li>
-            <li>QA/CX 역량 모델과 레벨별 성장 기준을 정의하고, AI-native 로드맵 수립</li>
-            <li>개인별 역량 매핑과 피드백 리뷰를 통해 팀원별 성장 과제 및 레벨업 행동 구체화</li>
-            <li>주니어 QA 온보딩과 자동화 업무 위임을 통해 독립적인 스쿼드 참여 및 E2E 자동화 주도 지원</li>
-            <li>VOC가 QA 검증 기준과 제품 개선으로 이어지도록 QA-CS 품질 루프 구축 추진</li>
-        </ul>
-    </div>
-
-</section>
-
+    </section>
+</main>
 </body>
 </html>
