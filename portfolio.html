@@ -576,6 +576,15 @@
             .project + .project::before{margin-top:-52px;margin-bottom:50px;}
             .section-heading{margin-bottom:38px;padding-left:17px;}
             .section-title{font-size:34px;}
+            .section-badge{
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                min-height:22px;
+                padding:2px 7px;
+                line-height:1;
+                vertical-align:middle;
+            }
             .lead{font-size:15px;}
             .box{
                 width:100%;
@@ -586,6 +595,22 @@
                 padding:24px 20px;
             }
             .result-table td:first-child{padding-right:16px;white-space:normal;}
+            .result-table,
+            .result-table tbody,
+            .result-table tr,
+            .result-table td{display:block;width:100%;}
+            .result-table tr{margin:0 0 12px;}
+            .result-table tr:last-child{margin-bottom:0;}
+            .result-table td{padding:0;}
+            .result-table td:first-child{
+                padding:0;
+                font-weight:500;
+            }
+            .result-table td:last-child{
+                padding:3px 0 0 17px;
+                color:#666;
+                font-size:.92em;
+            }
             .process,.split,.metric-grid,.lead-grid,.process-card-grid{grid-template-columns:1fr;}
             .process > *,
             .split > *,
@@ -886,7 +911,7 @@
                 <div class="approach-group">
                     <h4 class="approach-heading">OTT 권한/콘텐츠 정책 검증</h4>
                     <table class="matrix review-table">
-                        <thead><tr><th>사용자/콘텐츠 상태</th><th>확인 내용</th><th>주요 리스크</th></tr></thead>
+                        <thead><tr><th>구분</th><th>확인 내용</th><th>주요 리스크</th></tr></thead>
                         <tbody>
                             <tr><td>권한 보유/미보유</td><td>시청 가능 여부, 구매 가능 여부, 권한 복원</td><td>권한 부여 실패 또는 무권한 접근</td></tr>
                             <tr><td>판권 유효/만료</td><td>재생 여부, 구매, 다운로드 버튼 노출 여부</td><td>정책 위반 가능성</td></tr>
@@ -1050,7 +1075,7 @@
                 <li>범주별 마이그레이션 항목을 추려 준비하고 테스트 환경에서 사전 실행 후 확인</li>
             </ul>
             <div class="artifact-window">
-                <img src="포트폴리오 자료/stage_custom_002.jpg" alt="Brand Custom 기능 및 마이그레이션 체크리스트 예시">
+                <img src="assets/portfolio/stage_custom_002.jpg" alt="Brand Custom 기능 및 마이그레이션 체크리스트 예시">
             </div>
         </figure>
     </section>
@@ -1112,11 +1137,11 @@
             <h2 class="subsection-title">QA 프로세스 구축</h2>
             <p class="lead"><strong>1. 개발 조직의 첫 QA로 합류 후 QA 프로세스 설계 및 문서화</strong></p>
             <div class="qa-process-gallery" aria-label="QA 프로세스 자료">
-                <figure class="gallery-hero"><figcaption>Jira 티켓을 활용해 양식 생성, 사내 전파</figcaption><img src="포트폴리오 자료/image 1.png" alt="QA 프로세스 Jira 티켓"></figure>
-                <figure><figcaption>Test Plan</figcaption><img src="포트폴리오 자료/test_plan.png" alt="Test Plan"></figure>
-                <figure><figcaption>Test Result</figcaption><img src="포트폴리오 자료/test_result.png" alt="Test Result"></figure>
-                <figure><figcaption>QA 프로세스 설계</figcaption><img src="포트폴리오 자료/qa_checklist.png" alt="QA Checklist"></figure>
-                <figure><figcaption>CS 대응 프로세스 설계</figcaption><img src="포트폴리오 자료/cs_checklist.png" alt="CS Checklist"></figure>
+                <figure class="gallery-hero"><figcaption>Jira 티켓을 활용해 양식 생성, 사내 전파</figcaption><img src="assets/portfolio/image-1.png" alt="QA 프로세스 Jira 티켓"></figure>
+                <figure><figcaption>Test Plan</figcaption><img src="assets/portfolio/test-plan.png" alt="Test Plan"></figure>
+                <figure><figcaption>Test Result</figcaption><img src="assets/portfolio/test-result.png" alt="Test Result"></figure>
+                <figure><figcaption>QA 프로세스 설계</figcaption><img src="assets/portfolio/qa-checklist.png" alt="QA Checklist"></figure>
+                <figure><figcaption>CS 대응 프로세스 설계</figcaption><img src="assets/portfolio/cs-checklist.png" alt="CS Checklist"></figure>
             </div>
         </div>
 
