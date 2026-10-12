@@ -36,6 +36,29 @@
             word-break:keep-all;
         }
         main{overflow:hidden;}
+        .page-toc{
+            position:fixed;
+            top:50%;
+            right:24px;
+            z-index:20;
+            width:168px;
+            padding:4px 0 4px 15px;
+            border-left:1px solid #dedede;
+            transform:translateY(-50%);
+        }
+        .page-toc a{
+            display:block;
+            padding:5px 0;
+            color:#aaa;
+            font-size:12px;
+            line-height:1.35;
+            text-decoration:none;
+            transition:color .18s ease;
+        }
+        .page-toc a:hover{color:#555;}
+        .page-toc a.is-active{color:#2a2a2a;font-weight:500;}
+        .page-toc a.toc-child{padding-left:13px;}
+        .project{scroll-margin-top:24px;}
         a{color:inherit;}
         p{margin:0 0 14px;}
         ul{margin:10px 0 0;padding-left:20px;}
@@ -554,6 +577,9 @@
         #team-leading{padding-bottom:140px;}
         #team-leading .point-box{background:transparent;}
         #team-leading .point-box .summary-list{margin-top:0;}
+        @media (max-width:1399px){
+            .page-toc{display:none;}
+        }
         @media (max-width:760px){
             html,
             body{
@@ -664,6 +690,7 @@
             }
             body{font-size:10px;line-height:1.4;}
             main{overflow:visible;}
+            .page-toc{display:none !important;}
             .project{
                 padding:24px 28px 36px;
                 break-before:page;
@@ -801,6 +828,14 @@
     </style>
 </head>
 <body>
+<nav class="page-toc" aria-label="포트폴리오 목차">
+    <a href="#product-quality" data-section="product-quality">Product Quality</a>
+    <a class="toc-child" href="#laftel-store" data-section="laftel-store">Laftel Store</a>
+    <a class="toc-child" href="#brand-custom" data-section="brand-custom">Brand Custom</a>
+    <a href="#ai-assisted-qa" data-section="ai-assisted-qa">AI-assisted QA</a>
+    <a href="#qa-process" data-section="qa-process">QA Process</a>
+    <a href="#team-leading" data-section="team-leading">Team Leading</a>
+</nav>
 <main>
     <section class="project" id="product-quality">
         <header class="section-heading">
@@ -1258,5 +1293,41 @@
         </div>
     </section>
 </main>
+<script>
+(() => {
+    const links = [...document.querySelectorAll('.page-toc a[data-section]')];
+    const sections = links
+        .map(link => document.getElementById(link.dataset.section))
+        .filter(Boolean);
+
+    const updateToc = () => {
+        let current = sections[0];
+        const marker = window.innerHeight * 0.35;
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top <= marker) current = section;
+        });
+        links.forEach(link => {
+            const active = link.dataset.section === current?.id;
+            link.classList.toggle('is-active', active);
+            if (active) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        });
+    };
+
+    let ticking = false;
+    const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            updateToc();
+            ticking = false;
+        });
+    };
+
+    updateToc();
+    addEventListener('scroll', requestUpdate, {passive:true});
+    addEventListener('resize', requestUpdate);
+})();
+</script>
 </body>
 </html>
