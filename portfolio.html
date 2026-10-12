@@ -1311,19 +1311,29 @@
     const sections = links
         .map(link => document.getElementById(link.dataset.section))
         .filter(Boolean);
+    let navigationTarget = null;
+    let navigationTimer = null;
+
+    const setActive = section => {
+        links.forEach(link => {
+            const active = link.dataset.section === section?.id;
+            link.classList.toggle('is-active', active);
+            if (active) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        });
+    };
 
     const updateToc = () => {
+        if (navigationTarget) {
+            setActive(navigationTarget);
+            return;
+        }
         let current = sections[0];
         const marker = window.innerHeight * 0.35;
         sections.forEach(section => {
             if (section.getBoundingClientRect().top <= marker) current = section;
         });
-        links.forEach(link => {
-            const active = link.dataset.section === current?.id;
-            link.classList.toggle('is-active', active);
-            if (active) link.setAttribute('aria-current', 'true');
-            else link.removeAttribute('aria-current');
-        });
+        setActive(current);
     };
 
     let ticking = false;
@@ -1335,6 +1345,18 @@
             ticking = false;
         });
     };
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navigationTarget = document.getElementById(link.dataset.section);
+            setActive(navigationTarget);
+            clearTimeout(navigationTimer);
+            navigationTimer = setTimeout(() => {
+                navigationTarget = null;
+                updateToc();
+            }, 1200);
+        });
+    });
 
     updateToc();
     addEventListener('scroll', requestUpdate, {passive:true});
