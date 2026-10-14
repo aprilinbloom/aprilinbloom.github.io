@@ -224,7 +224,7 @@
             letter-spacing:-.002em;
         }
         .matrix th,.matrix td{
-            padding:10px 12px;
+            padding:9px 12px;
             border-bottom:1px solid #e4e4e4;
             text-align:left;
             vertical-align:top;
@@ -236,7 +236,7 @@
         .matrix tr:last-child td{border-bottom:0;}
         .submatrix{margin-top:28px;}
         .review-table th,.review-table td{
-            padding:6px 18px;
+            padding:5px 18px;
         }
         .review-table{
             width:auto;
@@ -1036,7 +1036,7 @@
                 </tbody>
             </table>
             <table class="matrix matrix-3 review-table submatrix">
-                <thead><tr><th>검증 조건</th><th>확인 항목</th><th>우선순위</th></tr></thead>
+                <thead><tr><th>구분</th><th>확인 내용</th><th>우선순위</th></tr></thead>
                 <tbody>
                     <tr><td>결제 금액</td><td>상품 가격, 할인, 배송비, 최종 결제 금액 일치 여부</td><td>금전 피해 가능성 있으므로 최우선</td></tr>
                     <tr><td>주문 상태</td><td>결제 성공/실패/취소 이후 주문 내역 접근 가능 여부</td><td>CS와 환불 처리에 직접 영향</td></tr>
@@ -1075,7 +1075,7 @@
         <div class="box point-box">
             <h3 class="box-title"><span class="symbol">🔍</span>포인트</h3>
             <table class="matrix matrix-3 review-table">
-                <thead><tr><th>기준</th><th>테스트 설계 내용</th><th>주요 확인 사항</th></tr></thead>
+                <thead><tr><th>기준</th><th>테스트 설계</th><th>주요 확인 사항</th></tr></thead>
                 <tbody>
                     <tr><td>발급 방식</td><td>다운로드, 핀코드, 키워드 리딤 유형별 정상·실패 조건 구성</td><td>중복 발급, 수량 소진, 잘못된 코드, 동시 요청</td></tr>
                     <tr><td>할인 계산</td><td>정액·정률·무료배송과 주문 금액 조합</td><td>최대 할인 상한, 소수점 절사, 상품 금액 초과 할인</td></tr>
